@@ -4755,6 +4755,20 @@ a img {
     padding-bottom: 35px;
 }
 
+.tech-container span{
+    width: 100px;
+}
+
+@media only screen and (max-width: 800px) {
+    .tech-container {
+        flex-wrap: wrap;
+    }  
+
+    .tech-container span{
+        width: 0px;
+    }
+}
+
 .tech-container img{
     padding: 10px;
     width: 80px;
