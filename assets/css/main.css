@@ -4779,9 +4779,10 @@ a img {
     display: flex;
     flex-wrap: wrap; 
     gap: 20px;
-    justify-content: center;
+    justify-content: start;
     flex-direction: row;
-    width: 95%;
+    width: 80%;
+    margin: auto;
   }
 
  .gallary .gallary-item{
