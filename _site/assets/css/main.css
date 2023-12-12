@@ -4454,9 +4454,9 @@ a img {
 #particles-js {
     background: #1488CC;
     /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #2bb247, #60aa2d);
+    background: -webkit-linear-gradient(to right, #000000, #1d1d1d);
     /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #2bb247, #60aa2d);
+    background: linear-gradient(to right, #000000, #1d1d1d);
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     display: flex;
     vertical-align: bottom;
@@ -4555,7 +4555,7 @@ a img {
 }
 
 .header-icons .icon:active, .header-icons .icon:hover {
-    color: #2bb247;
+    color: #000000;
     background: #fff
 }
 
@@ -4642,7 +4642,8 @@ a img {
     flex-direction: column;
     justify-content: space-between;
     width: 95%;
-    margin: 0 auto
+    margin: 0 auto;
+    overflow-x: scroll;
 }
 
 @media only screen and (min-width:550px) {
@@ -4691,9 +4692,9 @@ a img {
     display: inline-block;
     margin: 10px 0;
     padding: 5px;
-    color: #2bb247;
+    color: #000000;
     background-color: transparent;
-    border: 1px solid #2bb247;
+    border: 1px solid #000000;
     border-radius: 10px;
     text-align: center;
     outline: 0;
@@ -4703,18 +4704,18 @@ a img {
 }
 
 .project-link:active, .project-link:hover {
-    background-color: #1c9130;
-    border-color: #1c9130;
+    background-color: #000000;
+    border-color: #000000;
     color: #fff;
     transition: color .3s ease-in, background-color .3s ease-in, border-color .3s ease-in
 }
 
 .footer {
-    background: #2bb247;
+    background: #000000;
     /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #2bb247, #60aa2d);
+    background: -webkit-linear-gradient(to right, #000000, #1d1d1d);
     /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #2bb247, #60aa2d);;
+    background: linear-gradient(to right, #000000, #1d1d1d);;
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     padding: 10px 0;
     margin-top: 100px;
@@ -4777,11 +4778,14 @@ a img {
 
 .gallary {
     display: flex;
-    flex-wrap: wrap; 
     gap: 20px;
-    justify-content: center;
+    justify-content: start;
     flex-direction: row;
-    width: 95%;
+    width: 80%;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 20px;
+    margin-left: 20px;
   }
 
  .gallary .gallary-item{
@@ -4796,12 +4800,14 @@ a img {
     flex-direction: column;
  }
 
- .gallary .cropped-container {
-    overflow: hidden;
- }
 
  .gallary-item p {
     text-align: justify;
+ }
+
+ .gallary-item h3 {
+    margin-top: 12px;
+    margin-bottom: 12px;
  }
 
   #about .user-details p{
@@ -4836,7 +4842,7 @@ a img {
 }
 .header-links .btn:hover {
 	background-color:#fff;
-    color:#2bb247;
+    color:#000000;
 }
 .header-links .btn:active {
 	position:relative;
