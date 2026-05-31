@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AIxMED Summer Saturdays – AI in Medical Imaging</title>
+    <meta name="description" content="A weekly online series on AI in Medical Imaging. Starting June 13, 2026. Taught by Ahmad Mustapha, doctoral researcher at AUB.">
+    <meta name="author" content="Ahmad Mustapha">
+    <link rel="canonical" href="https://mustaphaxai.com/aixmedcourse">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mustaphaxai.com/aixmedcourse">
+    <meta property="og:title" content="AIxMED Summer Saturdays – AI in Medical Imaging">
+    <meta property="og:description" content="Weekly online sessions on AI for medical imaging , from ML fundamentals to UNet, HRNet, transformers, and major medical AI models. Starting June 13, 2026.">
+    <meta property="og:image" content="https://mustaphaxai.com/resources/open-graph.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        :root {
+            --teal:        #0d9488;
+            --teal-dark:   #0f766e;
+            --teal-light:  #ccfbf1;
+            --navy:        #0f172a;
+            --navy-mid:    #1e293b;
+            --slate:       #475569;
+            --slate-light: #94a3b8;
+            --surface:     #f8fafc;
+            --border:      #e2e8f0;
+            --white:       #ffffff;
+            --gradient:    linear-gradient(135deg, #0d9488 0%, #0ea5e9 100%);
+            --shadow-sm:   0 1px 3px rgb(0 0 0 / 0.08);
+            --shadow-md:   0 4px 12px rgb(0 0 0 / 0.10);
+            --shadow-lg:   0 10px 24px rgb(0 0 0 / 0.12);
+            --radius:      0.75rem;
+            --transition:  all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--navy);
+            background: var(--white);
+            line-height: 1.65;
+            overflow-x: hidden;
+        }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+        @media (max-width: 768px) { .container { padding: 0 1rem; } }
+
+        /* ── Nav ── */
+        nav {
+            position: fixed; top: 0; left: 0; right: 0;
+            background: rgba(255,255,255,0.96);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            z-index: 100;
+            height: 3.75rem;
+            display: flex; align-items: center;
+        }
+        .nav-inner {
+            max-width: 1100px; margin: 0 auto; padding: 0 1.5rem;
+            width: 100%; display: flex; align-items: center; justify-content: space-between;
+        }
+        .nav-brand {
+            font-weight: 700; font-size: 1.1rem; color: var(--teal);
+            text-decoration: none; letter-spacing: -0.02em;
+        }
+        .nav-brand span { color: var(--navy); }
+        .nav-back {
+            font-size: 0.875rem; color: var(--slate); text-decoration: none;
+            display: flex; align-items: center; gap: 0.4rem; transition: var(--transition);
+        }
+        .nav-back:hover { color: var(--teal); }
+
+        /* ── Reveal animation ── */
+        .reveal { opacity: 0; transform: translateY(1.5rem); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .reveal.show { opacity: 1; transform: translateY(0); }
+
+        /* ── Hero ── */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(160deg, #f0fdfa 0%, #e0f2fe 60%, #f8fafc 100%);
+            display: flex; align-items: center;
+            padding-top: 3.75rem;
+        }
+        .hero-inner {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 4rem; align-items: center;
+            padding: 5rem 0;
+        }
+        @media (max-width: 768px) {
+            .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; padding: 3rem 0; text-align: center; }
+        }
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            background: var(--teal-light); color: var(--teal-dark);
+            padding: 0.35rem 1rem; border-radius: 2rem;
+            font-size: 0.8rem; font-weight: 600; letter-spacing: 0.04em;
+            text-transform: uppercase; margin-bottom: 1.25rem;
+        }
+        .hero-badge .dot {
+            width: 0.45rem; height: 0.45rem; border-radius: 50%;
+            background: var(--teal); animation: pulse-dot 1.8s infinite;
+        }
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.4); }
+        }
+        .hero-title {
+            font-size: 3.25rem; font-weight: 800;
+            line-height: 1.1; letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+        .hero-title .accent { color: var(--teal); }
+        .hero-subtitle {
+            font-size: 1.1rem; color: var(--slate);
+            margin-bottom: 2rem; max-width: 480px;
+        }
+        @media (max-width: 768px) { .hero-subtitle { max-width: 100%; } }
+        .hero-meta {
+            display: flex; flex-wrap: wrap; gap: 1rem;
+            margin-bottom: 2.25rem;
+        }
+        @media (max-width: 768px) { .hero-meta { justify-content: center; } }
+        .meta-item {
+            display: flex; align-items: center; gap: 0.4rem;
+            font-size: 0.9rem; color: var(--slate); font-weight: 500;
+        }
+        .meta-item i { color: var(--teal); }
+        .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+        @media (max-width: 768px) { .hero-cta { justify-content: center; } }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 0.8rem 1.75rem; border-radius: 0.5rem;
+            font-size: 0.95rem; font-weight: 600;
+            text-decoration: none; cursor: pointer;
+            transition: var(--transition); white-space: nowrap; border: none;
+        }
+        .btn-primary { background: var(--teal); color: white; }
+        .btn-primary:hover { background: var(--teal-dark); transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+        .btn-outline {
+            background: transparent; color: var(--teal);
+            border: 2px solid var(--teal);
+        }
+        .btn-outline:hover { background: var(--teal-light); transform: translateY(-2px); }
+
+        /* ── Hero visual ── */
+        .hero-visual {
+            display: flex; justify-content: center; align-items: center;
+        }
+        .hero-card {
+            background: white; border-radius: 1.25rem;
+            padding: 2rem; box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border);
+            width: 100%; max-width: 380px;
+        }
+        .hero-card-header {
+            display: flex; align-items: center; gap: 0.75rem;
+            margin-bottom: 1.5rem; padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+        .card-icon {
+            width: 2.75rem; height: 2.75rem; border-radius: 0.6rem;
+            background: var(--gradient); display: flex;
+            align-items: center; justify-content: center;
+            color: white; font-size: 1.1rem;
+        }
+        .card-title { font-weight: 700; font-size: 0.95rem; }
+        .card-sub { font-size: 0.8rem; color: var(--slate-light); }
+        .topic-list { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+        .topic-list li {
+            display: flex; align-items: center; gap: 0.6rem;
+            font-size: 0.875rem; color: var(--slate);
+        }
+        .topic-list li i { color: var(--teal); font-size: 0.75rem; }
+        .card-footer {
+            margin-top: 1.5rem; padding-top: 1rem;
+            border-top: 1px solid var(--border);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .price-tag { font-size: 1.5rem; font-weight: 800; color: var(--teal); }
+        .price-desc { font-size: 0.75rem; color: var(--slate-light); }
+        .spots-badge {
+            background: #fef3c7; color: #b45309;
+            padding: 0.25rem 0.6rem; border-radius: 0.4rem;
+            font-size: 0.75rem; font-weight: 600;
+        }
+
+        /* ── Section base ── */
+        section { padding: 5.5rem 0; }
+        .section-label {
+            display: inline-block; font-size: 0.75rem; font-weight: 700;
+            letter-spacing: 0.1em; text-transform: uppercase;
+            color: var(--teal); margin-bottom: 0.75rem;
+        }
+        .section-title {
+            font-size: 2.25rem; font-weight: 800;
+            letter-spacing: -0.02em; margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        .section-subtitle { font-size: 1.05rem; color: var(--slate); max-width: 580px; }
+
+        /* ── Stats strip ── */
+        .stats-strip { background: var(--navy); padding: 3rem 0; }
+        .stats-grid {
+            display: grid; grid-template-columns: repeat(4, 1fr);
+            gap: 2rem; text-align: center;
+        }
+        @media (max-width: 768px) { .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+        .stat-value { font-size: 2rem; font-weight: 800; color: var(--teal); display: block; }
+        .stat-label { font-size: 0.85rem; color: var(--slate-light); margin-top: 0.25rem; }
+
+        /* ── Topics ── */
+        .topics { background: var(--surface); }
+        .topics-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.25rem; margin-top: 3rem;
+        }
+        .topic-card {
+            background: white; border: 1px solid var(--border);
+            border-radius: var(--radius); padding: 1.5rem;
+            transition: var(--transition);
+        }
+        .topic-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--teal); }
+        .topic-card--project { border-color: var(--teal-border); background: rgba(13,148,136,0.05); }
+        .topic-card--project .topic-num { color: var(--teal); }
+        .topic-num {
+            font-size: 0.7rem; font-weight: 700; color: var(--teal);
+            letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.5rem;
+        }
+        .topic-name { font-size: 1rem; font-weight: 600; color: var(--navy); margin-bottom: 0.4rem; }
+        .topic-desc { font-size: 0.85rem; color: var(--slate); }
+
+        /* ── Format ── */
+        .format { background: white; }
+        .format-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem; margin-top: 3rem;
+        }
+        .format-item {
+            background: var(--surface); border-radius: var(--radius);
+            padding: 1.75rem; text-align: center;
+            border: 1px solid var(--border); transition: var(--transition);
+        }
+        .format-item:hover { box-shadow: var(--shadow-md); }
+        .format-icon {
+            width: 3rem; height: 3rem; border-radius: 0.75rem;
+            background: var(--teal-light); color: var(--teal);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.25rem; margin: 0 auto 1rem;
+        }
+        .format-item h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.4rem; }
+        .format-item p { font-size: 0.875rem; color: var(--slate); }
+
+        /* ── Instructor ── */
+        .instructor { background: var(--surface); }
+        .instructor-inner {
+            display: grid; grid-template-columns: auto 1fr;
+            gap: 3rem; align-items: start; max-width: 780px; margin: 0 auto;
+        }
+        @media (max-width: 640px) { .instructor-inner { grid-template-columns: 1fr; text-align: center; } }
+        .instructor-photo {
+            width: 140px; height: 140px; border-radius: 50%;
+            object-fit: cover; border: 4px solid var(--teal);
+            box-shadow: var(--shadow-md);
+        }
+        @media (max-width: 640px) { .instructor-photo { margin: 0 auto; } }
+        .instructor-name { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.25rem; }
+        .instructor-role { font-size: 0.9rem; color: var(--teal); font-weight: 500; margin-bottom: 1rem; }
+        .instructor-bio { color: var(--slate); line-height: 1.7; margin-bottom: 1.25rem; }
+        .instructor-links { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+        @media (max-width: 640px) { .instructor-links { justify-content: center; } }
+        .instructor-link {
+            display: flex; align-items: center; gap: 0.4rem;
+            font-size: 0.85rem; color: var(--slate); text-decoration: none;
+            padding: 0.4rem 0.9rem; border: 1px solid var(--border);
+            border-radius: 2rem; transition: var(--transition);
+        }
+        .instructor-link:hover { color: var(--teal); border-color: var(--teal); }
+
+        /* ── Pricing ── */
+        .pricing { background: white; }
+        .pricing-card {
+            max-width: 520px; margin: 3rem auto 0;
+            background: var(--navy); border-radius: 1.25rem;
+            padding: 2.5rem; text-align: center; color: white;
+            box-shadow: var(--shadow-lg);
+        }
+        .pricing-label { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--slate-light); margin-bottom: 1rem; }
+        .pricing-amount { font-size: 3.5rem; font-weight: 800; color: var(--teal); line-height: 1; margin-bottom: 0.25rem; }
+        .pricing-note { font-size: 0.875rem; color: var(--slate-light); margin-bottom: 2rem; }
+        .pricing-features { list-style: none; margin-bottom: 2rem; display: flex; flex-direction: column; gap: 0.75rem; }
+        .pricing-features li {
+            display: flex; align-items: center; gap: 0.6rem;
+            font-size: 0.95rem; color: #cbd5e1;
+        }
+        .pricing-features li i { color: var(--teal); }
+        .pricing-warning {
+            background: rgba(13,148,136,0.15); border: 1px solid rgba(13,148,136,0.3);
+            border-radius: 0.5rem; padding: 0.75rem 1rem;
+            font-size: 0.85rem; color: #99f6e4; margin-bottom: 1.75rem;
+        }
+
+        /* ── Partners ── */
+        .partners { background: var(--surface); padding: 4rem 0; }
+        .partners-header { text-align: center; margin-bottom: 2.5rem; }
+        .partners-header p { font-size: 0.9rem; color: var(--slate); margin-top: 0.4rem; }
+        .partners-grid {
+            display: flex; justify-content: center; align-items: center;
+            gap: 2.5rem; flex-wrap: wrap;
+        }
+        .partner-item img {
+            height: 2.5rem; opacity: 0.65; filter: grayscale(1);
+            transition: var(--transition);
+        }
+        .partner-item:hover img { opacity: 1; filter: grayscale(0); }
+
+        /* ── Footer ── */
+        footer {
+            background: var(--navy); color: white;
+            padding: 2rem 0; font-size: 0.875rem;
+        }
+        .footer-inner {
+            display: flex; justify-content: space-between; align-items: center;
+            flex-wrap: wrap; gap: 1rem;
+        }
+        .footer-inner a { color: var(--slate-light); text-decoration: none; transition: var(--transition); }
+        .footer-inner a:hover { color: var(--teal); }
+        .footer-right { display: flex; gap: 1.25rem; }
+
+        /* ── Google Scholar link ── */
+        .google-scholar-link {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            color: var(--teal); text-decoration: none; font-weight: 500;
+            font-size: 0.95rem; transition: var(--transition);
+        }
+        .google-scholar-link:hover { color: var(--teal-dark); }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-inner">
+        <a class="nav-brand" href="/aixmedcourse">AIx<span>MED</span></a>
+        <a class="nav-back" href="https://mustaphaxai.com">
+            <i class="fas fa-arrow-left"></i> Back to Portfolio
+        </a>
+    </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-inner">
+            <div class="hero-text reveal">
+                <div class="hero-badge">
+                    <span class="dot"></span>
+                    Starting June 13, 2026
+                </div>
+                <h1 class="hero-title">
+                    AI in<br>
+                    <span class="accent">Medical Imaging</span><br>
+                    Summer Series
+                </h1>
+                <p class="hero-subtitle">
+                    A weekly online deep-dive into AI and machine learning for medical imaging ,
+                    from the ML cycle and SVMs all the way to UNet, HRNet, and state-of-the-art medical models.
+                </p>
+                <div class="hero-meta">
+                    <span class="meta-item"><i class="fas fa-calendar-alt"></i> Every Saturday</span>
+                    <span class="meta-item"><i class="fas fa-clock"></i> 6:00 PM Beirut Time</span>
+                    <span class="meta-item"><i class="fas fa-video"></i> Online</span>
+                    <span class="meta-item"><i class="fas fa-users"></i> 30 Spots Max</span>
+                </div>
+                <div class="hero-cta">
+                    <a href="https://forms.office.com/pages/responsepage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAYAAACii6RUQVc5OTFHT00xWjJBRUY5R1hRME8yOERPSy4u&route=shorturl"
+                       target="_blank" class="btn btn-primary">
+                        <i class="fas fa-edit"></i> Register Now , $25
+                    </a>
+                    <a href="#topics" class="btn btn-outline">View Curriculum</a>
+                </div>
+            </div>
+
+            <div class="hero-visual reveal">
+                <div class="hero-card">
+                    <div class="hero-card-header">
+                        <div class="card-icon"><i class="fas fa-brain"></i></div>
+                        <div>
+                            <div class="card-title">AIxMED Summer Saturdays</div>
+                            <div class="card-sub">First Cohort · Summer 2026</div>
+                        </div>
+                    </div>
+                    <ul class="topic-list">
+                        <li><i class="fas fa-check-circle"></i> Machine Learning Cycle</li>
+                        <li><i class="fas fa-check-circle"></i> Hands-on Scikit-Learn & SVM</li>
+                        <li><i class="fas fa-check-circle"></i> NNs, CNNs & Transformers</li>
+                        <li><i class="fas fa-check-circle"></i> Medical Image Modalities</li>
+                        <li><i class="fas fa-check-circle"></i> Medical Tasks & Hands-on Models</li>
+                        <li><i class="fas fa-check-circle"></i> BioMedCLIP, RAD DINO, UNet</li>
+                        <li><i class="fas fa-check-circle"></i> Nvidia Generative Models</li>
+                        <li><i class="fas fa-check-circle"></i> Capstone Project</li>
+                    </ul>
+                    <div class="card-footer">
+                        <div>
+                            <div class="price-tag">$25</div>
+                            <div class="price-desc">First cohort</div>
+                        </div>
+                        <span class="spots-badge">30 spots only</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Stats -->
+<div class="stats-strip">
+    <div class="container">
+        <div class="stats-grid">
+            <div class="reveal">
+                <span class="stat-value">10</span>
+                <div class="stat-label">Sessions</div>
+            </div>
+            <div class="reveal">
+                <span class="stat-value">1–2h</span>
+                <div class="stat-label">Per Session</div>
+            </div>
+            <div class="reveal">
+                <span class="stat-value">30</span>
+                <div class="stat-label">Max Participants</div>
+            </div>
+            <div class="reveal">
+                <span class="stat-value">$25</span>
+                <div class="stat-label">First Cohort Price</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Topics -->
+<section id="topics" class="topics">
+    <div class="container">
+        <div class="reveal">
+            <span class="section-label">Curriculum</span>
+            <h2 class="section-title">What You Will Learn</h2>
+            <p class="section-subtitle">
+                A hands-on progression from ML foundations to the architectures powering modern medical AI systems.
+            </p>
+        </div>
+        <div class="topics-grid">
+            <div class="topic-card reveal">
+                <div class="topic-num">Session 01</div>
+                <div class="topic-name">Machine Learning Cycle</div>
+                <div class="topic-desc">End-to-end ML workflow: problem framing, data preparation, model training, evaluation, and iteration.</div>
+            </div>
+            <div class="topic-card reveal">
+                <div class="topic-num">Session 02</div>
+                <div class="topic-name">Hands-on Scikit-Learn & SVM</div>
+                <div class="topic-desc">Support Vector Machines and classical ML in practice using Scikit-Learn on real datasets.</div>
+            </div>
+            <div class="topic-card reveal">
+                <div class="topic-num">Session 03</div>
+                <div class="topic-name">Intro to Neural Networks</div>
+                <div class="topic-desc">Perceptrons, backpropagation, activation functions, and training dynamics from the ground up.</div>
+            </div>
+            <div class="topic-card reveal">
+                <div class="topic-num">Session 04</div>
+                <div class="topic-name">CNNs & Transformers</div>
+                <div class="topic-desc">Convolutional networks for image features and Vision Transformers for global context in medical imaging.</div>
+            </div>
+            <div class="topic-card reveal">
+                <div class="topic-num">Session 05</div>
+                <div class="topic-name">Medical Image Modalities</div>
+                <div class="topic-desc">X-ray, MRI, CT, ultrasound, and pathology slides — characteristics, challenges, and preprocessing.</div>
+            </div>
+            <div class="topic-card reveal">
+                <div class="topic-num">Session 06</div>
+                <div class="topic-name">Medical Tasks</div>
+                <div class="topic-desc">Classification, regression, segmentation, and generation as the four core paradigms in medical AI.</div>
+            </div>
+            <div class="topic-card reveal">
+                <div class="topic-num">Session 07</div>
+                <div class="topic-name">Classification: BioMedCLIP</div>
+                <div class="topic-desc">Hands-on classification using BioMedCLIP — a vision-language model trained on biomedical image-text pairs.</div>
+            </div>
+            <div class="topic-card reveal">
+                <div class="topic-num">Session 08</div>
+                <div class="topic-name">Regression: RAD DINO</div>
+                <div class="topic-desc">Hands-on regression for radiology with RAD DINO, covering dose and outcome prediction from imaging data.</div>
+            </div>
+            <div class="topic-card reveal">
+                <div class="topic-num">Session 09</div>
+                <div class="topic-name">Segmentation: UNet</div>
+                <div class="topic-desc">Hands-on medical image segmentation using UNet — the gold-standard encoder-decoder architecture.</div>
+            </div>
+            <div class="topic-card reveal">
+                <div class="topic-num">Session 10</div>
+                <div class="topic-name">Generation: Nvidia Models</div>
+                <div class="topic-desc">Generative AI for medical imaging using Nvidia's medical AI models for synthetic data and augmentation.</div>
+            </div>
+            <div class="topic-card reveal topic-card--project">
+                <div class="topic-num">Capstone</div>
+                <div class="topic-name">Project</div>
+                <div class="topic-desc">Apply the full pipeline to a real medical imaging problem of your choice, from data to a working model.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Format -->
+<section class="format">
+    <div class="container">
+        <div class="reveal">
+            <span class="section-label">Format</span>
+            <h2 class="section-title">How It Works</h2>
+            <p class="section-subtitle">Structured to fit busy professionals while keeping sessions deep and hands-on.</p>
+        </div>
+        <div class="format-grid">
+            <div class="format-item reveal">
+                <div class="format-icon"><i class="fas fa-globe"></i></div>
+                <h3>100% Online</h3>
+                <p>Live sessions streamed online. Join from anywhere in the world.</p>
+            </div>
+            <div class="format-item reveal">
+                <div class="format-icon"><i class="fas fa-calendar-week"></i></div>
+                <h3>Every Saturday</h3>
+                <p>Consistent weekly schedule starting June 13, 2026 at 6:00 PM Beirut time.</p>
+            </div>
+            <div class="format-item reveal">
+                <div class="format-icon"><i class="fas fa-laptop-code"></i></div>
+                <h3>Hands-on Code</h3>
+                <p>Every session includes live coding, exercises, and real medical imaging examples.</p>
+            </div>
+            <div class="format-item reveal">
+                <div class="format-icon"><i class="fas fa-users"></i></div>
+                <h3>Small Cohort</h3>
+                <p>Maximum 30 participants for a focused, interactive learning experience.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Instructor -->
+<section class="instructor">
+    <div class="container">
+        <div class="reveal" style="text-align:center; margin-bottom:3rem;">
+            <span class="section-label">Instructor</span>
+            <h2 class="section-title">Meet Your Instructor</h2>
+        </div>
+        <div class="instructor-inner reveal">
+            <img src="../resources/Professional-Picture-Me.png"
+                 alt="Ahmad Mustapha" class="instructor-photo">
+            <div>
+                <div class="instructor-name">Ahmad Mustapha</div>
+                <div class="instructor-role">Doctoral Researcher · American University of Beirut</div>
+                <p class="instructor-bio">
+                    Ahmad is a doctoral researcher at AUB specializing in AI for medical imaging,
+                    with a focus on unsupervised deep learning, representation learning, and bias in
+                    medical AI systems. He has led and contributed to projects spanning X-ray disease
+                    detection, vehicle detection in the wild, and multi-service AI platforms.
+                    His mission is to make cutting-edge medical AI accessible to clinicians,
+                    researchers, and engineers alike.
+                </p>
+                <div class="instructor-links">
+                    <a href="https://scholar.google.com/citations?user=udbsTuwAAAAJ&hl=en" target="_blank" class="instructor-link">
+                        <i class="fas fa-graduation-cap"></i> Google Scholar
+                    </a>
+                    <a href="https://www.linkedin.com/in/ahmad-mustapha-ml" target="_blank" class="instructor-link">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                    <a href="https://github.com/AhmadM-DL" target="_blank" class="instructor-link">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                    <a href="mailto:ahmad.m.mustapha@hotmail.com" class="instructor-link">
+                        <i class="fas fa-envelope"></i> Email
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Pricing -->
+<section class="pricing">
+    <div class="container">
+        <div class="reveal" style="text-align:center;">
+            <span class="section-label">Pricing</span>
+            <h2 class="section-title">Simple, Transparent Pricing</h2>
+            <p class="section-subtitle" style="margin: 0 auto;">Early-cohort pricing , spots are strictly limited.</p>
+        </div>
+        <div class="pricing-card reveal">
+            <div class="pricing-label">First Cohort · Summer 2026</div>
+            <div class="pricing-amount">$25</div>
+            <div class="pricing-note">One-time payment · Payment instructions sent after registration</div>
+            <ul class="pricing-features">
+                <li><i class="fas fa-check"></i> 8–10 live weekly online sessions</li>
+                <li><i class="fas fa-check"></i> Hands-on coding exercises</li>
+                <li><i class="fas fa-check"></i> Session recordings (where available)</li>
+                <li><i class="fas fa-check"></i> Course completion certificate</li>
+                <li><i class="fas fa-check"></i> Direct access to instructor</li>
+            </ul>
+            <div class="pricing-warning">
+                <i class="fas fa-exclamation-circle"></i>
+                Only 30 spots available. First come, first served.
+            </div>
+            <a href="https://forms.office.com/pages/responsepage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAYAAACii6RUQVc5OTFHT00xWjJBRUY5R1hRME8yOERPSy4u&route=shorturl"
+               target="_blank" class="btn btn-primary" style="width:100%; justify-content:center; font-size:1rem;">
+                <i class="fas fa-edit"></i> Register to Reserve Your Spot
+            </a>
+        </div>
+    </div>
+</section>
+
+
+<footer>
+    <div class="container">
+        <div class="footer-inner">
+            <span>© 2026 Ahmad Mustapha · <a href="mailto:ahmad.m.mustapha@hotmail.com">ahmad.m.mustapha@hotmail.com</a></span>
+            <div class="footer-right">
+                <a href="https://mustaphaxai.com">Portfolio</a>
+                <a href="https://scholar.google.com/citations?user=udbsTuwAAAAJ&hl=en" target="_blank">Google Scholar</a>
+                <a href="https://github.com/AhmadM-DL" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

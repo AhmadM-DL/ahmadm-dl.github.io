@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects – Ahmad Mustapha</title>
+    <meta name="description" content="AI and medical imaging projects by Ahmad Mustapha , X-ray detection, vehicle detection, voice AI, and more.">
+    <link rel="canonical" href="https://mustaphaxai.com/projects.html">
+    <meta name="theme-color" content="#0d9488">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="nav" role="navigation" aria-label="Main navigation">
+            <div class="nav-container">
+                <div class="nav-logo">Ahmad M.</div>
+                <div class="nav-menu" id="nav-menu">
+                    <a href="index.html"        class="nav-link">Home</a>
+                    <a href="about.html"        class="nav-link">About</a>
+                    <a href="projects.html"     class="nav-link" aria-current="page">Projects</a>
+                    <a href="publications.html" class="nav-link">Publications</a>
+                    <a href="contact.html"      class="nav-link">Contact</a>
+                    <a href="aixmedcourse/index.html"      class="nav-link nav-link-course">AIxMED Course</a>
+                </div>
+                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="page-main">
+        <section class="projects page-section">
+            <div class="container">
+                <div class="page-header reveal">
+                    <span class="section-label">Work</span>
+                    <h1 class="page-title">Projects</h1>
+                    <p class="section-subtitle">Research prototypes, freelance systems, and deployed applications</p>
+                </div>
+
+                <div class="projects-grid">
+                    <div class="project-card reveal">
+                        <div class="project-image">
+                            <img src="./resources/project_xray.jpg" alt="X-ray Detection">
+                            <div class="project-overlay">
+                                <a href="https://github.com/AhmadM-DL/On-Learning-Implicit-Protected-Attributes" target="_blank" class="project-link">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Sickness X-ray Based Detection</h3>
+                            <p class="project-description">
+                                Used CNNs to predict patient sickness from chest X-ray images. Explored AlexNet,
+                                ResNet, and DenseNet architectures, and analyzed algorithmic bias in medical AI systems.
+                            </p>
+                            <div class="project-tags">
+                                <span class="tag">CNN</span>
+                                <span class="tag">ResNet</span>
+                                <span class="tag">Medical AI</span>
+                                <span class="tag">Bias Analysis</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card reveal">
+                        <div class="project-image">
+                            <img src="./resources/project_udl.png" alt="Unsupervised Deep Learning">
+                            <div class="project-overlay">
+                                <a href="https://github.com/AhmadM-DL/Intermodel-Interpretation" target="_blank" class="project-link">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Unsupervised Deep Learning</h3>
+                            <p class="project-description">
+                                Research framework to evaluate representation quality in unsupervised deep learning models.
+                                Focused on inter-model interpretability and efficiency without sacrificing performance.
+                            </p>
+                            <div class="project-tags">
+                                <span class="tag">Research</span>
+                                <span class="tag">UDL</span>
+                                <span class="tag">Representation Learning</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card reveal">
+                        <div class="project-image">
+                            <img src="./resources/project_object_detection.png" alt="Vehicle Detection">
+                            <div class="project-overlay">
+                                <a href="https://github.com/AhmadM-DL" target="_blank" class="project-link">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Vehicle Detection In The Wild</h3>
+                            <p class="project-description">
+                                Freelance project to detect vehicles in aerial imagery captured by drones.
+                                Uses YOLO with OpenCV, CVAT annotation, and PyTorch training pipeline.
+                            </p>
+                            <div class="project-tags">
+                                <span class="tag">YOLO</span>
+                                <span class="tag">OpenCV</span>
+                                <span class="tag">PyTorch</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card reveal">
+                        <div class="project-image">
+                            <img src="./resources/project_kure.png" alt="Kure App">
+                            <div class="project-overlay">
+                                <a href="https://github.com/AhmadM-DL/GestureWars" target="_blank" class="project-link">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Kure , Voice AI Platform</h3>
+                            <p class="project-description">
+                                Fully containerized application for voice recording, transcription, and AI-driven analysis.
+                                Built with Flask, Django, PostgreSQL, Prometheus, and Grafana.
+                            </p>
+                            <div class="project-tags">
+                                <span class="tag">Flask</span>
+                                <span class="tag">Docker</span>
+                                <span class="tag">Grafana</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card reveal">
+                        <div class="project-image">
+                            <img src="./resources/dubuque.jpg" alt="Traffic Monitoring">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Dubuque City Traffic Monitoring</h3>
+                            <p class="project-description">
+                                Data pipeline that fetches, processes, and stores traffic data from a client API.
+                                LSTMs, SVMs, K-means, and KNNs served via Flask with a unified monitoring dashboard.
+                            </p>
+                            <div class="project-tags">
+                                <span class="tag">LSTMs</span>
+                                <span class="tag">SVM</span>
+                                <span class="tag">Dash</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card reveal">
+                        <div class="project-image">
+                            <img src="./resources/odoo_chartly.png" alt="Odoo Chartly">
+                            <div class="project-overlay">
+                                <a href="https://github.com/AhmadM-DL/oodo-chartly.git" target="_blank" class="project-link">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Chartly , Odoo AI Charts</h3>
+                            <p class="project-description">
+                                Odoo module for natural language–driven chart and visualization generation.
+                                Users describe what they want; Chartly queries the DB and renders it automatically.
+                            </p>
+                            <div class="project-tags">
+                                <span class="tag">Odoo</span>
+                                <span class="tag">OpenAI API</span>
+                                <span class="tag">Docker</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card reveal">
+                        <div class="project-image">
+                            <img src="./resources/project_point_in_polyhedron.png" alt="Point In Polyhedron">
+                            <div class="project-overlay">
+                                <a href="https://github.com/AhmadM-DL/Point-In-Polyhedron" target="_blank" class="project-link">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Point In Polyhedron</h3>
+                            <p class="project-description">
+                                CUDA implementation of the point-in-polyhedron problem.
+                                Parallelized on GPU using CUDA C for high-performance computational geometry.
+                            </p>
+                            <div class="project-tags">
+                                <span class="tag">CUDA</span>
+                                <span class="tag">GPU</span>
+                                <span class="tag">C++</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card reveal">
+                        <div class="project-image">
+                            <img src="./resources/perspective.png" alt="Perspective Analyzer">
+                            <div class="project-overlay">
+                                <a href="https://github.com/AhmadM-DL/Perspective-Analyzer" target="_blank" class="project-link">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Perspective Analyzer</h3>
+                            <p class="project-description">
+                                Video and text analysis tool for detecting perspective and bias in media content.
+                                Uses ML to analyze viewpoints and sentiment patterns across sources.
+                            </p>
+                            <div class="project-tags">
+                                <span class="tag">NLP</span>
+                                <span class="tag">Python</span>
+                                <span class="tag">ML</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2026 Ahmad Mustapha. All rights reserved.</p>
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/in/ahmad-mustapha-ml" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/AhmadM-DL" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://scholar.google.com/citations?user=udbsTuwAAAAJ&hl=en" target="_blank" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+                    <a href="mailto:ahmad.m.mustapha@hotmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="index.js"></script>
+</body>
+</html>
