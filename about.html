@@ -167,6 +167,102 @@
                 </div>
             </div>
         </section>
+
+        <!-- Gallery -->
+        <section class="page-section" style="background: var(--surface, #0f172a);">
+            <div class="container">
+                <div class="page-header reveal">
+                    <span class="section-label">Community</span>
+                    <h2 class="section-title">Gallery</h2>
+                    <p class="section-subtitle">Events, meetups, and community moments</p>
+                </div>
+                <div class="gallery-grid reveal">
+                    <div class="gallery-item">
+                        <img src="./resources/gallery/aws-local-group-bdd-beirut.jpg"
+                             alt="AWS Local Group Gathering at BDD, Beirut"
+                             loading="lazy">
+                        <div class="gallery-caption">
+                            <span class="gallery-tag">AWS Local Group</span>
+                            <p>AWS Local Group Gathering @ BDD, Beirut</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <style>
+            .gallery-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+                gap: 1.25rem;
+                margin-top: 2.5rem;
+            }
+            .gallery-item {
+                position: relative; border-radius: 0.75rem;
+                overflow: hidden; cursor: pointer;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+                aspect-ratio: 16/9;
+            }
+            .gallery-item img {
+                width: 100%; height: 100%;
+                object-fit: cover; display: block;
+                transition: transform 0.4s ease;
+            }
+            .gallery-item:hover img { transform: scale(1.04); }
+            .gallery-caption {
+                position: absolute; bottom: 0; left: 0; right: 0;
+                padding: 1rem 1.1rem 0.9rem;
+                background: linear-gradient(transparent, rgba(0,0,0,0.75));
+                transform: translateY(4px);
+                transition: transform 0.3s ease;
+            }
+            .gallery-item:hover .gallery-caption { transform: translateY(0); }
+            .gallery-tag {
+                display: inline-block; font-size: 0.7rem; font-weight: 600;
+                letter-spacing: 0.08em; text-transform: uppercase;
+                background: #0d9488; color: #fff;
+                padding: 0.15rem 0.55rem; border-radius: 999px; margin-bottom: 0.35rem;
+            }
+            .gallery-caption p {
+                font-size: 0.875rem; color: #e2e8f0; margin: 0; font-weight: 500;
+            }
+
+            /* Lightbox */
+            .lb-overlay {
+                display: none; position: fixed; inset: 0; z-index: 9999;
+                background: rgba(0,0,0,0.92); align-items: center; justify-content: center;
+                cursor: zoom-out;
+            }
+            .lb-overlay.open { display: flex; }
+            .lb-overlay img {
+                max-width: 92vw; max-height: 88vh;
+                border-radius: 0.5rem; box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+                cursor: default;
+            }
+            .lb-close {
+                position: absolute; top: 1.25rem; right: 1.5rem;
+                color: #fff; font-size: 2rem; cursor: pointer;
+                background: none; border: none; line-height: 1;
+                opacity: 0.7; transition: opacity 0.2s;
+            }
+            .lb-close:hover { opacity: 1; }
+        </style>
+
+        <!-- Lightbox -->
+        <div class="lb-overlay" id="lb" onclick="this.classList.remove('open')">
+            <button class="lb-close" onclick="document.getElementById('lb').classList.remove('open')">&times;</button>
+            <img id="lb-img" src="" alt="">
+        </div>
+        <script>
+            document.querySelectorAll('.gallery-item img').forEach(img => {
+                img.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    document.getElementById('lb-img').src = this.src;
+                    document.getElementById('lb-img').alt = this.alt;
+                    document.getElementById('lb').classList.add('open');
+                });
+            });
+        </script>
     </main>
 
     <footer class="footer">
