@@ -99,44 +99,29 @@
         /* ── Course Switch Banner ── */
         .course-switch {
             position: fixed; top: 3.75rem; left: 0; right: 0;
-            background: var(--gradient);
+            background: rgba(255,255,255,0.96);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
             z-index: 99;
-            height: 3.75rem;
+            height: 3.25rem;
             display: flex; align-items: center;
-            box-shadow: var(--shadow-md);
         }
         .course-switch .container {
-            display: flex; align-items: center; justify-content: center;
-            gap: 1rem; flex-wrap: wrap;
+            width: 100%;
+            display: flex; align-items: center; justify-content: flex-end;
         }
-        .course-switch-label {
-            color: rgba(255,255,255,0.95); font-size: 0.9rem; font-weight: 600;
-            letter-spacing: 0.02em; display: inline-flex; align-items: center; gap: 0.5rem;
-        }
-        .course-switch-label i { font-size: 0.85rem; opacity: 0.9; }
-        .course-select-wrap { position: relative; display: inline-flex; align-items: center; }
+        /* classical native select, floated right */
         .course-select {
-            appearance: none; -webkit-appearance: none; -moz-appearance: none;
-            background: rgba(255,255,255,0.15);
-            border: 1px solid rgba(255,255,255,0.4);
-            color: #fff; font-family: inherit; font-size: 0.95rem; font-weight: 600;
-            padding: 0.55rem 2.75rem 0.55rem 1.1rem;
-            border-radius: 2rem; cursor: pointer; outline: none;
-            transition: var(--transition); backdrop-filter: blur(6px);
-            max-width: 78vw; text-overflow: ellipsis;
+            font-family: inherit; font-size: 0.9rem; font-weight: 500;
+            color: var(--navy); background: #fff;
+            padding: 0.35rem 0.6rem;
+            border: 1px solid var(--border); border-radius: 0.4rem;
+            cursor: pointer; outline: none; max-width: 80vw;
         }
-        .course-select:hover { background: rgba(255,255,255,0.28); border-color: #fff; }
-        .course-select:focus { background: rgba(255,255,255,0.28); border-color: #fff; box-shadow: 0 0 0 3px rgba(255,255,255,0.25); }
-        .course-select option { background: #0f172a; color: #fff; font-weight: 500; }
-        .course-select-wrap::after {
-            content: '\f078'; font-family: 'Font Awesome 6 Free'; font-weight: 900;
-            position: absolute; right: 1.1rem; top: 50%; transform: translateY(-50%);
-            color: #fff; font-size: 0.7rem; pointer-events: none;
-        }
+        .course-select:hover { border-color: var(--slate-light); }
+        .course-select:focus { border-color: var(--teal); }
         @media (max-width: 520px) {
-            .course-switch .container { gap: 0.6rem; }
-            .course-switch-label span { display: none; }
-            .course-select { font-size: 0.85rem; padding: 0.5rem 2.4rem 0.5rem 0.9rem; }
+            .course-select { font-size: 0.82rem; max-width: 72vw; }
         }
 
         /* ── Tab Panels ── */
@@ -152,7 +137,7 @@
             min-height: 100vh;
             background: linear-gradient(160deg, #f0fdfa 0%, #e0f2fe 60%, #f8fafc 100%);
             display: flex; align-items: center;
-            padding-top: 7.25rem;
+            padding-top: 7rem;
         }
         .hero-inner {
             display: grid; grid-template-columns: 1fr 1fr;
@@ -438,16 +423,13 @@
     </div>
 </nav>
 
-<!-- Course Switch Banner -->
+<!-- Course history -->
 <div class="course-switch">
     <div class="container">
-        <span class="course-switch-label"><i class="fas fa-layer-group"></i> Choose your <span>cohort</span></span>
-        <div class="course-select-wrap">
-            <select class="course-select" id="course-select" aria-label="Select course">
-                <option value="aixmed26">AIxMed26 — Summer Saturdays · Online</option>
-                <option value="aixmed26intensive">AIxMed26Intensive — 2nd Cohort · In Person, Beirut</option>
-            </select>
-        </div>
+        <select class="course-select" id="course-select" aria-label="Course history" title="Course history">
+            <option value="aixmed26">AIxMed26 · Summer Saturdays 2026</option>
+            <option value="aixmed26intensive">AIxMed26Intensive · 2nd Cohort, Sep 2026</option>
+        </select>
     </div>
 </div>
 
