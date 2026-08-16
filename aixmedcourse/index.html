@@ -383,6 +383,26 @@
         }
         .partner-item:hover img { opacity: 1; filter: grayscale(0); }
 
+        /* ── Sponsors ── */
+        .sponsors { background: var(--surface); }
+        .sponsors-header { text-align: center; margin-bottom: 2.75rem; }
+        .sponsors-grid {
+            display: flex; justify-content: center; align-items: center;
+            gap: 3.5rem; flex-wrap: wrap;
+        }
+        .sponsor-item {
+            display: flex; align-items: center; justify-content: center;
+            transition: var(--transition);
+        }
+        .sponsor-item img { height: 3.25rem; width: auto; object-fit: contain; }
+        .sponsor-item--mark img { height: 4rem; }
+        .sponsor-item:hover { transform: translateY(-3px); }
+        @media (max-width: 520px) {
+            .sponsors-grid { gap: 2.25rem; }
+            .sponsor-item img { height: 2.75rem; }
+            .sponsor-item--mark img { height: 3.4rem; }
+        }
+
         /* ── Footer ── */
         footer {
             background: var(--navy); color: white;
@@ -1149,6 +1169,25 @@
 </section>
 
 </div><!-- /panel-aixmed26intensive -->
+
+
+<!-- Sponsors (shared across courses) -->
+<section class="sponsors">
+    <div class="container">
+        <div class="sponsors-header reveal">
+            <span class="section-label">Sponsors</span>
+            <h2 class="section-title">Our Sponsors</h2>
+        </div>
+        <div class="sponsors-grid reveal">
+            <div class="sponsor-item">
+                <img src="../resources/teachmore.png" alt="Teachmore">
+            </div>
+            <div class="sponsor-item sponsor-item--mark">
+                <img src="../resources/imcan.png" alt="IMCAN">
+            </div>
+        </div>
+    </div>
+</section>
 
 
 <footer>
