@@ -96,38 +96,47 @@
         }
         .nav-back:hover { color: var(--teal); }
 
-        /* ── Course Tabs ── */
-        .course-tabs {
+        /* ── Course Switch Banner ── */
+        .course-switch {
             position: fixed; top: 3.75rem; left: 0; right: 0;
-            background: rgba(255,255,255,0.96);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border);
+            background: var(--gradient);
             z-index: 99;
-            height: 3.5rem;
+            height: 3.75rem;
             display: flex; align-items: center;
+            box-shadow: var(--shadow-md);
         }
-        .course-tabs .container {
-            display: flex; align-items: center; gap: 0.5rem;
+        .course-switch .container {
+            display: flex; align-items: center; justify-content: center;
+            gap: 1rem; flex-wrap: wrap;
         }
-        .tab-btn {
-            position: relative;
-            background: transparent; border: none; cursor: pointer;
-            font-family: inherit; font-size: 0.95rem; font-weight: 600;
-            color: var(--slate); padding: 0.55rem 1.1rem;
-            border-radius: 0.5rem; transition: var(--transition);
-            display: inline-flex; align-items: center; gap: 0.5rem;
-            white-space: nowrap;
+        .course-switch-label {
+            color: rgba(255,255,255,0.95); font-size: 0.9rem; font-weight: 600;
+            letter-spacing: 0.02em; display: inline-flex; align-items: center; gap: 0.5rem;
         }
-        .tab-btn i { font-size: 0.85rem; }
-        .tab-btn:hover { color: var(--teal); background: var(--surface); }
-        .tab-btn.active { color: var(--teal); background: var(--teal-light); }
-        .tab-btn.active::after {
-            content: ''; position: absolute; left: 1.1rem; right: 1.1rem; bottom: -0.9rem;
-            height: 3px; border-radius: 3px 3px 0 0; background: var(--teal);
+        .course-switch-label i { font-size: 0.85rem; opacity: 0.9; }
+        .course-select-wrap { position: relative; display: inline-flex; align-items: center; }
+        .course-select {
+            appearance: none; -webkit-appearance: none; -moz-appearance: none;
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.4);
+            color: #fff; font-family: inherit; font-size: 0.95rem; font-weight: 600;
+            padding: 0.55rem 2.75rem 0.55rem 1.1rem;
+            border-radius: 2rem; cursor: pointer; outline: none;
+            transition: var(--transition); backdrop-filter: blur(6px);
+            max-width: 78vw; text-overflow: ellipsis;
+        }
+        .course-select:hover { background: rgba(255,255,255,0.28); border-color: #fff; }
+        .course-select:focus { background: rgba(255,255,255,0.28); border-color: #fff; box-shadow: 0 0 0 3px rgba(255,255,255,0.25); }
+        .course-select option { background: #0f172a; color: #fff; font-weight: 500; }
+        .course-select-wrap::after {
+            content: '\f078'; font-family: 'Font Awesome 6 Free'; font-weight: 900;
+            position: absolute; right: 1.1rem; top: 50%; transform: translateY(-50%);
+            color: #fff; font-size: 0.7rem; pointer-events: none;
         }
         @media (max-width: 520px) {
-            .tab-btn { font-size: 0.85rem; padding: 0.5rem 0.75rem; }
-            .tab-btn .tab-btn-sub { display: none; }
+            .course-switch .container { gap: 0.6rem; }
+            .course-switch-label span { display: none; }
+            .course-select { font-size: 0.85rem; padding: 0.5rem 2.4rem 0.5rem 0.9rem; }
         }
 
         /* ── Tab Panels ── */
@@ -429,15 +438,16 @@
     </div>
 </nav>
 
-<!-- Course Tabs -->
-<div class="course-tabs">
+<!-- Course Switch Banner -->
+<div class="course-switch">
     <div class="container">
-        <button class="tab-btn active" data-tab="aixmed26" role="tab" aria-selected="true">
-            <i class="fas fa-calendar-week"></i> AIxMed26 <span class="tab-btn-sub">· Summer Saturdays</span>
-        </button>
-        <button class="tab-btn" data-tab="aixmed26intensive" role="tab" aria-selected="false">
-            <i class="fas fa-bolt"></i> AIxMed26Intensive <span class="tab-btn-sub">· In Person</span>
-        </button>
+        <span class="course-switch-label"><i class="fas fa-layer-group"></i> Choose your <span>cohort</span></span>
+        <div class="course-select-wrap">
+            <select class="course-select" id="course-select" aria-label="Select course">
+                <option value="aixmed26">AIxMed26 — Summer Saturdays · Online</option>
+                <option value="aixmed26intensive">AIxMed26Intensive — 2nd Cohort · In Person, Beirut</option>
+            </select>
+        </div>
     </div>
 </div>
 
@@ -773,7 +783,7 @@
             <div class="hero-text reveal">
                 <div class="hero-badge">
                     <span class="dot"></span>
-                    Sep 21 – Oct 2, 2026 · In Person
+                    2nd Cohort · Sep 21 – Oct 2, 2026
                 </div>
                 <h1 class="hero-title">
                     AI in<br>
@@ -806,7 +816,7 @@
                         <div class="card-icon"><i class="fas fa-bolt"></i></div>
                         <div>
                             <div class="card-title">AIxMED Intensive Bootcamp</div>
-                            <div class="card-sub">In Person · IMCAN, Beirut · 2026</div>
+                            <div class="card-sub">2nd Cohort · In Person · IMCAN, Beirut</div>
                         </div>
                     </div>
                     <ul class="topic-list">
@@ -1083,7 +1093,7 @@
             <p class="section-subtitle" style="margin: 0 auto;">In-person intensive pricing , spots are strictly limited.</p>
         </div>
         <div class="pricing-card reveal">
-            <div class="pricing-label">In-Person Intensive · Beirut 2026</div>
+            <div class="pricing-label">2nd Cohort · In-Person Intensive · Beirut 2026</div>
             <div class="pricing-amount">$150</div>
             <div class="pricing-note">One-time payment · Payment instructions sent after registration</div>
             <ul class="pricing-features">
@@ -1097,7 +1107,7 @@
                 <i class="fas fa-exclamation-circle"></i>
                 Only 12 spots available. First come, first served.
             </div>
-            <form class="reg-form" id="reg-form-intensive" data-course="AIxMed26Intensive · In Person (Beirut)">
+            <form class="reg-form" id="reg-form-intensive" data-course="AIxMed26Intensive · 2nd Cohort · In Person (Beirut)">
                 <div class="form-row">
                     <input type="text"  name="first_name"    placeholder="First Name"    required>
                     <input type="text"  name="last_name"     placeholder="Last Name"     required>

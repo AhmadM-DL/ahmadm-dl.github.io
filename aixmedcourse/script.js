@@ -11,16 +11,12 @@ const observeElements = () => {
     revealElements.forEach((el) => observer.observe(el));
 };
 
-const setupTabs = () => {
-    const buttons = document.querySelectorAll('.tab-btn');
-    const panels  = document.querySelectorAll('.tab-panel');
+const setupCourseSwitch = () => {
+    const select = document.getElementById('course-select');
+    const panels = document.querySelectorAll('.tab-panel');
+    if (!select) return;
 
-    const activate = (name) => {
-        buttons.forEach((btn) => {
-            const isActive = btn.dataset.tab === name;
-            btn.classList.toggle('active', isActive);
-            btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
-        });
+    const activate = (name, scroll) => {
         panels.forEach((panel) => {
             const isActive = panel.id === 'panel-' + name;
             panel.classList.toggle('active', isActive);
@@ -30,22 +26,21 @@ const setupTabs = () => {
                 panel.querySelectorAll('.reveal').forEach((el) => el.classList.add('show'));
             }
         });
-        window.scrollTo({ top: 0, behavior: 'auto' });
+        if (select.value !== name) select.value = name;
+        if (scroll) window.scrollTo({ top: 0, behavior: 'auto' });
         if (history.replaceState) history.replaceState(null, '', '#' + name);
     };
 
-    buttons.forEach((btn) => {
-        btn.addEventListener('click', () => activate(btn.dataset.tab));
-    });
+    select.addEventListener('change', () => activate(select.value, true));
 
-    // Open a specific tab if referenced in the URL hash.
+    // Open a specific course if referenced in the URL hash.
     const hash = (window.location.hash || '').replace('#', '');
     if (hash && document.getElementById('panel-' + hash)) {
-        activate(hash);
+        activate(hash, false);
     }
 };
 
 document.addEventListener('DOMContentLoaded', () => {
     observeElements();
-    setupTabs();
+    setupCourseSwitch();
 });
