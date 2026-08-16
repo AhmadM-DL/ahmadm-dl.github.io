@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AIxMED Summer Saturdays – AI in Medical Imaging</title>
-    <meta name="description" content="A weekly online series on AI in Medical Imaging. Starting June 13, 2026. Taught by Ahmad Mustapha, doctoral researcher at AUB.">
+    <title>AIxMED Course – AI in Medical Imaging</title>
+    <meta name="description" content="AI in Medical Imaging courses by Ahmad Mustapha, doctoral researcher at AUB. Choose the AIxMed26 weekly Summer Saturdays series or the AIxMed26 Intensive bootcamp.">
     <meta name="author" content="Ahmad Mustapha">
     <link rel="canonical" href="https://mustaphaxai.com/aixmedcourse">
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://mustaphaxai.com/aixmedcourse">
-    <meta property="og:title" content="AIxMED Summer Saturdays – AI in Medical Imaging">
-    <meta property="og:description" content="A weekly online deep-dive into AI for medical imaging, covering the full stack: from the ML cycle, SVMs, and neural networks to CNNs, Transformers, medical image modalities, and hands-on sessions with BioMedCLIP, RAD DINO, UNet, and state-of-the-art generative models. Starting June 13, 2026.">
+    <meta property="og:title" content="AIxMED Course – AI in Medical Imaging">
+    <meta property="og:description" content="A deep-dive into AI for medical imaging, covering the full stack: from the ML cycle, SVMs, and neural networks to CNNs, Transformers, medical image modalities, and hands-on sessions with BioMedCLIP, RAD DINO, UNet, and state-of-the-art generative models. Available as the AIxMed26 weekly series or the AIxMed26 Intensive bootcamp.">
     <meta property="og:image" content="https://mustaphaxai.com/resources/social.png">
     <link rel="icon" type="image/png" href="../resources/favicon.png">
 
@@ -96,6 +96,38 @@
         }
         .nav-back:hover { color: var(--teal); }
 
+        /* ── Course Switch Banner ── */
+        .course-switch {
+            position: fixed; top: 3.75rem; left: 0; right: 0;
+            background: rgba(255,255,255,0.96);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            z-index: 99;
+            height: 3.25rem;
+            display: flex; align-items: center;
+        }
+        .course-switch .container {
+            width: 100%;
+            display: flex; align-items: center; justify-content: flex-end;
+        }
+        /* classical native select, floated right */
+        .course-select {
+            font-family: inherit; font-size: 0.9rem; font-weight: 500;
+            color: var(--navy); background: #fff;
+            padding: 0.35rem 0.6rem;
+            border: 1px solid var(--border); border-radius: 0.4rem;
+            cursor: pointer; outline: none; max-width: 80vw;
+        }
+        .course-select:hover { border-color: var(--slate-light); }
+        .course-select:focus { border-color: var(--teal); }
+        @media (max-width: 520px) {
+            .course-select { font-size: 0.82rem; max-width: 72vw; }
+        }
+
+        /* ── Tab Panels ── */
+        .tab-panel { display: none; }
+        .tab-panel.active { display: block; }
+
         /* ── Reveal animation ── */
         .reveal { opacity: 0; transform: translateY(1.5rem); transition: opacity 0.6s ease, transform 0.6s ease; }
         .reveal.show { opacity: 1; transform: translateY(0); }
@@ -105,15 +137,15 @@
             min-height: 100vh;
             background: linear-gradient(160deg, #f0fdfa 0%, #e0f2fe 60%, #f8fafc 100%);
             display: flex; align-items: center;
-            padding-top: 3.75rem;
+            padding-top: 7rem;
         }
         .hero-inner {
             display: grid; grid-template-columns: 1fr 1fr;
             gap: 4rem; align-items: center;
-            padding: 5rem 0;
+            padding: 4rem 0 5rem;
         }
         @media (max-width: 768px) {
-            .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; padding: 3rem 0; text-align: center; }
+            .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; padding: 2.5rem 0 3rem; text-align: center; }
         }
         .hero-badge {
             display: inline-flex; align-items: center; gap: 0.5rem;
@@ -391,6 +423,21 @@
     </div>
 </nav>
 
+<!-- Course history -->
+<div class="course-switch">
+    <div class="container">
+        <select class="course-select" id="course-select" aria-label="Course history" title="Course history">
+            <option value="aixmed26intensive">AIxMed26Intensive</option>
+            <option value="aixmed26">AIxMed26</option>
+        </select>
+    </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════════ -->
+<!-- TAB 1 · AIxMed26 — Summer Saturdays weekly series                   -->
+<!-- ══════════════════════════════════════════════════════════════════ -->
+<div class="tab-panel" id="panel-aixmed26">
+
 <!-- Hero -->
 <section class="hero">
     <div class="container">
@@ -646,7 +693,7 @@
                 <i class="fas fa-exclamation-circle"></i>
                 Only 30 spots available. First come, first served.
             </div>
-            <form class="reg-form" id="reg-form">
+            <form class="reg-form" id="reg-form" data-course="AIxMed26 · Summer Saturdays">
                 <div class="form-row">
                     <input type="text"  name="first_name"    placeholder="First Name"    required>
                     <input type="text"  name="last_name"     placeholder="Last Name"     required>
@@ -698,11 +745,409 @@
                     <i class="fas fa-edit"></i> Register to Reserve Your Spot
                 </button>
 
-                <div id="reg-msg"></div>
+                <div class="reg-msg"></div>
             </form>
         </div>
     </div>
 </section>
+
+</div><!-- /panel-aixmed26 -->
+
+<!-- ══════════════════════════════════════════════════════════════════ -->
+<!-- TAB 2 · AIxMed26Intensive — condensed bootcamp                      -->
+<!-- ══════════════════════════════════════════════════════════════════ -->
+<div class="tab-panel active" id="panel-aixmed26intensive">
+
+<!-- Hero -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-inner">
+            <div class="hero-text reveal">
+                <div class="hero-badge">
+                    <span class="dot"></span>
+                    2nd Cohort · Sep 21 – Oct 2, 2026
+                </div>
+                <h1 class="hero-title">
+                    AI in<br>
+                    <span class="accent">Medical Imaging</span><br>
+                    Intensive Bootcamp
+                </h1>
+                <p class="hero-subtitle">
+                    The full AIxMed curriculum delivered in person as a focused, hands-on bootcamp.
+                    The complete stack — from the ML cycle and SVMs to CNNs, Transformers, and hands-on
+                    BioMedCLIP, RAD DINO, UNet, and generative models — over two intensive weeks at IMCAN,
+                    Beirut, for those who want to go from foundations to deployed fast.
+                </p>
+                <div class="hero-meta">
+                    <span class="meta-item"><i class="fas fa-calendar-alt"></i> Sep 21 – Oct 2, 2026</span>
+                    <span class="meta-item"><i class="fas fa-map-marker-alt"></i> IMCAN, Centro Mall, Jnah — Beirut</span>
+                    <span class="meta-item"><i class="fas fa-chalkboard-teacher"></i> In Person</span>
+                    <span class="meta-item"><i class="fas fa-users"></i> 12 Spots Max</span>
+                </div>
+                <div class="hero-cta">
+                    <a href="#register-intensive" class="btn btn-primary">
+                        <i class="fas fa-edit"></i> Register Now , $150
+                    </a>
+                    <a href="#topics-intensive" class="btn btn-outline">View Curriculum</a>
+                </div>
+            </div>
+
+            <div class="hero-visual reveal">
+                <div class="hero-card">
+                    <div class="hero-card-header">
+                        <div class="card-icon"><i class="fas fa-bolt"></i></div>
+                        <div>
+                            <div class="card-title">AIxMED Intensive Bootcamp</div>
+                            <div class="card-sub">2nd Cohort · In Person · IMCAN, Beirut</div>
+                        </div>
+                    </div>
+                    <ul class="topic-list">
+                        <li><i class="fas fa-check-circle"></i> Machine Learning Cycle</li>
+                        <li><i class="fas fa-check-circle"></i> Hands-on Scikit-Learn & SVM</li>
+                        <li><i class="fas fa-check-circle"></i> NNs, CNNs & Transformers</li>
+                        <li><i class="fas fa-check-circle"></i> Medical Image Modalities</li>
+                        <li><i class="fas fa-check-circle"></i> Medical Tasks & Hands-on Models</li>
+                        <li><i class="fas fa-check-circle"></i> BioMedCLIP, RAD DINO, UNet</li>
+                        <li><i class="fas fa-check-circle"></i> Nvidia Generative Models</li>
+                        <li><i class="fas fa-check-circle"></i> Capstone Project</li>
+                    </ul>
+                    <div class="card-footer">
+                        <div>
+                            <div class="price-tag">$150</div>
+                            <div class="price-desc">In-person intensive</div>
+                        </div>
+                        <span class="spots-badge">12 spots only</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Stats -->
+<div class="stats-strip">
+    <div class="container">
+        <div class="stats-grid">
+            <div class="reveal">
+                <span class="stat-value">10</span>
+                <div class="stat-label">In-Person Sessions</div>
+            </div>
+            <div class="reveal">
+                <span class="stat-value">2 wks</span>
+                <div class="stat-label">Sep 21 – Oct 2</div>
+            </div>
+            <div class="reveal">
+                <span class="stat-value">12</span>
+                <div class="stat-label">Max Participants</div>
+            </div>
+            <div class="reveal">
+                <span class="stat-value">$150</span>
+                <div class="stat-label">Full Price</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Topics -->
+<section id="topics-intensive" class="topics">
+    <div class="container">
+        <div class="reveal">
+            <span class="section-label">Curriculum</span>
+            <h2 class="section-title">What You Will Learn</h2>
+            <p class="section-subtitle">
+                The same complete curriculum as the Summer series, delivered in person across ten
+                daily sessions over two weeks, capped by a capstone project.
+            </p>
+        </div>
+        <div class="topics-grid">
+            <div class="topic-card reveal">
+                <div class="topic-num">Day 01 · Sep 21</div>
+                <div class="topic-name">Machine Learning Cycle</div>
+                <div class="topic-desc">End-to-end ML workflow: problem framing, data preparation, model training, evaluation, and iteration.</div>
+            </div>
+            <div class="topic-card reveal">
+                <div class="topic-num">Day 02 · Sep 22</div>
+                <div class="topic-name">Hands-on Scikit-Learn & SVM</div>
+                <div class="topic-desc">Support Vector Machines and classical ML in practice using Scikit-Learn on real datasets.</div>
+            </div>
+            <div class="topic-card reveal">
+                <div class="topic-num">Day 03 · Sep 23</div>
+                <div class="topic-name">Intro to Neural Networks</div>
+                <div class="topic-desc">Perceptrons, backpropagation, activation functions, and training dynamics from the ground up.</div>
+            </div>
+            <div class="topic-card reveal">
+                <div class="topic-num">Day 04 · Sep 24</div>
+                <div class="topic-name">CNNs & Transformers</div>
+                <div class="topic-desc">Convolutional networks for image features and Vision Transformers for global context in medical imaging.</div>
+            </div>
+            <div class="topic-card reveal">
+                <div class="topic-num">Day 05 · Sep 25</div>
+                <div class="topic-name">Medical Image Modalities</div>
+                <div class="topic-desc">X-ray, MRI, CT, ultrasound, and pathology slides — characteristics, challenges, and preprocessing.</div>
+            </div>
+            <div class="topic-card reveal">
+                <div class="topic-num">Day 06 · Sep 28</div>
+                <div class="topic-name">Medical Tasks</div>
+                <div class="topic-desc">Classification, regression, segmentation, and generation as the four core paradigms in medical AI.</div>
+            </div>
+            <div class="topic-card reveal">
+                <div class="topic-num">Day 07 · Sep 29</div>
+                <div class="topic-name">Classification: BioMedCLIP</div>
+                <div class="topic-desc">Hands-on classification using BioMedCLIP — a vision-language model trained on biomedical image-text pairs.</div>
+            </div>
+            <div class="topic-card reveal">
+                <div class="topic-num">Day 08 · Sep 30</div>
+                <div class="topic-name">Regression: RAD DINO</div>
+                <div class="topic-desc">Hands-on regression for radiology with RAD DINO, covering dose and outcome prediction from imaging data.</div>
+            </div>
+            <div class="topic-card reveal">
+                <div class="topic-num">Day 09 · Oct 1</div>
+                <div class="topic-name">Segmentation: UNet</div>
+                <div class="topic-desc">Hands-on medical image segmentation using UNet — the gold-standard encoder-decoder architecture.</div>
+            </div>
+            <div class="topic-card reveal">
+                <div class="topic-num">Day 10 · Oct 2</div>
+                <div class="topic-name">Generation: Nvidia Models</div>
+                <div class="topic-desc">Generative AI for medical imaging using Nvidia's medical AI models for synthetic data and augmentation.</div>
+            </div>
+            <div class="topic-card reveal topic-card--project">
+                <div class="topic-num">Capstone</div>
+                <div class="topic-name">Project</div>
+                <div class="topic-desc">Apply the full pipeline to a real medical imaging problem of your choice, from data to a working model.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Format -->
+<section class="format">
+    <div class="container">
+        <div class="reveal">
+            <span class="section-label">Format</span>
+            <h2 class="section-title">How It Works</h2>
+            <p class="section-subtitle">Built for those who want to master the full stack fast, hands-on and in person.</p>
+        </div>
+        <div class="format-grid">
+            <div class="format-item reveal">
+                <div class="format-icon"><i class="fas fa-map-marker-alt"></i></div>
+                <h3>In Person</h3>
+                <p>Held on-site at IMCAN, Centro Mall, Jnah — Beirut. Face-to-face with the instructor.</p>
+            </div>
+            <div class="format-item reveal">
+                <div class="format-icon"><i class="fas fa-bolt"></i></div>
+                <h3>Two Intensive Weeks</h3>
+                <p>Ten daily sessions from Sep 21 to Oct 2, 2026 — the whole curriculum, start to finish.</p>
+            </div>
+            <div class="format-item reveal">
+                <div class="format-icon"><i class="fas fa-laptop-code"></i></div>
+                <h3>Hands-on Code</h3>
+                <p>Every session includes live coding, exercises, and real medical imaging examples.</p>
+            </div>
+            <div class="format-item reveal">
+                <div class="format-icon"><i class="fas fa-user-friends"></i></div>
+                <h3>Tight Cohort</h3>
+                <p>Maximum 12 participants for a high-touch, interactive intensive experience.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Prerequisites -->
+<section class="format" style="padding-top:0;">
+    <div class="container">
+        <div class="reveal">
+            <span class="section-label">Prerequisites</span>
+            <h2 class="section-title">What You Need to Bring</h2>
+            <p class="section-subtitle">One requirement to get the most out of the hands-on sessions.</p>
+        </div>
+        <div class="format-grid">
+            <div class="format-item reveal">
+                <div class="format-icon"><i class="fab fa-python"></i></div>
+                <h3>Python Experience</h3>
+                <p>Comfort with basic Python — variables, functions, loops, and working with libraries — so you can dive straight into the hands-on coding.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Who It's For -->
+<section class="topics">
+    <div class="container">
+        <div class="reveal">
+            <span class="section-label">Audience</span>
+            <h2 class="section-title">Who It's For</h2>
+            <p class="section-subtitle">Designed for students and researchers ready to build real medical-AI skills.</p>
+        </div>
+        <div class="topics-grid">
+            <div class="topic-card reveal">
+                <div class="topic-num"><i class="fas fa-laptop-code"></i> Students</div>
+                <div class="topic-name">Computer Science Students</div>
+                <div class="topic-desc">CS students who want to add applied AI and medical imaging to their toolkit.</div>
+            </div>
+            <div class="topic-card reveal">
+                <div class="topic-num"><i class="fas fa-microchip"></i> Students</div>
+                <div class="topic-name">Computer Engineering Students</div>
+                <div class="topic-desc">CE students looking to pair systems knowledge with modern AI engineering.</div>
+            </div>
+            <div class="topic-card reveal">
+                <div class="topic-num"><i class="fas fa-heartbeat"></i> Students</div>
+                <div class="topic-name">Biomedical Students</div>
+                <div class="topic-desc">Biomedical students who want to bring AI into their research and clinical work.</div>
+            </div>
+            <div class="topic-card reveal">
+                <div class="topic-num"><i class="fas fa-flask"></i> Professionals</div>
+                <div class="topic-name">Researchers</div>
+                <div class="topic-desc">Researchers aiming to apply state-of-the-art models to their own imaging problems.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- What You Get -->
+<section class="format">
+    <div class="container">
+        <div class="reveal">
+            <span class="section-label">Outcomes</span>
+            <h2 class="section-title">What You Get</h2>
+            <p class="section-subtitle">Concrete, career-focused skills you can put to work right away.</p>
+        </div>
+        <div class="format-grid">
+            <div class="format-item reveal">
+                <div class="format-icon"><i class="fas fa-briefcase"></i></div>
+                <h3>For Software Engineers</h3>
+                <p>AI engineering skills that let software engineers step into AI engineering roles and jobs.</p>
+            </div>
+            <div class="format-item reveal">
+                <div class="format-icon"><i class="fas fa-chart-line"></i></div>
+                <h3>For Biomedical Engineers</h3>
+                <p>AI engineering skills that let biomedical engineers grow and advance as researchers.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Instructor -->
+<section class="instructor">
+    <div class="container">
+        <div class="reveal" style="text-align:center; margin-bottom:3rem;">
+            <span class="section-label">Instructor</span>
+            <h2 class="section-title">Meet Your Instructor</h2>
+        </div>
+        <div class="instructor-inner reveal">
+            <img src="../resources/Professional-Picture-Me.png"
+                 alt="Ahmad Mustapha" class="instructor-photo">
+            <div>
+                <div class="instructor-name">Ahmad Mustapha</div>
+                <div class="instructor-role">Doctoral Researcher · American University of Beirut</div>
+                <p class="instructor-bio">
+                    Ahmad is a doctoral researcher at AUB specializing in AI for medical imaging,
+                    with a focus on unsupervised deep learning, representation learning, and bias in
+                    medical AI systems. He has led and contributed to projects spanning X-ray disease
+                    detection, vehicle detection in the wild, and multi-service AI platforms.
+                    His mission is to make cutting-edge medical AI accessible to clinicians,
+                    researchers, and engineers alike.
+                </p>
+                <div class="instructor-links">
+                    <a href="https://scholar.google.com/citations?user=udbsTuwAAAAJ&hl=en" target="_blank" class="instructor-link">
+                        <i class="fas fa-graduation-cap"></i> Google Scholar
+                    </a>
+                    <a href="https://www.linkedin.com/in/ahmad-mustapha-ml" target="_blank" class="instructor-link">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                    <a href="https://github.com/AhmadM-DL" target="_blank" class="instructor-link">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                    <a href="mailto:ahmad.m.mustapha@hotmail.com" class="instructor-link">
+                        <i class="fas fa-envelope"></i> Email
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Pricing -->
+<section class="pricing" id="register-intensive">
+    <div class="container">
+        <div class="reveal" style="text-align:center;">
+            <span class="section-label">Pricing</span>
+            <h2 class="section-title">Simple, Transparent Pricing</h2>
+            <p class="section-subtitle" style="margin: 0 auto;">In-person intensive pricing , spots are strictly limited.</p>
+        </div>
+        <div class="pricing-card reveal">
+            <div class="pricing-label">2nd Cohort · In-Person Intensive · Beirut 2026</div>
+            <div class="pricing-amount">$150</div>
+            <div class="pricing-note">One-time payment · Payment instructions sent after registration</div>
+            <ul class="pricing-features">
+                <li><i class="fas fa-check"></i> 10 in-person sessions (Sep 21 – Oct 2)</li>
+                <li><i class="fas fa-check"></i> On-site at IMCAN, Centro Mall, Jnah — Beirut</li>
+                <li><i class="fas fa-check"></i> Hands-on coding exercises</li>
+                <li><i class="fas fa-check"></i> Course completion certificate</li>
+                <li><i class="fas fa-check"></i> Direct access to instructor</li>
+            </ul>
+            <div class="pricing-warning">
+                <i class="fas fa-exclamation-circle"></i>
+                Only 12 spots available. First come, first served.
+            </div>
+            <form class="reg-form" id="reg-form-intensive" data-course="AIxMed26Intensive · 2nd Cohort · In Person (Beirut)">
+                <div class="form-row">
+                    <input type="text"  name="first_name"    placeholder="First Name"    required>
+                    <input type="text"  name="last_name"     placeholder="Last Name"     required>
+                </div>
+                <select name="country" required>
+                    <option value="" disabled selected>Country</option>
+                    <option>Afghanistan</option><option>Albania</option><option>Algeria</option>
+                    <option>Argentina</option><option>Armenia</option><option>Australia</option>
+                    <option>Austria</option><option>Azerbaijan</option><option>Bahrain</option>
+                    <option>Bangladesh</option><option>Belarus</option><option>Belgium</option>
+                    <option>Bolivia</option><option>Brazil</option><option>Bulgaria</option>
+                    <option>Cambodia</option><option>Canada</option><option>Chile</option>
+                    <option>China</option><option>Colombia</option><option>Croatia</option>
+                    <option>Cyprus</option><option>Czech Republic</option><option>Denmark</option>
+                    <option>Ecuador</option><option>Egypt</option><option>Ethiopia</option>
+                    <option>Finland</option><option>France</option><option>Georgia</option>
+                    <option>Germany</option><option>Ghana</option><option>Greece</option>
+                    <option>Hungary</option><option>India</option><option>Indonesia</option>
+                    <option>Iran</option><option>Iraq</option><option>Ireland</option>
+                    <option>Israel</option><option>Italy</option><option>Japan</option>
+                    <option>Jordan</option><option>Kazakhstan</option><option>Kenya</option>
+                    <option>Kuwait</option><option>Lebanon</option><option>Libya</option>
+                    <option>Malaysia</option><option>Mexico</option><option>Morocco</option>
+                    <option>Netherlands</option><option>New Zealand</option><option>Nigeria</option>
+                    <option>Norway</option><option>Oman</option><option>Pakistan</option>
+                    <option>Palestine</option><option>Peru</option><option>Philippines</option>
+                    <option>Poland</option><option>Portugal</option><option>Qatar</option>
+                    <option>Romania</option><option>Russia</option><option>Saudi Arabia</option>
+                    <option>Senegal</option><option>Serbia</option><option>Singapore</option>
+                    <option>South Africa</option><option>South Korea</option><option>Spain</option>
+                    <option>Sri Lanka</option><option>Sudan</option><option>Sweden</option>
+                    <option>Switzerland</option><option>Syria</option><option>Taiwan</option>
+                    <option>Thailand</option><option>Tunisia</option><option>Turkey</option>
+                    <option>Ukraine</option><option>United Arab Emirates</option>
+                    <option>United Kingdom</option><option>United States</option>
+                    <option>Uzbekistan</option><option>Venezuela</option><option>Vietnam</option>
+                    <option>Yemen</option><option>Other</option>
+                </select>
+                <input type="email" name="email" placeholder="Email Address" required>
+                <select name="ai_experience" required>
+                    <option value="" disabled selected>AI Experience Level</option>
+                    <option value="none">No experience</option>
+                    <option value="beginner">Beginner – aware of concepts</option>
+                    <option value="intermediate">Intermediate – some hands-on work</option>
+                    <option value="advanced">Advanced – professional experience</option>
+                </select>
+                <input type="text" name="referral_code" placeholder="Referral Code (optional)">
+                <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center; font-size:1rem;">
+                    <i class="fas fa-edit"></i> Register to Reserve Your Spot
+                </button>
+
+                <div class="reg-msg"></div>
+            </form>
+        </div>
+    </div>
+</section>
+
+</div><!-- /panel-aixmed26intensive -->
 
 
 <footer>
@@ -721,42 +1166,47 @@
 <script src="script.js"></script>
 <script>
 (function () {
-    const form = document.getElementById('reg-form');
-    const msg  = document.getElementById('reg-msg');
+    // Handle both registration forms (AIxMed26 and AIxMed26Intensive).
+    document.querySelectorAll('.reg-form').forEach(function (form) {
+        const msg = form.querySelector('.reg-msg');
+        const course = form.getAttribute('data-course') || 'AIxMED';
 
-    form.addEventListener('submit', async function (e) {
-        e.preventDefault();
-        const btn = form.querySelector('button[type="submit"]');
-        btn.disabled = true;
-        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting…';
-        msg.innerHTML = '';
+        form.addEventListener('submit', async function (e) {
+            e.preventDefault();
+            const btn = form.querySelector('button[type="submit"]');
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting…';
+            msg.innerHTML = '';
 
-        const payload = {
-            _subject: 'New AIxMED Registration – ' + form.first_name.value.trim() + ' ' + form.last_name.value.trim(),
-            _replyto: form.email.value.trim(),
-            Name:            form.first_name.value.trim() + ' ' + form.last_name.value.trim(),
-            Country:         form.country.value,
-            Email:           form.email.value.trim(),
-            'AI Experience': form.ai_experience.value,
-            Referral:        form.referral.value.trim() || '—'
-        };
+            const referralField = form.referral_code || form.referral;
+            const payload = {
+                _subject: 'New AIxMED Registration (' + course + ') – ' + form.first_name.value.trim() + ' ' + form.last_name.value.trim(),
+                _replyto: form.email.value.trim(),
+                Course:          course,
+                Name:            form.first_name.value.trim() + ' ' + form.last_name.value.trim(),
+                Country:         form.country.value,
+                Email:           form.email.value.trim(),
+                'AI Experience': form.ai_experience.value,
+                'Referral Code': (referralField && referralField.value.trim()) || '—'
+            };
 
-        try {
-            const res = await fetch('https://formsubmit.co/ajax/ahmad.m.mustapha@hotmail.com', {
-                method:  'POST',
-                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-                body:    JSON.stringify(payload)
-            });
-            if (!res.ok) throw new Error('HTTP ' + res.status);
-            gtag('event', 'conversion', { send_to: 'AW-18206577205/ttYjCIL_6bccELWkyelD' });
-            form.reset();
-            msg.innerHTML = '<div class="form-msg success"><i class="fas fa-check-circle"></i> Registration complete! We will contact you soon.</div>';
-            btn.innerHTML = '<i class="fas fa-check"></i> Registered!';
-        } catch (err) {
-            msg.innerHTML = '<div class="form-msg error">Something went wrong. Please try again or email <a href="mailto:ahmad.m.mustapha@hotmail.com" style="color:inherit;text-decoration:underline">ahmad.m.mustapha@hotmail.com</a> directly.</div>';
-            btn.disabled = false;
-            btn.innerHTML = '<i class="fas fa-edit"></i> Register to Reserve Your Spot';
-        }
+            try {
+                const res = await fetch('https://formsubmit.co/ajax/ahmad.m.mustapha@hotmail.com', {
+                    method:  'POST',
+                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                    body:    JSON.stringify(payload)
+                });
+                if (!res.ok) throw new Error('HTTP ' + res.status);
+                gtag('event', 'conversion', { send_to: 'AW-18206577205/ttYjCIL_6bccELWkyelD' });
+                form.reset();
+                msg.innerHTML = '<div class="form-msg success"><i class="fas fa-check-circle"></i> Registration complete! We will contact you soon.</div>';
+                btn.innerHTML = '<i class="fas fa-check"></i> Registered!';
+            } catch (err) {
+                msg.innerHTML = '<div class="form-msg error">Something went wrong. Please try again or email <a href="mailto:ahmad.m.mustapha@hotmail.com" style="color:inherit;text-decoration:underline">ahmad.m.mustapha@hotmail.com</a> directly.</div>';
+                btn.disabled = false;
+                btn.innerHTML = '<i class="fas fa-edit"></i> Register to Reserve Your Spot';
+            }
+        });
     });
 })();
 </script>
