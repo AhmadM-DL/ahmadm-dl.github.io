@@ -299,6 +299,31 @@
         .format-item h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.4rem; }
         .format-item p { font-size: 0.875rem; color: var(--slate); }
 
+        /* ── Testimonials ── */
+        .testimonials { background: var(--surface); }
+        .testimonials-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem; margin-top: 3rem;
+        }
+        .testimonial-card {
+            background: white; border: 1px solid var(--border);
+            border-radius: var(--radius); padding: 1.75rem;
+            display: flex; flex-direction: column;
+            transition: var(--transition);
+        }
+        .testimonial-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--teal); }
+        .testimonial-quote-icon { color: var(--teal); font-size: 1.4rem; margin-bottom: 0.85rem; opacity: 0.9; }
+        .testimonial-text { font-size: 0.95rem; color: var(--slate); line-height: 1.7; font-style: italic; flex: 1; }
+        .testimonial-author { display: flex; align-items: center; gap: 0.85rem; margin-top: 1.35rem; }
+        .testimonial-avatar {
+            width: 2.75rem; height: 2.75rem; border-radius: 50%;
+            background: var(--gradient); color: white;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 700; font-size: 1rem; flex-shrink: 0;
+        }
+        .testimonial-name { font-size: 0.95rem; font-weight: 700; color: var(--navy); }
+        .testimonial-role { font-size: 0.8rem; color: var(--slate-light); }
+
         /* ── Prerequisite callout ── */
         .prereq-callout {
             max-width: 640px; margin: 0 auto;
@@ -1086,6 +1111,52 @@
                     <a href="mailto:ahmad.m.mustapha@hotmail.com" class="instructor-link">
                         <i class="fas fa-envelope"></i> Email
                     </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials -->
+<section class="testimonials">
+    <div class="container">
+        <div class="reveal" style="text-align:center;">
+            <span class="section-label">Testimonials</span>
+            <h2 class="section-title">What Our Students Say</h2>
+            <p class="section-subtitle" style="margin: 0 auto;">Feedback from participants of the first AIxMED cohort.</p>
+        </div>
+        <div class="testimonials-grid reveal">
+            <div class="testimonial-card">
+                <div class="testimonial-quote-icon"><i class="fas fa-quote-left"></i></div>
+                <p class="testimonial-text">I truly learned a lot from this course and really appreciate the effort you put into this course.</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">H</div>
+                    <div>
+                        <div class="testimonial-name">Hawraa</div>
+                        <div class="testimonial-role">First Cohort Participant</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-quote-icon"><i class="fas fa-quote-left"></i></div>
+                <p class="testimonial-text">I am grateful to have had the opportunity to be part of this first cohort through which I have learned a lot.</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">S</div>
+                    <div>
+                        <div class="testimonial-name">Sundos</div>
+                        <div class="testimonial-role">First Cohort Participant</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-quote-icon"><i class="fas fa-quote-left"></i></div>
+                <p class="testimonial-text">We truly learned a lot throughout the sessions, and we really appreciate the time, guidance, and effort you put into making the series such a valuable experience for us.</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">A</div>
+                    <div>
+                        <div class="testimonial-name">Abeer</div>
+                        <div class="testimonial-role">First Cohort Participant</div>
+                    </div>
                 </div>
             </div>
         </div>
