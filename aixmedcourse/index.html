@@ -395,16 +395,16 @@
             border-radius: var(--radius); box-shadow: var(--shadow-sm);
             padding: 1.1rem 2.25rem; min-width: 12rem;
             display: flex; align-items: center; justify-content: center;
-            transition: var(--transition);
+            text-decoration: none; transition: var(--transition);
         }
-        .sponsor-item:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
+        .sponsor-item:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); border-color: var(--teal); }
         .sponsor-item img { max-height: 3.25rem; width: auto; object-fit: contain; }
-        .sponsor-item--mark img { max-height: 4.25rem; }
+        .sponsor-item--mark img { max-height: 5.75rem; }
         @media (max-width: 520px) {
             .sponsors-grid { gap: 1.25rem; }
             .sponsor-item { min-width: 9rem; padding: 1rem 1.75rem; }
             .sponsor-item img { max-height: 2.75rem; }
-            .sponsor-item--mark img { max-height: 3.5rem; }
+            .sponsor-item--mark img { max-height: 4.5rem; }
         }
 
         /* ── Footer ── */
@@ -1183,12 +1183,12 @@
             <h2 class="section-title">Our Sponsors</h2>
         </div>
         <div class="sponsors-grid reveal">
-            <div class="sponsor-item">
+            <a class="sponsor-item" href="https://teachmorelb.com" target="_blank" rel="noopener" aria-label="Teachmore">
                 <img src="../resources/teachmore.png" alt="Teachmore">
-            </div>
-            <div class="sponsor-item sponsor-item--mark">
+            </a>
+            <a class="sponsor-item sponsor-item--mark" href="https://imcan.space" target="_blank" rel="noopener" aria-label="IMCAN">
                 <img src="../resources/imcan.png" alt="IMCAN">
-            </div>
+            </a>
         </div>
     </div>
 </section>
