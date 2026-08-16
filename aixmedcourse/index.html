@@ -96,32 +96,21 @@
         }
         .nav-back:hover { color: var(--teal); }
 
-        /* ── Course Switch Banner ── */
-        .course-switch {
-            position: fixed; top: 3.75rem; left: 0; right: 0;
-            background: rgba(255,255,255,0.96);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border);
-            z-index: 99;
-            height: 3.25rem;
-            display: flex; align-items: center;
-        }
-        .course-switch .container {
-            width: 100%;
-            display: flex; align-items: center; justify-content: flex-end;
-        }
-        /* classical native select, floated right */
+        /* ── Nav right group + course select ── */
+        .nav-right { display: flex; align-items: center; gap: 1rem; }
+        /* classical native select, sits in the nav */
         .course-select {
-            font-family: inherit; font-size: 0.9rem; font-weight: 500;
+            font-family: inherit; font-size: 0.85rem; font-weight: 500;
             color: var(--navy); background: #fff;
-            padding: 0.35rem 0.6rem;
+            padding: 0.3rem 0.55rem;
             border: 1px solid var(--border); border-radius: 0.4rem;
-            cursor: pointer; outline: none; max-width: 80vw;
+            cursor: pointer; outline: none; max-width: 50vw;
         }
         .course-select:hover { border-color: var(--slate-light); }
         .course-select:focus { border-color: var(--teal); }
         @media (max-width: 520px) {
-            .course-select { font-size: 0.82rem; max-width: 72vw; }
+            .nav-right { gap: 0.6rem; }
+            .nav-back-text { display: none; }
         }
 
         /* ── Tab Panels ── */
@@ -137,7 +126,7 @@
             min-height: 100vh;
             background: linear-gradient(160deg, #f0fdfa 0%, #e0f2fe 60%, #f8fafc 100%);
             display: flex; align-items: center;
-            padding-top: 7rem;
+            padding-top: 3.75rem;
         }
         .hero-inner {
             display: grid; grid-template-columns: 1fr 1fr;
@@ -310,6 +299,27 @@
         .format-item h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.4rem; }
         .format-item p { font-size: 0.875rem; color: var(--slate); }
 
+        /* ── Prerequisite callout ── */
+        .prereq-callout {
+            max-width: 640px; margin: 0 auto;
+            display: flex; align-items: center; gap: 1.25rem;
+            background: var(--teal-light);
+            border: 1px solid rgba(13,148,136,0.28);
+            border-radius: var(--radius);
+            padding: 1.25rem 1.5rem;
+        }
+        .prereq-icon {
+            flex-shrink: 0;
+            width: 3rem; height: 3rem; border-radius: 0.75rem;
+            background: var(--teal); color: #fff;
+            display: flex; align-items: center; justify-content: center; font-size: 1.25rem;
+        }
+        .prereq-title { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 0.2rem; }
+        .prereq-desc { font-size: 0.875rem; color: var(--slate); }
+        @media (max-width: 520px) {
+            .prereq-callout { flex-direction: column; text-align: center; gap: 0.9rem; }
+        }
+
         /* ── Instructor ── */
         .instructor { background: var(--surface); }
         .instructor-inner {
@@ -373,6 +383,30 @@
         }
         .partner-item:hover img { opacity: 1; filter: grayscale(0); }
 
+        /* ── Sponsors ── */
+        .sponsors { background: var(--surface); }
+        .sponsors-header { text-align: center; margin-bottom: 2.75rem; }
+        .sponsors-grid {
+            display: flex; justify-content: center; align-items: stretch;
+            gap: 2rem; flex-wrap: wrap;
+        }
+        .sponsor-item {
+            background: #fff; border: 1px solid var(--border);
+            border-radius: var(--radius); box-shadow: var(--shadow-sm);
+            padding: 1.1rem 2.25rem; min-width: 12rem;
+            display: flex; align-items: center; justify-content: center;
+            transition: var(--transition);
+        }
+        .sponsor-item:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
+        .sponsor-item img { max-height: 3.25rem; width: auto; object-fit: contain; }
+        .sponsor-item--mark img { max-height: 4.25rem; }
+        @media (max-width: 520px) {
+            .sponsors-grid { gap: 1.25rem; }
+            .sponsor-item { min-width: 9rem; padding: 1rem 1.75rem; }
+            .sponsor-item img { max-height: 2.75rem; }
+            .sponsor-item--mark img { max-height: 3.5rem; }
+        }
+
         /* ── Footer ── */
         footer {
             background: var(--navy); color: white;
@@ -417,24 +451,20 @@
 <nav>
     <div class="nav-inner">
         <a class="nav-brand" href="/aixmedcourse">AIx<span>MED</span></a>
-        <a class="nav-back" href="https://mustaphaxai.com">
-            <i class="fas fa-arrow-left"></i> Back to Portfolio
-        </a>
+        <div class="nav-right">
+            <select class="course-select" id="course-select" aria-label="Course history" title="Course history">
+                <option value="aixmed26intensive">AIxMed26Intensive</option>
+                <option value="aixmed26">AIxMed26</option>
+            </select>
+            <a class="nav-back" href="https://mustaphaxai.com">
+                <i class="fas fa-arrow-left"></i> <span class="nav-back-text">Back to Portfolio</span>
+            </a>
+        </div>
     </div>
 </nav>
 
-<!-- Course history -->
-<div class="course-switch">
-    <div class="container">
-        <select class="course-select" id="course-select" aria-label="Course history" title="Course history">
-            <option value="aixmed26intensive">AIxMed26Intensive</option>
-            <option value="aixmed26">AIxMed26</option>
-        </select>
-    </div>
-</div>
-
 <!-- ══════════════════════════════════════════════════════════════════ -->
-<!-- TAB 1 · AIxMed26 — Summer Saturdays weekly series                   -->
+<!-- TAB 1 · AIxMed26 · Summer Saturdays weekly series                   -->
 <!-- ══════════════════════════════════════════════════════════════════ -->
 <div class="tab-panel" id="panel-aixmed26">
 
@@ -561,7 +591,7 @@
             <div class="topic-card reveal">
                 <div class="topic-num">Session 05</div>
                 <div class="topic-name">Medical Image Modalities</div>
-                <div class="topic-desc">X-ray, MRI, CT, ultrasound, and pathology slides — characteristics, challenges, and preprocessing.</div>
+                <div class="topic-desc">X-ray, MRI, CT, ultrasound, and pathology slides: characteristics, challenges, and preprocessing.</div>
             </div>
             <div class="topic-card reveal">
                 <div class="topic-num">Session 06</div>
@@ -571,7 +601,7 @@
             <div class="topic-card reveal">
                 <div class="topic-num">Session 07</div>
                 <div class="topic-name">Classification: BioMedCLIP</div>
-                <div class="topic-desc">Hands-on classification using BioMedCLIP — a vision-language model trained on biomedical image-text pairs.</div>
+                <div class="topic-desc">Hands-on classification using BioMedCLIP, a vision-language model trained on biomedical image-text pairs.</div>
             </div>
             <div class="topic-card reveal">
                 <div class="topic-num">Session 08</div>
@@ -581,7 +611,7 @@
             <div class="topic-card reveal">
                 <div class="topic-num">Session 09</div>
                 <div class="topic-name">Segmentation: UNet</div>
-                <div class="topic-desc">Hands-on medical image segmentation using UNet — the gold-standard encoder-decoder architecture.</div>
+                <div class="topic-desc">Hands-on medical image segmentation using UNet, the gold-standard encoder-decoder architecture.</div>
             </div>
             <div class="topic-card reveal">
                 <div class="topic-num">Session 10</div>
@@ -754,7 +784,7 @@
 </div><!-- /panel-aixmed26 -->
 
 <!-- ══════════════════════════════════════════════════════════════════ -->
-<!-- TAB 2 · AIxMed26Intensive — condensed bootcamp                      -->
+<!-- TAB 2 · AIxMed26Intensive · condensed bootcamp                      -->
 <!-- ══════════════════════════════════════════════════════════════════ -->
 <div class="tab-panel active" id="panel-aixmed26intensive">
 
@@ -774,13 +804,13 @@
                 </h1>
                 <p class="hero-subtitle">
                     The full AIxMed curriculum delivered in person as a focused, hands-on bootcamp.
-                    The complete stack — from the ML cycle and SVMs to CNNs, Transformers, and hands-on
-                    BioMedCLIP, RAD DINO, UNet, and generative models — over two intensive weeks at IMCAN,
-                    Beirut, for those who want to go from foundations to deployed fast.
+                    The complete stack, from the ML cycle and SVMs to CNNs, Transformers, and hands-on
+                    BioMedCLIP, RAD DINO, UNet, and generative models, packed into two intensive weeks at
+                    IMCAN, Beirut, for those who want to go from foundations to deployed fast.
                 </p>
                 <div class="hero-meta">
                     <span class="meta-item"><i class="fas fa-calendar-alt"></i> Sep 21 – Oct 2, 2026</span>
-                    <span class="meta-item"><i class="fas fa-map-marker-alt"></i> IMCAN, Centro Mall, Jnah — Beirut</span>
+                    <span class="meta-item"><i class="fas fa-map-marker-alt"></i> IMCAN, Centro Mall, Jnah, Beirut</span>
                     <span class="meta-item"><i class="fas fa-chalkboard-teacher"></i> In Person</span>
                     <span class="meta-item"><i class="fas fa-users"></i> 12 Spots Max</span>
                 </div>
@@ -883,7 +913,7 @@
             <div class="topic-card reveal">
                 <div class="topic-num">Day 05 · Sep 25</div>
                 <div class="topic-name">Medical Image Modalities</div>
-                <div class="topic-desc">X-ray, MRI, CT, ultrasound, and pathology slides — characteristics, challenges, and preprocessing.</div>
+                <div class="topic-desc">X-ray, MRI, CT, ultrasound, and pathology slides: characteristics, challenges, and preprocessing.</div>
             </div>
             <div class="topic-card reveal">
                 <div class="topic-num">Day 06 · Sep 28</div>
@@ -893,7 +923,7 @@
             <div class="topic-card reveal">
                 <div class="topic-num">Day 07 · Sep 29</div>
                 <div class="topic-name">Classification: BioMedCLIP</div>
-                <div class="topic-desc">Hands-on classification using BioMedCLIP — a vision-language model trained on biomedical image-text pairs.</div>
+                <div class="topic-desc">Hands-on classification using BioMedCLIP, a vision-language model trained on biomedical image-text pairs.</div>
             </div>
             <div class="topic-card reveal">
                 <div class="topic-num">Day 08 · Sep 30</div>
@@ -903,7 +933,7 @@
             <div class="topic-card reveal">
                 <div class="topic-num">Day 09 · Oct 1</div>
                 <div class="topic-name">Segmentation: UNet</div>
-                <div class="topic-desc">Hands-on medical image segmentation using UNet — the gold-standard encoder-decoder architecture.</div>
+                <div class="topic-desc">Hands-on medical image segmentation using UNet, the gold-standard encoder-decoder architecture.</div>
             </div>
             <div class="topic-card reveal">
                 <div class="topic-num">Day 10 · Oct 2</div>
@@ -931,12 +961,12 @@
             <div class="format-item reveal">
                 <div class="format-icon"><i class="fas fa-map-marker-alt"></i></div>
                 <h3>In Person</h3>
-                <p>Held on-site at IMCAN, Centro Mall, Jnah — Beirut. Face-to-face with the instructor.</p>
+                <p>Held on-site at IMCAN, Centro Mall, Jnah, Beirut. Face-to-face with the instructor.</p>
             </div>
             <div class="format-item reveal">
                 <div class="format-icon"><i class="fas fa-bolt"></i></div>
                 <h3>Two Intensive Weeks</h3>
-                <p>Ten daily sessions from Sep 21 to Oct 2, 2026 — the whole curriculum, start to finish.</p>
+                <p>Ten daily sessions from Sep 21 to Oct 2, 2026: the whole curriculum, start to finish.</p>
             </div>
             <div class="format-item reveal">
                 <div class="format-icon"><i class="fas fa-laptop-code"></i></div>
@@ -952,19 +982,14 @@
     </div>
 </section>
 
-<!-- Prerequisites -->
+<!-- Prerequisite -->
 <section class="format" style="padding-top:0;">
     <div class="container">
-        <div class="reveal">
-            <span class="section-label">Prerequisites</span>
-            <h2 class="section-title">What You Need to Bring</h2>
-            <p class="section-subtitle">One requirement to get the most out of the hands-on sessions.</p>
-        </div>
-        <div class="format-grid">
-            <div class="format-item reveal">
-                <div class="format-icon"><i class="fab fa-python"></i></div>
-                <h3>Python Experience</h3>
-                <p>Comfort with basic Python — variables, functions, loops, and working with libraries — so you can dive straight into the hands-on coding.</p>
+        <div class="prereq-callout reveal">
+            <div class="prereq-icon"><i class="fab fa-python"></i></div>
+            <div class="prereq-body">
+                <div class="prereq-title">Prerequisite &middot; Python Experience</div>
+                <p class="prereq-desc">Comfort with basic Python (variables, functions, loops, and working with libraries) so you can dive straight into the hands-on coding.</p>
             </div>
         </div>
     </div>
@@ -1080,7 +1105,7 @@
             <div class="pricing-note">One-time payment · Payment instructions sent after registration</div>
             <ul class="pricing-features">
                 <li><i class="fas fa-check"></i> 10 in-person sessions (Sep 21 – Oct 2)</li>
-                <li><i class="fas fa-check"></i> On-site at IMCAN, Centro Mall, Jnah — Beirut</li>
+                <li><i class="fas fa-check"></i> On-site at IMCAN, Centro Mall, Jnah, Beirut</li>
                 <li><i class="fas fa-check"></i> Hands-on coding exercises</li>
                 <li><i class="fas fa-check"></i> Course completion certificate</li>
                 <li><i class="fas fa-check"></i> Direct access to instructor</li>
@@ -1150,6 +1175,25 @@
 </div><!-- /panel-aixmed26intensive -->
 
 
+<!-- Sponsors (shared across courses) -->
+<section class="sponsors">
+    <div class="container">
+        <div class="sponsors-header reveal">
+            <span class="section-label">Sponsors</span>
+            <h2 class="section-title">Our Sponsors</h2>
+        </div>
+        <div class="sponsors-grid reveal">
+            <div class="sponsor-item">
+                <img src="../resources/teachmore.png" alt="Teachmore">
+            </div>
+            <div class="sponsor-item sponsor-item--mark">
+                <img src="../resources/imcan.png" alt="IMCAN">
+            </div>
+        </div>
+    </div>
+</section>
+
+
 <footer>
     <div class="container">
         <div class="footer-inner">
@@ -1187,7 +1231,7 @@
                 Country:         form.country.value,
                 Email:           form.email.value.trim(),
                 'AI Experience': form.ai_experience.value,
-                'Referral Code': (referralField && referralField.value.trim()) || '—'
+                'Referral Code': (referralField && referralField.value.trim()) || 'N/A'
             };
 
             try {
