@@ -1314,7 +1314,7 @@
     const refParam = new URLSearchParams(location.search).get('ref');
     if (refParam) {
         document.querySelectorAll('.reg-form [name="referred_by"]').forEach(function (input) {
-            input.value = refParam;
+            input.value = refParam + ' (Referrer)';
             input.readOnly = true;
             input.classList.add('locked');
             input.setAttribute('title', 'Referrer set from your invite link');
