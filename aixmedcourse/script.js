@@ -31,7 +31,16 @@ const setupCourseSwitch = () => {
         if (history.replaceState) history.replaceState(null, '', '#' + name);
     };
 
-    select.addEventListener('change', () => activate(select.value, true));
+    select.addEventListener('change', () => {
+        // An option may point to a separate cohort page via data-href.
+        const opt = select.options[select.selectedIndex];
+        const href = opt && opt.getAttribute('data-href');
+        if (href) {
+            window.location.href = href;
+            return;
+        }
+        activate(select.value, true);
+    });
 
     // Open a specific course if referenced in the URL hash.
     const hash = (window.location.hash || '').replace('#', '');

@@ -15,6 +15,14 @@
     <meta property="og:image" content="https://mustaphaxai.com/resources/social.png">
     <link rel="icon" type="image/png" href="../resources/favicon.png">
 
+    <!-- Default to the current (3rd) cohort. Older cohorts stay reachable
+         via their #hash links (e.g. /aixmedcourse#aixmed26intensive). -->
+    <script>
+        if (!window.location.hash) {
+            window.location.replace('/aixmedcourse/cohort3/');
+        }
+    </script>
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18206577205"></script>
     <script>
@@ -507,7 +515,8 @@
         <a class="nav-brand" href="/aixmedcourse">AIx<span>MED</span></a>
         <div class="nav-right">
             <select class="course-select" id="course-select" aria-label="Course history" title="Course history">
-                <option value="aixmed26intensive">AIxMed26Intensive</option>
+                <option value="cohort3" data-href="/aixmedcourse/cohort3">AIxMed26 · 3rd Cohort</option>
+                <option value="aixmed26intensive" selected>AIxMed26Intensive</option>
                 <option value="aixmed26">AIxMed26</option>
             </select>
             <a class="nav-back" href="https://mustaphaxai.com">
@@ -1299,9 +1308,6 @@
         <div class="sponsors-grid reveal">
             <a class="sponsor-item" href="https://teachmorelb.com" target="_blank" rel="noopener" aria-label="Teachmore">
                 <img src="../resources/teachmore.png" alt="Teachmore">
-            </a>
-            <a class="sponsor-item sponsor-item--mark" href="https://imcan.space" target="_blank" rel="noopener" aria-label="IMCAN">
-                <img src="../resources/imcan.png" alt="IMCAN">
             </a>
         </div>
     </div>
