@@ -126,10 +126,12 @@
         .stat { text-align: center; background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 1.8rem 1rem; box-shadow: var(--shadow); }
         .stat .n { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 2.3rem; color: var(--brand); line-height: 1; }
         .stat .l { color: var(--muted); font-size: 0.9rem; margin-top: 0.4rem; }
-        .logi { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.8rem 2rem; color: var(--body); font-size: 0.97rem; }
-        .logi span { display: inline-flex; align-items: center; gap: 0.5rem; }
-        .logi i { color: var(--brand); }
-        .logi a { color: var(--brand); font-weight: 600; }
+        .logi { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.3rem; }
+        .logi-card { display: flex; align-items: center; gap: 0.9rem; background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 1.3rem 1.4rem; box-shadow: var(--shadow); }
+        .logi-card .ic { width: 2.8rem; height: 2.8rem; flex-shrink: 0; display: grid; place-items: center; border-radius: 12px; background: var(--brand-l); color: var(--brand); font-size: 1.1rem; }
+        .logi-card .k { font-size: 0.78rem; color: var(--muted); }
+        .logi-card .v { font-weight: 600; color: var(--ink); font-size: 0.97rem; }
+        .logi-card a { color: var(--brand); font-weight: 600; white-space: nowrap; }
 
         /* who */
         .who { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
@@ -200,6 +202,7 @@
             .hero-grid, .who, .reg-grid { grid-template-columns: 1fr; gap: 2rem; }
             .cards { grid-template-columns: repeat(2, 1fr); }
             .stats { grid-template-columns: repeat(2, 1fr); }
+            .logi { grid-template-columns: 1fr; }
             .inst { flex-direction: column; text-align: center; }
             .inst .links { justify-content: center; }
         }
@@ -279,10 +282,10 @@
             <div class="stat reveal"><div class="n">Mon–Fri</div><div class="l">Every weekday</div></div>
             <div class="stat reveal"><div class="n">30 hrs</div><div class="l">Total</div></div>
         </div>
-        <div class="logi reveal">
-            <span><i class="fas fa-calendar-day"></i> January 5–18, 2027</span>
-            <span><i class="fas fa-location-dot"></i> The Submarine Coworking Space, Beirut <a href="https://maps.app.goo.gl/KKNEmzL5thhUYn9k6?g_st=ac" target="_blank" rel="noopener">(map)</a></span>
-            <span><i class="fas fa-user-group"></i> 12 seats</span>
+        <div class="logi">
+            <div class="logi-card reveal"><div class="ic"><i class="fas fa-calendar-day"></i></div><div><div class="k">Dates</div><div class="v">January 5–18, 2027</div></div></div>
+            <div class="logi-card reveal"><div class="ic"><i class="fas fa-location-dot"></i></div><div><div class="k">Location</div><div class="v">The Submarine Coworking Space, Beirut <a href="https://maps.app.goo.gl/KKNEmzL5thhUYn9k6?g_st=ac" target="_blank" rel="noopener">(map)</a></div></div></div>
+            <div class="logi-card reveal"><div class="ic"><i class="fas fa-user-group"></i></div><div><div class="k">Seats</div><div class="v">12 seats</div></div></div>
         </div>
     </div>
 </section>
