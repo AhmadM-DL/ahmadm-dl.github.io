@@ -11,7 +11,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://mustaphaxai.com/aixmedcourse/cohort3">
     <meta property="og:title" content="AIxMed26 · 3rd Cohort – AI in Medical Imaging Bootcamp">
-    <meta property="og:description" content="From zero to hero in AI for medical imaging. An in-person bootcamp for engineers who code in Python. 10 weekdays · 3 hours/day · 30 hours · Beirut, Jan 2027.">
+    <meta property="og:description" content="An in-person bootcamp for engineers who code in Python. 10 weekdays · 3 hours/day · 30 hours · Beirut, Jan 2027.">
     <meta property="og:image" content="https://mustaphaxai.com/resources/social.png">
     <link rel="icon" type="image/png" href="../../resources/favicon.png">
 
@@ -34,181 +34,179 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <style>
         :root {
-            --paper:  #eaf0fb;
-            --card:   #ffffff;
-            --ink:    #102a63;   /* deep blueprint navy */
-            --ink2:   #4a66a8;   /* muted blue */
-            --blue:   #1b44a6;   /* accent blue */
-            --red:    #d8372c;   /* red-pencil annotation */
-            --grid:   #d3defb;
-            --line:   #c2d2f2;
-            --radius: 4px;
+            --brand:   #4f46e5;
+            --brand-d: #4338ca;
+            --brand-l: #eef2ff;
+            --ink:     #0f172a;
+            --body:    #475569;
+            --muted:   #64748b;
+            --bg:      #ffffff;
+            --alt:     #f8fafc;
+            --border:  #e5e7eb;
+            --green:   #16a34a;
+            --radius:  14px;
+            --shadow:  0 1px 2px rgba(15,23,42,0.06), 0 8px 24px rgba(15,23,42,0.06);
+            --shadow-lg: 0 10px 40px rgba(15,23,42,0.12);
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
-        body {
-            font-family: 'Inter', system-ui, sans-serif;
-            color: var(--ink);
-            background-color: var(--paper);
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24'%3E%3Cpath d='M24 0H0V24' fill='none' stroke='%23d3defb' stroke-width='1'/%3E%3C/svg%3E");
-            line-height: 1.55;
-            -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
-        }
-        .wrap { max-width: 1060px; margin: 0 auto; padding: 0 1.4rem; }
+        body { font-family: 'Inter', system-ui, sans-serif; color: var(--body); background: var(--bg); line-height: 1.65; -webkit-font-smoothing: antialiased; }
+        .container { max-width: 1140px; margin: 0 auto; padding: 0 1.5rem; }
         a { color: inherit; text-decoration: none; }
-        .mono { font-family: 'Space Mono', monospace; }
+        h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; color: var(--ink); line-height: 1.2; }
 
-        .ey { font-family: 'Space Mono', monospace; font-size: 0.76rem; color: var(--ink2); letter-spacing: 0.02em; }
-        h1, h2, h3 { font-weight: 800; letter-spacing: -0.025em; line-height: 1.04; }
+        .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; font-weight: 600; font-size: 0.98rem; padding: 0.8rem 1.6rem; border-radius: 10px; cursor: pointer; border: 1px solid transparent; transition: all 0.2s ease; }
+        .btn-primary { background: var(--brand); color: #fff; box-shadow: 0 6px 16px rgba(79,70,229,0.28); }
+        .btn-primary:hover { background: var(--brand-d); transform: translateY(-2px); box-shadow: 0 10px 22px rgba(79,70,229,0.34); }
+        .btn-ghost { background: #fff; color: var(--ink); border-color: var(--border); }
+        .btn-ghost:hover { border-color: var(--brand); color: var(--brand); }
+        .pill { display: inline-flex; align-items: center; gap: 0.45rem; font-size: 0.82rem; font-weight: 600; color: var(--brand); background: var(--brand-l); padding: 0.4rem 0.9rem; border-radius: 999px; }
 
-        /* ── buttons ── */
-        .btn {
-            display: inline-flex; align-items: center; gap: 0.5rem;
-            font-family: 'Space Mono', monospace; font-weight: 700; font-size: 0.9rem;
-            padding: 0.7rem 1.25rem; border-radius: var(--radius); cursor: pointer;
-            border: 1.5px solid var(--ink); background: var(--card); color: var(--ink);
-            transition: background 0.18s ease, color 0.18s ease, transform 0.12s ease;
-        }
-        .btn:hover { transform: translateY(-1px); }
-        .btn-blue { background: var(--blue); border-color: var(--blue); color: #fff; }
-        .btn-blue:hover { background: #163a8f; }
+        /* nav */
+        header.nav { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,0.85); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); }
+        .nav-in { display: flex; align-items: center; justify-content: space-between; padding: 0.85rem 1.5rem; max-width: 1140px; margin: 0 auto; }
+        .brand { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 1.35rem; color: var(--ink); }
+        .brand span { color: var(--brand); }
+        .nav-links { display: flex; align-items: center; gap: 1.8rem; }
+        .nav-links a.lnk { font-size: 0.93rem; font-weight: 500; color: var(--body); }
+        .nav-links a.lnk:hover { color: var(--brand); }
+        .nav-cta { padding: 0.55rem 1.15rem; font-size: 0.9rem; }
+        .nav-toggle { display: none; }
 
-        /* ── nav ── */
-        nav { border-bottom: 1.5px solid var(--ink); background: rgba(234,240,251,0.9); backdrop-filter: blur(6px); position: sticky; top: 0; z-index: 50; }
-        .nav-in { max-width: 1060px; margin: 0 auto; padding: 0.75rem 1.4rem; display: flex; align-items: center; justify-content: space-between; }
-        .brand { font-family: 'Space Mono', monospace; font-weight: 700; font-size: 1.25rem; letter-spacing: -0.02em; }
-        .brand b { color: var(--blue); }
-        .nav-note { font-family: 'Space Mono', monospace; font-size: 0.72rem; color: var(--ink2); margin-left: 0.8rem; }
-        .nav-btn { padding: 0.45rem 0.9rem; font-size: 0.8rem; }
+        /* hero */
+        .hero { background: linear-gradient(180deg, var(--brand-l) 0%, #ffffff 70%); padding: 4.5rem 0 4rem; }
+        .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 3rem; align-items: center; }
+        .hero h1 { font-size: clamp(2.3rem, 5vw, 3.4rem); font-weight: 800; margin: 1.1rem 0 1rem; }
+        .hero h1 .accent { color: var(--brand); }
+        .hero p.sub { font-size: 1.15rem; color: var(--body); max-width: 33rem; margin-bottom: 1.8rem; }
+        .hero-cta { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-bottom: 1.5rem; }
+        .hero-trust { display: flex; flex-wrap: wrap; gap: 0.5rem 1.4rem; font-size: 0.9rem; color: var(--muted); }
+        .hero-trust span { display: inline-flex; align-items: center; gap: 0.45rem; }
+        .hero-trust i { color: var(--green); }
 
-        /* ── hero ── */
-        .hero { padding: 3.4rem 0 3rem; }
-        .hero-grid { display: block; }
-        .hero h1 { font-size: clamp(2.4rem, 6vw, 4rem); margin: 0 0 1rem; }
-        .hero h1 u { text-decoration: none; border-bottom: 3px solid var(--red); }
-        .hero .lead { font-size: 1.12rem; color: var(--ink2); max-width: 32rem; margin-bottom: 1.5rem; }
-        .hero-cta { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-bottom: 1.4rem; }
-        .hero-meta { font-family: 'Space Mono', monospace; font-size: 0.82rem; color: var(--ink2); }
-        .hero-meta b { color: var(--ink); }
+        .info-card { background: #fff; border: 1px solid var(--border); border-radius: 18px; box-shadow: var(--shadow-lg); padding: 1.8rem; }
+        .info-card h3 { font-size: 1.1rem; margin-bottom: 1.1rem; }
+        .info-row { display: flex; align-items: center; gap: 0.9rem; padding: 0.7rem 0; border-top: 1px solid var(--border); }
+        .info-row:first-of-type { border-top: none; }
+        .info-row .ic { width: 2.5rem; height: 2.5rem; flex-shrink: 0; display: grid; place-items: center; border-radius: 10px; background: var(--brand-l); color: var(--brand); font-size: 1rem; }
+        .info-row .k { font-size: 0.78rem; color: var(--muted); }
+        .info-row .v { font-weight: 600; color: var(--ink); font-size: 0.97rem; }
+        .info-card .price-row { margin-top: 1rem; padding-top: 1.1rem; border-top: 2px solid var(--border); display: flex; align-items: baseline; justify-content: space-between; }
+        .info-card .price-row .amt { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 2rem; color: var(--ink); }
+        .info-card .price-row .seats { font-size: 0.82rem; font-weight: 600; color: var(--brand); background: var(--brand-l); padding: 0.3rem 0.7rem; border-radius: 999px; }
 
-        /* title block (engineering drawing) */
-        .titleblock { border: 1.5px solid var(--ink); background: var(--card); border-radius: var(--radius); overflow: hidden; }
-        .titleblock .tb-head { font-family: 'Space Mono', monospace; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; background: var(--ink); color: #fff; padding: 0.5rem 0.8rem; }
-        .tb-rows { display: grid; grid-template-columns: 1fr 1fr; }
-        .tb-cell { padding: 0.7rem 0.8rem; border-top: 1px solid var(--line); border-right: 1px solid var(--line); }
-        .tb-cell:nth-child(2n) { border-right: none; }
-        .tb-cell .k { font-family: 'Space Mono', monospace; font-size: 0.64rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink2); }
-        .tb-cell .v { font-weight: 700; font-size: 0.95rem; margin-top: 0.1rem; }
-        .tb-cell.full { grid-column: 1 / -1; border-right: none; }
-        .tb-cell .v.price { font-size: 1.5rem; color: var(--blue); }
+        /* sections */
+        section { padding: 4.5rem 0; }
+        section.alt { background: var(--alt); }
+        .sec-head { text-align: center; max-width: 42rem; margin: 0 auto 3rem; }
+        .sec-head h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 700; margin: 0.8rem 0 0.6rem; }
+        .sec-head p { color: var(--body); font-size: 1.05rem; }
 
-        /* ── sections ── */
-        section.block { padding: 3.2rem 0; border-top: 1.5px solid var(--ink); }
-        .bh { margin-bottom: 1.8rem; }
-        .bh .sec-no { font-family: 'Space Mono', monospace; font-size: 0.76rem; color: var(--red); font-weight: 700; }
-        .bh h2 { font-size: clamp(1.7rem, 4.5vw, 2.6rem); margin-top: 0.3rem; }
-        .bh p { color: var(--ink2); max-width: 40rem; margin-top: 0.5rem; }
+        /* curriculum grid */
+        .cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.3rem; }
+        .card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; box-shadow: var(--shadow); transition: transform 0.2s ease, box-shadow 0.2s ease; }
+        .card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+        .card .ic { width: 3rem; height: 3rem; display: grid; place-items: center; border-radius: 12px; background: var(--brand-l); color: var(--brand); font-size: 1.25rem; margin-bottom: 1rem; }
+        .card .step { font-size: 0.78rem; font-weight: 700; color: var(--brand); letter-spacing: 0.05em; }
+        .card h4 { font-size: 1.05rem; font-weight: 600; margin: 0.25rem 0 0.4rem; }
+        .card p { font-size: 0.9rem; color: var(--muted); }
+        .card.cap { background: var(--brand); border-color: var(--brand); }
+        .card.cap .ic { background: rgba(255,255,255,0.18); color: #fff; }
+        .card.cap .step { color: #c7d2fe; }
+        .card.cap h4 { color: #fff; }
+        .card.cap p { color: #e0e7ff; }
 
-        /* ── learning curve figure ── */
-        .figure { border: 1.5px solid var(--ink); background: var(--card); border-radius: var(--radius); padding: 1rem 1rem 0.6rem; }
-        .figure svg { width: 100%; height: auto; display: block; }
-        .figcap { font-family: 'Space Mono', monospace; font-size: 0.72rem; color: var(--ink2); padding: 0.5rem 0.2rem 0.2rem; border-top: 1px dashed var(--line); margin-top: 0.4rem; }
-        .legend { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem; margin-top: 1rem; }
-        .legend div { font-family: 'Space Mono', monospace; font-size: 0.78rem; border: 1px solid var(--line); background: var(--card); border-radius: var(--radius); padding: 0.5rem 0.6rem; }
-        .legend .n { color: var(--red); font-weight: 700; }
-
-        /* ── schedule ── */
-        .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.9rem; }
-        .stat { border: 1.5px solid var(--ink); background: var(--card); border-radius: var(--radius); padding: 1.2rem 1rem; }
-        .stat .n { font-size: 2.1rem; font-weight: 800; line-height: 1; }
-        .stat .l { font-family: 'Space Mono', monospace; font-size: 0.72rem; text-transform: uppercase; color: var(--ink2); margin-top: 0.35rem; }
-        .dim { display: flex; align-items: center; gap: 0.8rem; margin: 1.3rem 0; font-family: 'Space Mono', monospace; font-size: 0.8rem; color: var(--ink2); }
-        .dim .cap { color: var(--ink); font-weight: 700; white-space: nowrap; }
-        .dim .ln { flex: 1; height: 1px; border-top: 1.5px dashed var(--ink2); position: relative; }
-        .dim .ln::before, .dim .ln::after { content: ""; position: absolute; top: -4px; width: 1.5px; height: 9px; background: var(--ink2); }
-        .dim .ln::before { left: 0; } .dim .ln::after { right: 0; }
-        .logi { display: flex; flex-wrap: wrap; gap: 0.6rem 1.4rem; border: 1px dashed var(--ink2); background: var(--card); border-radius: var(--radius); padding: 0.9rem 1.1rem; font-family: 'Space Mono', monospace; font-size: 0.84rem; }
+        /* stats */
+        .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.3rem; margin-bottom: 1.8rem; }
+        .stat { text-align: center; background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 1.8rem 1rem; box-shadow: var(--shadow); }
+        .stat .n { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 2.3rem; color: var(--brand); line-height: 1; }
+        .stat .l { color: var(--muted); font-size: 0.9rem; margin-top: 0.4rem; }
+        .logi { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.8rem 2rem; color: var(--body); font-size: 0.97rem; }
         .logi span { display: inline-flex; align-items: center; gap: 0.5rem; }
-        .logi i { color: var(--blue); }
-        .logi a { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; font-weight: 700; }
+        .logi i { color: var(--brand); }
+        .logi a { color: var(--brand); font-weight: 600; }
 
-        /* ── who ── */
-        .who { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 2rem; align-items: center; }
-        .who h2 { font-size: clamp(1.6rem, 4.5vw, 2.4rem); }
-        .who p { color: var(--ink2); margin-top: 0.8rem; }
-        .note {
-            border: 1.5px solid var(--red); background: var(--card); border-radius: var(--radius);
-            padding: 1.2rem; position: relative;
-        }
-        .note .tag { position: absolute; top: -0.7rem; left: 1rem; background: var(--red); color: #fff; font-family: 'Space Mono', monospace; font-size: 0.66rem; font-weight: 700; letter-spacing: 0.08em; padding: 0.15rem 0.55rem; border-radius: 3px; }
-        .note .top { display: flex; align-items: center; gap: 0.7rem; margin: 0.3rem 0 0.5rem; }
-        .note .ic { width: 2.4rem; height: 2.4rem; display: grid; place-items: center; border: 1.5px solid var(--ink); border-radius: var(--radius); color: var(--blue); font-size: 1.15rem; }
-        .note b { font-size: 1.1rem; }
-        .note span { color: var(--ink2); font-size: 0.93rem; }
+        /* who */
+        .who { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+        .who h2 { font-size: clamp(1.7rem, 4vw, 2.3rem); margin-bottom: 1rem; }
+        .who p { margin-bottom: 1rem; }
+        .who ul { list-style: none; display: grid; gap: 0.7rem; }
+        .who li { display: flex; gap: 0.7rem; align-items: flex-start; }
+        .who li i { color: var(--green); margin-top: 0.3rem; }
+        .req { background: #fff; border: 1px solid var(--border); border-left: 4px solid var(--brand); border-radius: var(--radius); box-shadow: var(--shadow); padding: 1.8rem; }
+        .req .top { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.7rem; }
+        .req .ic { width: 3rem; height: 3rem; display: grid; place-items: center; border-radius: 12px; background: var(--brand-l); color: var(--brand); font-size: 1.3rem; }
+        .req h3 { font-size: 1.2rem; }
+        .req p { margin: 0; color: var(--body); }
 
-        /* ── register ── */
-        .reg { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 2rem; align-items: start; }
-        .reg-aside .price { font-size: 3rem; font-weight: 800; line-height: 1; }
-        .reg-aside .price small { font-family: 'Space Mono', monospace; font-size: 0.95rem; font-weight: 700; color: var(--ink2); }
-        .reg-aside p { color: var(--ink2); margin-top: 0.4rem; }
-        .reg-aside ul { list-style: none; margin-top: 1rem; display: grid; gap: 0.5rem; }
-        .reg-aside li { display: flex; gap: 0.5rem; font-size: 0.93rem; }
-        .reg-aside li i { color: var(--blue); margin-top: 0.3rem; }
+        /* pricing / register */
+        .reg-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 2rem; align-items: start; max-width: 940px; margin: 0 auto; }
+        .price-card { background: #fff; border: 1px solid var(--border); border-radius: 18px; box-shadow: var(--shadow-lg); padding: 2rem; }
+        .price-card .amt { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 3rem; color: var(--ink); line-height: 1; }
+        .price-card .amt small { font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 500; color: var(--muted); }
+        .price-card .note { color: var(--muted); font-size: 0.9rem; margin: 0.4rem 0 1.3rem; }
+        .price-card ul { list-style: none; display: grid; gap: 0.7rem; }
+        .price-card li { display: flex; gap: 0.6rem; font-size: 0.95rem; }
+        .price-card li i { color: var(--green); margin-top: 0.3rem; }
 
-        form { border: 1.5px solid var(--ink); background: var(--card); border-radius: var(--radius); padding: 1.5rem; }
-        .field { margin-top: 0.85rem; }
-        .field:first-child { margin-top: 0; }
-        .field label { font-family: 'Space Mono', monospace; font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink2); display: block; margin-bottom: 0.3rem; }
-        .frow { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
-        form input[type=text], form input[type=email] {
-            width: 100%; padding: 0.75rem 0.85rem; border: 1.5px solid var(--line); border-radius: var(--radius);
-            background: var(--paper); font: inherit; font-size: 0.95rem; color: var(--ink);
-        }
-        form input:focus { outline: none; border-color: var(--blue); background: #fff; }
-        form input::placeholder { color: #93a4cc; }
-        .pych { display: flex; gap: 0.6rem; align-items: flex-start; margin-top: 0.9rem; padding: 0.8rem 0.9rem; border: 1.5px dashed var(--red); border-radius: var(--radius); font-size: 0.88rem; color: var(--ink2); cursor: pointer; }
-        .pych input { margin-top: 0.2rem; accent-color: var(--red); flex-shrink: 0; }
+        .form-card { background: #fff; border: 1px solid var(--border); border-radius: 18px; box-shadow: var(--shadow-lg); padding: 2rem; }
+        .form-card h3 { font-size: 1.3rem; margin-bottom: 1.2rem; }
+        .field { margin-bottom: 0.9rem; }
+        .field label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--ink); margin-bottom: 0.35rem; }
+        .frow { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; }
+        .form-card input[type=text], .form-card input[type=email] { width: 100%; padding: 0.8rem 0.95rem; border: 1px solid var(--border); border-radius: 10px; font: inherit; font-size: 0.97rem; color: var(--ink); background: #fff; transition: border 0.2s, box-shadow 0.2s; }
+        .form-card input:focus { outline: none; border-color: var(--brand); box-shadow: 0 0 0 3px rgba(79,70,229,0.12); }
+        .form-card input::placeholder { color: #9aa3b2; }
+        .pych { display: flex; gap: 0.6rem; align-items: flex-start; font-size: 0.9rem; color: var(--body); background: var(--alt); border: 1px solid var(--border); border-radius: 10px; padding: 0.85rem 0.95rem; cursor: pointer; margin-bottom: 0.3rem; }
+        .pych input { margin-top: 0.2rem; accent-color: var(--brand); flex-shrink: 0; }
         .pych b { color: var(--ink); }
-        form button { width: 100%; justify-content: center; margin-top: 1rem; font-size: 0.95rem; padding: 0.9rem; }
+        .form-card button { width: 100%; margin-top: 1rem; }
         .reg-msg:empty { display: none; }
-        .reg-msg { margin-top: 0.9rem; font-size: 0.9rem; padding: 0.8rem 1rem; border-radius: var(--radius); font-family: 'Space Mono', monospace; }
-        .reg-msg.ok { background: #e2f2ea; border: 1px solid #a9d5bf; color: #1f6a49; }
-        .reg-msg.err { background: #fbe4e1; border: 1px solid #edb3ac; color: #a52b21; }
-        .whats { margin-top: 1rem; font-size: 0.88rem; color: var(--ink2); }
-        .whats a { color: var(--blue); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+        .reg-msg { margin-top: 0.9rem; font-size: 0.92rem; padding: 0.85rem 1rem; border-radius: 10px; }
+        .reg-msg.ok { background: #ecfdf5; border: 1px solid #a7f3d0; color: #047857; }
+        .reg-msg.err { background: #fef2f2; border: 1px solid #fecaca; color: #b91c1c; }
+        .whats { margin-top: 1rem; font-size: 0.9rem; color: var(--muted); text-align: center; }
+        .whats a { color: var(--brand); font-weight: 600; }
 
-        .teacher { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; margin-top: 2.4rem; padding-top: 1.5rem; border-top: 1px dashed var(--line); color: var(--ink2); font-size: 0.93rem; }
-        .teacher img { width: 52px; height: 52px; object-fit: cover; border: 1.5px solid var(--ink); border-radius: var(--radius); }
-        .teacher b { color: var(--ink); }
-        .teacher .links { display: flex; gap: 0.7rem; margin-left: auto; }
-        .teacher .links a { color: var(--ink2); }
-        .teacher .links a:hover { color: var(--blue); }
+        /* instructor */
+        .inst { display: flex; gap: 2rem; align-items: center; max-width: 820px; margin: 0 auto; background: #fff; border: 1px solid var(--border); border-radius: 18px; box-shadow: var(--shadow); padding: 2rem; }
+        .inst img { width: 120px; height: 120px; border-radius: 16px; object-fit: cover; flex-shrink: 0; }
+        .inst h3 { font-size: 1.3rem; }
+        .inst .role { color: var(--brand); font-weight: 600; font-size: 0.95rem; margin-bottom: 0.7rem; }
+        .inst p { font-size: 0.95rem; margin-bottom: 1rem; }
+        .inst .links { display: flex; gap: 0.6rem; }
+        .inst .links a { width: 2.4rem; height: 2.4rem; display: grid; place-items: center; border-radius: 10px; border: 1px solid var(--border); color: var(--body); transition: all 0.2s; }
+        .inst .links a:hover { background: var(--brand); color: #fff; border-color: var(--brand); }
 
-        /* ── footer ── */
-        footer { border-top: 1.5px solid var(--ink); padding: 1.8rem 0; }
-        .foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; font-family: 'Space Mono', monospace; font-size: 0.78rem; color: var(--ink2); }
-        .foot a { text-decoration: underline; text-underline-offset: 3px; }
-        .foot .fr { display: flex; gap: 1.2rem; }
+        /* footer */
+        footer { background: var(--ink); color: #cbd5e1; padding: 2.5rem 0; }
+        .foot { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; }
+        .foot .brand { color: #fff; }
+        .foot .brand span { color: #a5b4fc; }
+        .foot-links { display: flex; flex-wrap: wrap; gap: 1.5rem; font-size: 0.9rem; }
+        .foot-links a:hover { color: #fff; }
+        .foot .cr { width: 100%; border-top: 1px solid #1e293b; padding-top: 1.2rem; margin-top: 0.3rem; font-size: 0.85rem; color: #94a3b8; }
 
-        .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.5s ease, transform 0.5s ease; }
+        .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
         .reveal.show { opacity: 1; transform: none; }
 
-        @media (max-width: 860px) {
-            .hero-grid { grid-template-columns: 1fr; gap: 2rem; }
-            .who, .reg { grid-template-columns: 1fr; gap: 1.6rem; }
-            .stats, .legend { grid-template-columns: repeat(2, 1fr); }
+        @media (max-width: 900px) {
+            .nav-links { display: none; }
+            .hero-grid, .who, .reg-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .cards { grid-template-columns: repeat(2, 1fr); }
+            .stats { grid-template-columns: repeat(2, 1fr); }
+            .inst { flex-direction: column; text-align: center; }
+            .inst .links { justify-content: center; }
         }
-        @media (max-width: 480px) {
+        @media (max-width: 520px) {
+            .cards, .stats { grid-template-columns: 1fr; }
             .frow { grid-template-columns: 1fr; }
-            .hero { padding: 2.6rem 0 2.2rem; }
-            .tb-rows { grid-template-columns: 1fr; }
-            .tb-cell { border-right: none; }
+            section { padding: 3.2rem 0; }
         }
         @media (prefers-reduced-motion: reduce) {
             .reveal { opacity: 1; transform: none; transition: none; }
@@ -218,197 +216,195 @@
 </head>
 <body>
 
-<nav>
+<header class="nav">
     <div class="nav-in">
-        <div><a class="brand" href="/aixmedcourse">AIx<b>MED</b></a></div>
-    </div>
-</nav>
-
-<!-- ── hero ── -->
-<header class="hero">
-    <div class="wrap">
-        <div class="hero-grid">
-            <div class="reveal">
-                <h1>AI in Medical Imaging,<br>for <u>engineers</u>.</h1>
-                <p class="lead">A hands-on, code-first bootcamp. Ten weekdays that plot a straight line from your first classifier to the models behind real medical AI.</p>
-                <div class="hero-cta">
-                    <a href="#register" class="btn btn-blue">Register</a>
-                </div>
-            </div>
-        </div>
+        <a class="brand" href="/aixmedcourse">AIx<span>MED</span></a>
+        <nav class="nav-links">
+            <a class="lnk" href="#curriculum">Curriculum</a>
+            <a class="lnk" href="#schedule">Schedule</a>
+            <a class="lnk" href="#pricing">Pricing</a>
+            <a href="#register" class="btn btn-primary nav-cta">Register</a>
+        </nav>
     </div>
 </header>
 
-<!-- ── 01 · the climb ── -->
-<section class="block" id="climb">
-    <div class="wrap reveal">
-        <div class="bh">
-            <div class="sec-no">01 / THE CLIMB</div>
-            <h2>From zero to hero.</h2>
-            <p>Seven stages, plotted. Each day builds on the last, from a first classifier up to the self-supervised models running today's medical AI.</p>
-        </div>
+<!-- Hero -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-grid">
+            <div class="reveal">
+                <span class="pill"><i class="fas fa-calendar-check"></i> 3rd Cohort · Jan 2027</span>
+                <h1>AI in Medical Imaging, <span class="accent">for engineers</span></h1>
+                <p class="sub">A hands-on, in-person bootcamp that takes you from the fundamentals to building and deploying real medical-imaging models in just two weeks.</p>
+                <div class="hero-cta">
+                    <a href="#register" class="btn btn-primary">Register now</a>
+                    <a href="#curriculum" class="btn btn-ghost">View curriculum</a>
+                </div>
+                <div class="hero-trust">
+                    <span><i class="fas fa-check-circle"></i> 30 hours, hands-on</span>
+                    <span><i class="fas fa-check-circle"></i> Only 12 seats</span>
+                    <span><i class="fas fa-check-circle"></i> Certificate included</span>
+                </div>
+            </div>
 
-        <div class="figure">
-            <svg viewBox="0 0 960 400" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Learning curve from zero to hero across seven concepts">
-                <!-- axes -->
-                <line x1="48" y1="36" x2="48" y2="356" stroke="#102a63" stroke-width="1.5"/>
-                <line x1="48" y1="356" x2="930" y2="356" stroke="#102a63" stroke-width="1.5"/>
-                <text x="40" y="30" font-family="'Space Mono',monospace" font-size="12" fill="#4a66a8">capability ↑</text>
-                <text x="828" y="378" font-family="'Space Mono',monospace" font-size="12" fill="#4a66a8">progression →</text>
-
-                <!-- guide drops (dashed) -->
-                <g stroke="#c2d2f2" stroke-width="1" stroke-dasharray="3 4">
-                    <line x1="170" y1="308" x2="170" y2="356"/>
-                    <line x1="290" y1="270" x2="290" y2="356"/>
-                    <line x1="410" y1="228" x2="410" y2="356"/>
-                    <line x1="530" y1="188" x2="530" y2="356"/>
-                    <line x1="650" y1="146" x2="650" y2="356"/>
-                    <line x1="775" y1="100" x2="775" y2="356"/>
-                    <line x1="905" y1="60"  x2="905" y2="356"/>
-                </g>
-
-                <!-- the curve -->
-                <polyline points="48,348 170,308 290,270 410,228 530,188 650,146 775,100 905,60"
-                          fill="none" stroke="#1b44a6" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
-
-                <!-- start marker -->
-                <circle cx="48" cy="348" r="5" fill="#102a63"/>
-                <text x="56" y="344" font-family="'Space Mono',monospace" font-size="12" fill="#4a66a8">zero</text>
-
-                <!-- stage markers + labels -->
-                <g font-family="'Space Mono',monospace" font-size="12.5" fill="#102a63">
-                    <circle cx="170" cy="308" r="5" fill="#fff" stroke="#1b44a6" stroke-width="2.5"/>
-                    <text x="150" y="298">01 · SVM</text>
-                    <circle cx="290" cy="270" r="5" fill="#fff" stroke="#1b44a6" stroke-width="2.5"/>
-                    <text x="248" y="260">02 · Neural Nets</text>
-                    <circle cx="410" cy="228" r="5" fill="#fff" stroke="#1b44a6" stroke-width="2.5"/>
-                    <text x="390" y="218">03 · CNNs</text>
-                    <circle cx="530" cy="188" r="5" fill="#fff" stroke="#1b44a6" stroke-width="2.5"/>
-                    <text x="510" y="178">04 · UNets</text>
-                    <circle cx="650" cy="146" r="5" fill="#fff" stroke="#1b44a6" stroke-width="2.5"/>
-                    <text x="612" y="136">05 · Transformers</text>
-                    <circle cx="775" cy="100" r="5" fill="#fff" stroke="#1b44a6" stroke-width="2.5"/>
-                    <text x="700" y="90">06 · Vision–Language</text>
-                </g>
-
-                <!-- hero marker (red) -->
-                <circle cx="905" cy="60" r="7" fill="#d8372c"/>
-                <text x="792" y="46" font-family="'Space Mono',monospace" font-size="12.5" fill="#d8372c" font-weight="700">07 · Self-Supervised</text>
-                <text x="724" y="30" font-family="'Space Mono',monospace" font-size="11.5" fill="#d8372c">↳ deploy real models</text>
-            </svg>
-            <div class="figcap">FIG.1 · capability vs. progression across the 10-day bootcamp.</div>
-        </div>
-
-        <div class="legend">
-            <div><span class="n">01</span> SVM</div>
-            <div><span class="n">02</span> Neural Networks</div>
-            <div><span class="n">03</span> CNNs</div>
-            <div><span class="n">04</span> UNets</div>
-            <div><span class="n">05</span> Transformers</div>
-            <div><span class="n">06</span> Vision–Language Alignment</div>
-            <div><span class="n">07</span> Self-Supervised Learning</div>
-            <div><span class="n">★</span> Capstone project</div>
+            <div class="info-card reveal">
+                <h3>Course details</h3>
+                <div class="info-row"><div class="ic"><i class="fas fa-calendar-day"></i></div><div><div class="k">Dates</div><div class="v">January 5–18, 2027</div></div></div>
+                <div class="info-row"><div class="ic"><i class="fas fa-clock"></i></div><div><div class="k">Schedule</div><div class="v">10 weekdays · 3 hrs/day</div></div></div>
+                <div class="info-row"><div class="ic"><i class="fas fa-location-dot"></i></div><div><div class="k">Location</div><div class="v">The Submarine Coworking Space, Beirut</div></div></div>
+                <div class="info-row"><div class="ic"><i class="fab fa-python"></i></div><div><div class="k">Prerequisite</div><div class="v">Python experience required</div></div></div>
+                <div class="price-row"><span class="amt">$200</span><span class="seats">12 seats only</span></div>
+            </div>
         </div>
     </div>
 </section>
 
-<!-- ── 02 · schedule ── -->
-<section class="block">
-    <div class="wrap reveal">
-        <div class="bh">
-            <div class="sec-no">02 / THE SCHEDULE</div>
-            <h2>Two weeks. Thirty hours.</h2>
+<!-- Curriculum -->
+<section id="curriculum">
+    <div class="container">
+        <div class="sec-head reveal">
+            <span class="pill"><i class="fas fa-graduation-cap"></i> Curriculum</span>
+            <h2>From zero to hero</h2>
+            <p>Seven stages that build on each other, from your first classifier to the models behind today's medical AI, capped by a capstone project.</p>
+        </div>
+        <div class="cards">
+            <div class="card reveal"><div class="ic"><i class="fas fa-vector-square"></i></div><div class="step">STAGE 01</div><h4>SVM</h4><p>Support vector machines and classical ML, hands-on with Scikit-Learn.</p></div>
+            <div class="card reveal"><div class="ic"><i class="fas fa-circle-nodes"></i></div><div class="step">STAGE 02</div><h4>Neural Networks</h4><p>Perceptrons, backpropagation, and training dynamics from the ground up.</p></div>
+            <div class="card reveal"><div class="ic"><i class="fas fa-layer-group"></i></div><div class="step">STAGE 03</div><h4>CNNs</h4><p>Convolutional networks for extracting features from medical images.</p></div>
+            <div class="card reveal"><div class="ic"><i class="fas fa-object-group"></i></div><div class="step">STAGE 04</div><h4>UNets</h4><p>Encoder–decoder architectures for medical image segmentation.</p></div>
+            <div class="card reveal"><div class="ic"><i class="fas fa-bolt"></i></div><div class="step">STAGE 05</div><h4>Transformers</h4><p>Vision transformers and global context for imaging tasks.</p></div>
+            <div class="card reveal"><div class="ic"><i class="fas fa-eye"></i></div><div class="step">STAGE 06</div><h4>Vision–Language Alignment</h4><p>Connecting images and text with models like BioMedCLIP.</p></div>
+            <div class="card reveal"><div class="ic"><i class="fas fa-brain"></i></div><div class="step">STAGE 07</div><h4>Self-Supervised Learning</h4><p>Representation learning without labels, the frontier of medical AI.</p></div>
+            <div class="card cap reveal"><div class="ic"><i class="fas fa-flag-checkered"></i></div><div class="step">CAPSTONE</div><h4>Your Project</h4><p>Apply the full pipeline to a real imaging problem, data to model.</p></div>
+        </div>
+    </div>
+</section>
+
+<!-- Schedule -->
+<section id="schedule" class="alt">
+    <div class="container">
+        <div class="sec-head reveal">
+            <span class="pill"><i class="fas fa-calendar-alt"></i> Schedule</span>
+            <h2>Two weeks, thirty hours</h2>
+            <p>A focused, intensive format designed to fit into a two-week sprint.</p>
         </div>
         <div class="stats">
-            <div class="stat"><div class="n">10</div><div class="l">Days</div></div>
-            <div class="stat"><div class="n">3 hrs</div><div class="l">Per day</div></div>
-            <div class="stat"><div class="n">Mon–Fri</div><div class="l">Every weekday</div></div>
-            <div class="stat"><div class="n">30 hrs</div><div class="l">Total</div></div>
+            <div class="stat reveal"><div class="n">10</div><div class="l">Days</div></div>
+            <div class="stat reveal"><div class="n">3 hrs</div><div class="l">Per day</div></div>
+            <div class="stat reveal"><div class="n">Mon–Fri</div><div class="l">Every weekday</div></div>
+            <div class="stat reveal"><div class="n">30 hrs</div><div class="l">Total</div></div>
         </div>
-        <div class="dim"><span class="cap">JAN 5</span><span class="ln"></span><span class="cap">JAN 18, 2027</span></div>
-        <div class="logi">
-            <span><i class="fas fa-location-dot"></i> The Submarine Coworking Space, Beirut &nbsp;<a href="https://maps.app.goo.gl/KKNEmzL5thhUYn9k6?g_st=ac" target="_blank" rel="noopener">[ map ]</a></span>
+        <div class="logi reveal">
+            <span><i class="fas fa-calendar-day"></i> January 5–18, 2027</span>
+            <span><i class="fas fa-location-dot"></i> The Submarine Coworking Space, Beirut <a href="https://maps.app.goo.gl/KKNEmzL5thhUYn9k6?g_st=ac" target="_blank" rel="noopener">(map)</a></span>
             <span><i class="fas fa-user-group"></i> 12 seats</span>
-            <span><i class="fas fa-tag"></i> $200</span>
         </div>
     </div>
 </section>
 
-<!-- ── 03 · who ── -->
-<section class="block">
-    <div class="wrap reveal">
+<!-- Who -->
+<section id="who">
+    <div class="container">
         <div class="who">
-            <div>
-                <div class="sec-no" style="font-family:'Space Mono',monospace;font-size:0.76rem;color:var(--red);font-weight:700;">03 / WHO IT'S FOR</div>
-                <h2 style="margin-top:0.3rem;">You bring Python.<br>We bring the medical AI.</h2>
-                <p>A code-first bootcamp for engineers who want to build real imaging models, fast. No hand-holding through the basics; we start writing code on day one.</p>
+            <div class="reveal">
+                <span class="pill"><i class="fas fa-user-gear"></i> Who it's for</span>
+                <h2 style="margin-top:0.8rem;">Built for engineers who code</h2>
+                <p>This is a code-first bootcamp. We bring the medical AI, you bring the Python. If you want to build real imaging models fast, this cohort is for you.</p>
+                <ul>
+                    <li><i class="fas fa-check"></i> Software, computer, and biomedical engineers</li>
+                    <li><i class="fas fa-check"></i> ML engineers moving into medical imaging</li>
+                    <li><i class="fas fa-check"></i> Engineering students and researchers</li>
+                </ul>
             </div>
-            <div class="note">
-                <span class="tag">PREREQUISITE</span>
+            <div class="req reveal">
                 <div class="top">
                     <div class="ic"><i class="fab fa-python"></i></div>
-                    <b>Python is required</b>
+                    <h3>Python is required</h3>
                 </div>
-                <span>You should be comfortable with variables, functions, loops, and libraries. This is not a beginner programming course.</span>
+                <p>You should be comfortable with variables, functions, loops, and libraries so you can start coding on day one. This is not a beginner programming course.</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ── 04 · register ── -->
-<section class="block" id="register">
-    <div class="wrap reveal">
-        <div class="bh">
-            <div class="sec-no">04 / REGISTER</div>
-            <h2>Claim one of 12 seats.</h2>
+<!-- Pricing / Register -->
+<section id="pricing" class="alt">
+    <div class="container">
+        <div class="sec-head reveal">
+            <span class="pill"><i class="fas fa-ticket"></i> Register</span>
+            <h2>Reserve your seat</h2>
+            <p>One simple price, and only twelve seats. First come, first served.</p>
         </div>
-        <div class="reg">
-            <div class="reg-aside">
-                <div class="price">$200 <small>once</small></div>
-                <p>Payment details are sent after you register.</p>
+        <div class="reg-grid" id="register">
+            <div class="price-card reveal">
+                <div class="amt">$200 <small>/ one-time</small></div>
+                <div class="note">Payment instructions are sent after you register.</div>
                 <ul>
-                    <li><i class="fas fa-check"></i> 10 in-person sessions, Jan 5–18</li>
+                    <li><i class="fas fa-check"></i> 10 in-person sessions (Jan 5–18)</li>
                     <li><i class="fas fa-check"></i> At The Submarine, Beirut</li>
                     <li><i class="fas fa-check"></i> 30 hours of hands-on Python</li>
                     <li><i class="fas fa-check"></i> Completion certificate</li>
+                    <li><i class="fas fa-check"></i> Direct access to the instructor</li>
                 </ul>
             </div>
 
-            <form id="reg-form" data-course="AIxMed26 · 3rd Cohort · In Person (Beirut) · Jan 2027">
-                <div class="field frow">
-                    <div><label>First name</label><input type="text" name="first_name" placeholder="Ada" required></div>
-                    <div><label>Last name</label><input type="text" name="last_name" placeholder="Lovelace" required></div>
-                </div>
-                <div class="field"><label>Email</label><input type="email" name="email" placeholder="you@example.com" required></div>
-                <label class="pych">
-                    <input type="checkbox" name="python_confirm" required>
-                    <span>I confirm I'm <b>comfortable writing Python</b>. This cohort requires it.</span>
-                </label>
-                <button type="submit" class="btn btn-blue">Reserve my seat →</button>
-                <div class="reg-msg"></div>
-                <p class="whats">Questions? <a href="https://wa.me/96171277970" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp me</a></p>
-            </form>
+            <div class="form-card reveal">
+                <h3>Registration</h3>
+                <form id="reg-form" data-course="AIxMed26 · 3rd Cohort · In Person (Beirut) · Jan 2027">
+                    <div class="frow">
+                        <div class="field"><label>First name</label><input type="text" name="first_name" placeholder="First name" required></div>
+                        <div class="field"><label>Last name</label><input type="text" name="last_name" placeholder="Last name" required></div>
+                    </div>
+                    <div class="field"><label>Email address</label><input type="email" name="email" placeholder="you@example.com" required></div>
+                    <label class="pych">
+                        <input type="checkbox" name="python_confirm" required>
+                        <span>I confirm I'm <b>comfortable writing Python</b>. This cohort requires it.</span>
+                    </label>
+                    <button type="submit" class="btn btn-primary">Reserve my seat</button>
+                    <div class="reg-msg"></div>
+                    <p class="whats">Questions? <a href="https://wa.me/96171277970" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Contact me on WhatsApp</a></p>
+                </form>
+            </div>
         </div>
+    </div>
+</section>
 
-        <div class="teacher">
+<!-- Instructor -->
+<section id="instructor">
+    <div class="container">
+        <div class="sec-head reveal">
+            <span class="pill"><i class="fas fa-chalkboard-user"></i> Instructor</span>
+            <h2>Meet your instructor</h2>
+        </div>
+        <div class="inst reveal">
             <img src="../../resources/Professional-Picture-Me.png" alt="Ahmad Mustapha">
-            <div>Taught by <b>Ahmad Mustapha</b>, Doctoral Researcher in medical AI, American University of Beirut.</div>
-            <div class="links">
-                <a href="https://scholar.google.com/citations?user=udbsTuwAAAAJ&hl=en" target="_blank" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
-                <a href="https://www.linkedin.com/in/ahmad-mustapha-ml" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/AhmadM-DL" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <div>
+                <h3>Ahmad Mustapha</h3>
+                <div class="role">Doctoral Researcher · American University of Beirut</div>
+                <p>Ahmad is a doctoral researcher specializing in AI for medical imaging, focused on unsupervised deep learning, representation learning, and bias in medical AI. His mission is to make cutting-edge medical AI accessible to engineers, researchers, and clinicians.</p>
+                <div class="links">
+                    <a href="https://scholar.google.com/citations?user=udbsTuwAAAAJ&hl=en" target="_blank" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+                    <a href="https://www.linkedin.com/in/ahmad-mustapha-ml" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/AhmadM-DL" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="mailto:ahmad.m.mustapha@hotmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
 <footer>
-    <div class="wrap foot">
-        <span>© 2027 AHMAD MUSTAPHA · <a href="mailto:ahmad.m.mustapha@hotmail.com">ahmad.m.mustapha@hotmail.com</a></span>
-        <div class="fr">
-            <a href="https://mustaphaxai.com">PORTFOLIO</a>
-            <a href="/aixmedcourse">PAST COHORTS</a>
-            <a href="https://github.com/AhmadM-DL" target="_blank">GITHUB</a>
+    <div class="container">
+        <div class="foot">
+            <a class="brand" href="/aixmedcourse">AIx<span>MED</span></a>
+            <div class="foot-links">
+                <a href="#curriculum">Curriculum</a>
+                <a href="#schedule">Schedule</a>
+                <a href="#pricing">Pricing</a>
+                <a href="/aixmedcourse">Past cohorts</a>
+                <a href="https://mustaphaxai.com">Portfolio</a>
+            </div>
+            <div class="cr">© 2027 Ahmad Mustapha · <a href="mailto:ahmad.m.mustapha@hotmail.com">ahmad.m.mustapha@hotmail.com</a></div>
         </div>
     </div>
 </footer>
@@ -452,13 +448,13 @@
             gtag('event', 'conversion', { send_to: 'AW-18206577205/ttYjCIL_6bccELWkyelD' });
             form.reset();
             msg.className = 'reg-msg ok';
-            msg.innerHTML = '<i class="fas fa-check-circle"></i> You\'re in the queue! We\'ll email you payment and venue details soon.';
-            btn.innerHTML = 'Registered ✓';
+            msg.innerHTML = '<i class="fas fa-check-circle"></i> You\'re registered! We\'ll email you payment and venue details soon.';
+            btn.innerHTML = 'Registered';
         } catch (err) {
             msg.className = 'reg-msg err';
             msg.innerHTML = 'Something went wrong. Please try again or email <a href="mailto:ahmad.m.mustapha@hotmail.com" style="color:inherit;text-decoration:underline">ahmad.m.mustapha@hotmail.com</a>.';
             btn.disabled = false;
-            btn.innerHTML = 'Reserve my seat →';
+            btn.innerHTML = 'Reserve my seat';
         }
     });
 })();
