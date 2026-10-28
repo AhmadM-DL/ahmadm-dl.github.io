@@ -4,14 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AIxMed26 · 3rd Cohort – AI in Medical Imaging Bootcamp</title>
-    <meta name="description" content="AIxMed26 3rd Cohort: an in-person intensive AI in Medical Imaging bootcamp at The Submarine Coworking Space, Beirut, starting January 5, 2027. Built for engineers — Python knowledge is required.">
+    <meta name="description" content="A hands-on, in-person AI in Medical Imaging bootcamp for engineers who code in Python. 10 weekdays, 3 hours a day, 30 hours total, from January 5, 2027 at The Submarine Coworking Space, Beirut.">
     <meta name="author" content="Ahmad Mustapha">
     <link rel="canonical" href="https://mustaphaxai.com/aixmedcourse/cohort3">
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://mustaphaxai.com/aixmedcourse/cohort3">
     <meta property="og:title" content="AIxMed26 · 3rd Cohort – AI in Medical Imaging Bootcamp">
-    <meta property="og:description" content="In-person intensive bootcamp on AI for medical imaging at The Submarine Coworking Space, Beirut, starting January 5, 2027. Built for engineers — Python knowledge is a must.">
+    <meta property="og:description" content="From zero to hero in AI for medical imaging. An in-person bootcamp for engineers who code in Python. 10 weekdays · 3 hours/day · 30 hours · Beirut, Jan 2027.">
     <meta property="og:image" content="https://mustaphaxai.com/resources/social.png">
     <link rel="icon" type="image/png" href="../../resources/favicon.png">
 
@@ -24,7 +24,6 @@
         gtag('config', 'AW-18206577205');
         gtag('config', 'G-1V19MVCNMW');
     </script>
-    <!-- Event snippet for Page view conversion page -->
     <script>
         gtag('event', 'conversion', {
             'send_to': 'AW-18206577205/UoMFCLLl57ccELWkyelD',
@@ -35,1059 +34,425 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <style>
         :root {
-            --bg:          #07080f;
-            --bg-2:        #0b0e1c;
-            --surface:     rgba(255, 255, 255, 0.04);
-            --surface-2:   rgba(255, 255, 255, 0.07);
-            --border:      rgba(255, 255, 255, 0.10);
-            --border-2:    rgba(255, 255, 255, 0.16);
-            --text:        #e9ebf5;
-            --text-dim:    #a6acca;
-            --text-faint:  #767ca3;
-            --indigo:      #6366f1;
-            --violet:      #8b5cf6;
-            --cyan:        #22d3ee;
-            --fuchsia:     #d946ef;
-            --emerald:     #34d399;
-            --grad:        linear-gradient(120deg, #8b5cf6 0%, #22d3ee 100%);
-            --grad-warm:   linear-gradient(120deg, #d946ef 0%, #6366f1 100%);
-            --grad-text:   linear-gradient(120deg, #a78bfa 0%, #22d3ee 55%, #34d399 100%);
-            --radius:      1.1rem;
-            --radius-sm:   0.7rem;
-            --shadow:      0 24px 60px rgb(0 0 0 / 0.45);
-            --shadow-glow: 0 0 0 1px rgb(255 255 255 / 0.06), 0 20px 50px rgb(99 102 241 / 0.18);
-            --transition:  all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-            --maxw:        1180px;
+            --paper:     #f4efe4;
+            --paper-2:   #ebe2d1;
+            --card:      #fbf7ee;
+            --ink:       #27241f;
+            --ink-soft:  #6c6454;
+            --accent:    #b8472a;   /* terracotta */
+            --accent-dk: #9c3a21;
+            --forest:    #35675b;
+            --line:      #ddd1bb;
+            --radius:    14px;
+            --shadow:    0 1px 0 rgba(39,36,32,0.04), 0 14px 34px rgba(39,36,32,0.09);
+            --shadow-sm: 0 1px 0 rgba(39,36,32,0.04), 0 6px 16px rgba(39,36,32,0.07);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
         html { scroll-behavior: smooth; }
-
         body {
             font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.65;
+            color: var(--ink);
+            background-color: var(--paper);
+            line-height: 1.6;
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
         }
-
-        /* Aurora backdrop */
-        .aurora {
-            position: fixed;
-            inset: 0;
-            z-index: -2;
-            background:
-                radial-gradient(42rem 42rem at 12% -8%, rgba(139, 92, 246, 0.22), transparent 60%),
-                radial-gradient(38rem 38rem at 100% 8%, rgba(34, 211, 238, 0.18), transparent 58%),
-                radial-gradient(36rem 36rem at 50% 108%, rgba(52, 211, 153, 0.14), transparent 60%),
-                var(--bg);
-        }
-        .grain {
-            position: fixed;
-            inset: 0;
-            z-index: -1;
-            opacity: 0.5;
-            pointer-events: none;
-            background-image: radial-gradient(rgba(255,255,255,0.035) 1px, transparent 1px);
-            background-size: 3px 3px;
+        /* faint paper grain, not a gradient */
+        body::before {
+            content: "";
+            position: fixed; inset: 0; z-index: -1; pointer-events: none;
+            opacity: 0.035;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
         }
 
-        .container { max-width: var(--maxw); margin: 0 auto; padding: 0 1.5rem; }
-
+        .wrap { max-width: 1060px; margin: 0 auto; padding: 0 1.5rem; }
         a { color: inherit; text-decoration: none; }
 
-        .grad-text {
-            background: var(--grad-text);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        /* ───────── Nav ───────── */
-        nav {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            background: rgba(7, 8, 15, 0.72);
-            border-bottom: 1px solid var(--border);
-        }
-        .nav-inner {
-            max-width: var(--maxw);
-            margin: 0 auto;
-            padding: 0.9rem 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 1rem;
-        }
-        .nav-brand {
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 700;
-            font-size: 1.3rem;
-            letter-spacing: -0.02em;
-        }
-        .nav-brand span { background: var(--grad-text); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
-        .nav-right { display: flex; align-items: center; gap: 0.75rem; }
-        .cohort-select {
-            appearance: none;
-            background: var(--surface-2);
-            color: var(--text);
-            border: 1px solid var(--border-2);
-            border-radius: 999px;
-            padding: 0.5rem 2.1rem 0.5rem 1rem;
-            font: inherit;
-            font-size: 0.85rem;
-            font-weight: 500;
-            cursor: pointer;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23a6acca' stroke-width='3'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 0.85rem center;
-            transition: var(--transition);
-        }
-        .cohort-select:hover { border-color: var(--violet); }
-        .cohort-select option { background: #11142a; color: var(--text); }
-        .nav-back {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.45rem;
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: var(--text-dim);
-            padding: 0.5rem 0.9rem;
-            border-radius: 999px;
-            transition: var(--transition);
-        }
-        .nav-back:hover { color: var(--text); background: var(--surface); }
-
-        /* ───────── Buttons ───────── */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.55rem;
-            padding: 0.95rem 1.6rem;
-            border-radius: 999px;
+        h1, h2, h3, .serif {
+            font-family: 'Fraunces', Georgia, serif;
             font-weight: 600;
-            font-size: 0.98rem;
-            cursor: pointer;
-            border: none;
-            transition: var(--transition);
-            white-space: nowrap;
-        }
-        .btn-primary {
-            background: var(--grad);
-            color: #06121a;
-            box-shadow: 0 10px 30px rgb(34 211 238 / 0.25);
-        }
-        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 16px 40px rgb(139 92 246 / 0.4); }
-        .btn-outline {
-            background: var(--surface);
-            color: var(--text);
-            border: 1px solid var(--border-2);
-        }
-        .btn-outline:hover { border-color: var(--violet); background: var(--surface-2); }
-
-        /* ───────── Section shells ───────── */
-        section { position: relative; }
-        .section-label {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.78rem;
-            font-weight: 600;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-            color: var(--cyan);
-            padding: 0.35rem 0.85rem;
-            border: 1px solid var(--border-2);
-            border-radius: 999px;
-            background: var(--surface);
-        }
-        .section-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(1.8rem, 4vw, 2.7rem);
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            line-height: 1.12;
-            margin: 1.1rem 0 0.9rem;
-        }
-        .section-subtitle {
-            color: var(--text-dim);
-            font-size: 1.05rem;
-            max-width: 40rem;
+            letter-spacing: -0.01em;
+            line-height: 1.1;
         }
 
-        /* ───────── Hero ───────── */
-        .hero { padding: 4.5rem 0 3.5rem; }
-        .hero-inner {
-            display: grid;
-            grid-template-columns: 1.15fr 0.85fr;
-            gap: 3rem;
-            align-items: center;
-        }
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.55rem;
-            font-size: 0.82rem;
-            font-weight: 600;
-            color: var(--text);
-            padding: 0.45rem 1rem;
-            border: 1px solid var(--border-2);
-            border-radius: 999px;
-            background: var(--surface);
-        }
-        .hero-badge .dot {
-            width: 0.5rem; height: 0.5rem; border-radius: 50%;
-            background: var(--emerald);
-            box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.6);
-            animation: pulse 2s infinite;
-        }
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.55); }
-            70% { box-shadow: 0 0 0 0.6rem rgba(52, 211, 153, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0); }
-        }
-        .hero-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(2.6rem, 6vw, 4.2rem);
-            font-weight: 700;
-            line-height: 1.04;
-            letter-spacing: -0.03em;
-            margin: 1.3rem 0 1.2rem;
-        }
-        .hero-subtitle { color: var(--text-dim); font-size: 1.1rem; max-width: 34rem; }
-        .hero-meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.6rem;
-            margin: 1.6rem 0 2rem;
-        }
-        .meta-item {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.86rem;
-            color: var(--text-dim);
-            padding: 0.5rem 0.9rem;
-            border: 1px solid var(--border);
-            border-radius: 999px;
-            background: var(--surface);
-        }
-        .meta-item i { color: var(--cyan); }
-        .hero-cta { display: flex; flex-wrap: wrap; gap: 0.85rem; }
-
-        /* Hero glass card */
-        .hero-card {
-            background: linear-gradient(160deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
-            border: 1px solid var(--border-2);
-            border-radius: var(--radius);
-            padding: 1.8rem;
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
-            box-shadow: var(--shadow-glow);
-            position: relative;
-            overflow: hidden;
-        }
-        .hero-card::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(18rem 18rem at 90% -10%, rgba(139,92,246,0.25), transparent 60%);
-            pointer-events: none;
-        }
-        .hero-card-header { display: flex; align-items: center; gap: 0.9rem; margin-bottom: 1.3rem; position: relative; }
-        .card-icon {
-            width: 3rem; height: 3rem; flex-shrink: 0;
-            display: grid; place-items: center;
-            border-radius: 0.8rem;
-            background: var(--grad);
-            color: #06121a; font-size: 1.3rem;
-        }
-        .card-title { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 1.05rem; }
-        .card-sub { font-size: 0.82rem; color: var(--text-faint); }
-        .topic-list { list-style: none; display: grid; gap: 0.7rem; position: relative; }
-        .topic-list li { display: flex; align-items: center; gap: 0.65rem; font-size: 0.92rem; color: var(--text-dim); }
-        .topic-list li i { color: var(--emerald); font-size: 0.9rem; }
-        .card-footer {
-            display: flex; align-items: center; justify-content: space-between;
-            margin-top: 1.5rem; padding-top: 1.3rem;
-            border-top: 1px solid var(--border); position: relative;
-        }
-        .price-tag { font-family: 'Space Grotesk', sans-serif; font-size: 1.8rem; font-weight: 700; }
-        .price-desc { font-size: 0.78rem; color: var(--text-faint); }
-        .spots-badge {
-            font-size: 0.75rem; font-weight: 600;
-            color: var(--fuchsia);
-            padding: 0.4rem 0.75rem;
-            border: 1px solid rgba(217, 70, 239, 0.4);
-            border-radius: 999px;
-            background: rgba(217, 70, 239, 0.08);
-        }
-
-        /* ───────── Stats ───────── */
-        .stats-strip { padding: 1rem 0 1.5rem; }
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1rem;
-        }
-        .stat-card {
-            text-align: center;
-            padding: 1.5rem 1rem;
-            border: 1px solid var(--border);
-            border-radius: var(--radius-sm);
-            background: var(--surface);
-        }
-        .stat-value {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.9rem; font-weight: 700;
-            background: var(--grad-text);
-            -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
-        }
-        .stat-label { font-size: 0.82rem; color: var(--text-faint); margin-top: 0.3rem; }
-
-        /* ───────── Generic block spacing ───────── */
-        .block { padding: 4rem 0; }
-        .block-head { max-width: 42rem; margin-bottom: 2.6rem; }
-        .block-head.center { margin-left: auto; margin-right: auto; text-align: center; }
-        .block-head.center .section-subtitle { margin-left: auto; margin-right: auto; }
-
-        /* ───────── Requirement callout ───────── */
-        .req-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
-        .req-card {
-            border: 1px solid var(--border-2);
-            border-radius: var(--radius);
-            padding: 1.8rem;
-            background: linear-gradient(160deg, rgba(255,255,255,0.06), rgba(255,255,255,0.015));
-            position: relative;
-            overflow: hidden;
-        }
-        .req-card .req-ico {
-            width: 3.2rem; height: 3.2rem;
-            display: grid; place-items: center;
-            border-radius: 0.9rem;
-            font-size: 1.4rem; margin-bottom: 1.1rem;
-        }
-        .req-card.is-must { border-color: rgba(217, 70, 239, 0.45); }
-        .req-card.is-must::after {
-            content: "REQUIRED";
-            position: absolute; top: 1.4rem; right: 1.4rem;
-            font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em;
-            color: var(--fuchsia);
-            padding: 0.3rem 0.6rem;
-            border: 1px solid rgba(217, 70, 239, 0.4);
-            border-radius: 999px;
-        }
-        .req-card.is-must .req-ico { background: var(--grad-warm); color: #fff; }
-        .req-card.is-audience .req-ico { background: var(--grad); color: #06121a; }
-        .req-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem; }
-        .req-card p { color: var(--text-dim); font-size: 0.98rem; }
-        .req-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
-        .req-tag {
-            font-size: 0.8rem; color: var(--text-dim);
-            padding: 0.35rem 0.75rem; border-radius: 999px;
-            border: 1px solid var(--border); background: var(--surface);
-        }
-
-        /* ───────── Curriculum ───────── */
-        .topics-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.1rem;
-        }
-        .topic-card {
-            border: 1px solid var(--border);
-            border-radius: var(--radius-sm);
-            padding: 1.5rem;
-            background: var(--surface);
-            transition: var(--transition);
-            position: relative;
-        }
-        .topic-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--border-2);
-            background: var(--surface-2);
-            box-shadow: var(--shadow);
-        }
-        .topic-num {
-            display: inline-block;
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em;
-            color: var(--cyan);
-            margin-bottom: 0.7rem;
-        }
-        .topic-name { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 1.1rem; margin-bottom: 0.45rem; }
-        .topic-desc { font-size: 0.9rem; color: var(--text-dim); }
-        .topic-card--project {
-            background: linear-gradient(160deg, rgba(139,92,246,0.18), rgba(34,211,238,0.08));
-            border-color: var(--border-2);
-        }
-        .topic-card--project .topic-num { color: var(--fuchsia); }
-
-        /* ───────── Format / features ───────── */
-        .feature-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.1rem; }
-        .feature-item {
-            border: 1px solid var(--border);
-            border-radius: var(--radius-sm);
-            padding: 1.6rem;
-            background: var(--surface);
-            transition: var(--transition);
-        }
-        .feature-item:hover { border-color: var(--border-2); background: var(--surface-2); transform: translateY(-3px); }
-        .feature-icon {
-            width: 3rem; height: 3rem;
-            display: grid; place-items: center;
-            border-radius: 0.8rem;
-            background: var(--surface-2);
-            border: 1px solid var(--border-2);
-            color: var(--cyan);
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
-        }
-        .feature-item h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.1rem; font-weight: 600; margin-bottom: 0.45rem; }
-        .feature-item p { font-size: 0.9rem; color: var(--text-dim); }
-
-        /* ───────── Location ───────── */
-        .location-card {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0;
-            border: 1px solid var(--border-2);
-            border-radius: var(--radius);
-            overflow: hidden;
-            background: linear-gradient(160deg, rgba(255,255,255,0.06), rgba(255,255,255,0.015));
-        }
-        .location-info { padding: 2.2rem; }
-        .location-info h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 600; margin-bottom: 0.6rem; }
-        .location-info p { color: var(--text-dim); margin-bottom: 0.5rem; }
-        .location-info .addr { display: flex; align-items: flex-start; gap: 0.7rem; margin: 1.2rem 0 1.6rem; color: var(--text); }
-        .location-info .addr i { color: var(--cyan); margin-top: 0.25rem; }
-        .location-visual {
-            background:
-                radial-gradient(14rem 14rem at 70% 30%, rgba(34,211,238,0.3), transparent 60%),
-                radial-gradient(16rem 16rem at 20% 80%, rgba(139,92,246,0.3), transparent 60%),
-                var(--bg-2);
-            display: grid; place-items: center;
-            min-height: 240px;
-            position: relative;
-        }
-        .location-visual .pin {
-            font-size: 3.5rem;
-            background: var(--grad-text);
-            -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
-            animation: float 3.5s ease-in-out infinite;
-        }
-        @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-
-        /* ───────── Instructor ───────── */
-        .instructor-inner {
-            display: grid;
-            grid-template-columns: auto 1fr;
-            gap: 2.2rem;
-            align-items: center;
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 2.2rem;
-            background: var(--surface);
-        }
-        .instructor-photo {
-            width: 150px; height: 150px; border-radius: 1rem; object-fit: cover;
-            border: 1px solid var(--border-2);
-        }
-        .instructor-name { font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 600; }
-        .instructor-role { color: var(--cyan); font-size: 0.92rem; margin-bottom: 0.9rem; }
-        .instructor-bio { color: var(--text-dim); font-size: 0.96rem; margin-bottom: 1.1rem; }
-        .instructor-links { display: flex; flex-wrap: wrap; gap: 0.6rem; }
-        .instructor-link {
+        .eyebrow {
             display: inline-flex; align-items: center; gap: 0.5rem;
-            font-size: 0.85rem; color: var(--text-dim);
-            padding: 0.5rem 0.9rem; border-radius: 999px;
-            border: 1px solid var(--border); background: var(--surface);
-            transition: var(--transition);
+            font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em;
+            text-transform: uppercase; color: var(--accent);
         }
-        .instructor-link:hover { color: var(--text); border-color: var(--border-2); }
+        .eyebrow .mark { width: 0.5rem; height: 0.5rem; border-radius: 50%; background: var(--accent); }
 
-        /* ───────── Testimonials ───────── */
-        .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; }
-        .testimonial-card {
-            border: 1px solid var(--border);
-            border-radius: var(--radius-sm);
-            padding: 1.6rem;
-            background: var(--surface);
+        /* ── Buttons ── */
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+            font-weight: 600; font-size: 0.98rem; cursor: pointer;
+            padding: 0.85rem 1.5rem; border-radius: 10px; border: 1.5px solid transparent;
+            transition: transform 0.15s ease, background 0.2s ease, color 0.2s ease;
         }
-        .testimonial-quote-icon { color: var(--violet); font-size: 1.3rem; margin-bottom: 0.8rem; }
-        .testimonial-text { color: var(--text-dim); font-size: 0.95rem; margin-bottom: 1.2rem; }
-        .testimonial-author { display: flex; align-items: center; gap: 0.75rem; }
-        .testimonial-avatar {
-            width: 2.5rem; height: 2.5rem; border-radius: 50%;
-            display: grid; place-items: center;
-            background: var(--grad); color: #06121a; font-weight: 700;
-        }
-        .testimonial-name { font-weight: 600; font-size: 0.92rem; }
-        .testimonial-role { font-size: 0.78rem; color: var(--text-faint); }
+        .btn-primary { background: var(--accent); color: #fdf8ef; }
+        .btn-primary:hover { background: var(--accent-dk); transform: translateY(-1px); }
+        .btn-ghost { background: transparent; color: var(--ink); border-color: var(--line); }
+        .btn-ghost:hover { border-color: var(--ink); }
 
-        /* ───────── Pricing / Register ───────── */
-        .pricing-card {
-            max-width: 40rem; margin: 0 auto;
-            border: 1px solid var(--border-2);
-            border-radius: var(--radius);
-            padding: 2.4rem;
-            background: linear-gradient(160deg, rgba(255,255,255,0.07), rgba(255,255,255,0.015));
-            box-shadow: var(--shadow-glow);
-            position: relative;
-            overflow: hidden;
-        }
-        .pricing-card::before {
-            content: "";
-            position: absolute; inset: 0;
-            background: radial-gradient(22rem 22rem at 110% -20%, rgba(34,211,238,0.18), transparent 60%);
-            pointer-events: none;
-        }
-        .pricing-label { font-size: 0.82rem; font-weight: 600; letter-spacing: 0.06em; color: var(--cyan); text-transform: uppercase; }
-        .pricing-amount {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 3.4rem; font-weight: 700; line-height: 1; margin: 0.8rem 0 0.4rem;
-        }
-        .pricing-note { color: var(--text-faint); font-size: 0.88rem; margin-bottom: 1.4rem; }
-        .pricing-features { list-style: none; display: grid; gap: 0.7rem; margin-bottom: 1.4rem; }
-        .pricing-features li { display: flex; align-items: center; gap: 0.65rem; font-size: 0.95rem; color: var(--text-dim); }
-        .pricing-features li i { color: var(--emerald); }
-        .pricing-warning {
-            display: flex; align-items: center; gap: 0.6rem;
-            font-size: 0.88rem; color: #fca5a5;
-            padding: 0.85rem 1rem; border-radius: var(--radius-sm);
-            background: rgba(248, 113, 113, 0.08);
-            border: 1px solid rgba(248, 113, 113, 0.25);
-            margin-bottom: 1.6rem;
-        }
+        /* ── Nav ── */
+        nav { border-bottom: 1px solid var(--line); background: var(--paper); position: sticky; top: 0; z-index: 50; }
+        .nav-in { max-width: 1060px; margin: 0 auto; padding: 0.9rem 1.5rem; display: flex; align-items: center; justify-content: space-between; }
+        .brand { font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.3rem; }
+        .brand b { color: var(--accent); font-weight: 700; }
+        .nav-btn { font-size: 0.9rem; padding: 0.55rem 1.1rem; }
 
-        /* Form */
-        .reg-form { display: grid; gap: 0.85rem; position: relative; }
-        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; }
-        .reg-form input, .reg-form select {
-            width: 100%;
-            padding: 0.85rem 1rem;
-            border: 1px solid var(--border-2);
-            border-radius: var(--radius-sm);
-            background: rgba(0,0,0,0.25);
-            color: var(--text);
-            font: inherit;
-            font-size: 0.95rem;
-            transition: var(--transition);
+        /* ── Hero ── */
+        .hero { padding: 4.5rem 0 3.5rem; }
+        .hero-grid { display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 3rem; align-items: center; }
+        .hero h1 { font-size: clamp(2.5rem, 6vw, 4rem); margin: 1rem 0 0.4rem; }
+        .hero h1 .u {
+            position: relative; white-space: nowrap;
         }
-        .reg-form input::placeholder { color: var(--text-faint); }
-        .reg-form input:focus, .reg-form select:focus {
-            outline: none; border-color: var(--violet);
-            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.18);
+        .hero h1 .u svg { position: absolute; left: 0; right: 0; bottom: -0.35em; width: 100%; height: 0.4em; }
+        .hero p.lead { font-size: 1.15rem; color: var(--ink-soft); max-width: 34rem; margin-bottom: 1.6rem; }
+        .hero-cta { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; margin-bottom: 1.4rem; }
+        .hero-facts { display: flex; flex-wrap: wrap; gap: 0.5rem 1.3rem; color: var(--ink-soft); font-size: 0.92rem; }
+        .hero-facts span { display: inline-flex; align-items: center; gap: 0.45rem; }
+        .hero-facts i { color: var(--accent); }
+
+        .hero-card {
+            background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+            box-shadow: var(--shadow); padding: 1.6rem;
         }
-        .reg-form select option { background: #11142a; color: var(--text); }
-        .python-check {
-            display: flex; align-items: flex-start; gap: 0.7rem;
-            padding: 0.9rem 1rem;
-            border: 1px solid rgba(217, 70, 239, 0.35);
-            border-radius: var(--radius-sm);
-            background: rgba(217, 70, 239, 0.06);
-            font-size: 0.9rem; color: var(--text-dim);
-            cursor: pointer;
+        .hero-card .price { font-family: 'Fraunces', serif; font-size: 2.6rem; font-weight: 700; line-height: 1; }
+        .hero-card .price small { font-size: 0.95rem; color: var(--ink-soft); font-weight: 500; font-family: 'Inter', sans-serif; }
+        .hero-card ul { list-style: none; margin: 1.1rem 0 0; display: grid; gap: 0.6rem; }
+        .hero-card li { display: flex; gap: 0.6rem; font-size: 0.93rem; color: var(--ink); }
+        .hero-card li i { color: var(--forest); margin-top: 0.25rem; }
+        .hero-card .seats { margin-top: 1.1rem; font-size: 0.82rem; font-weight: 600; color: var(--accent); }
+
+        /* ── Section frame ── */
+        section.block { padding: 3.6rem 0; border-top: 1px solid var(--line); }
+        .block-head { margin-bottom: 2.4rem; max-width: 40rem; }
+        .block-head h2 { font-size: clamp(1.7rem, 4vw, 2.4rem); margin: 0.6rem 0 0.4rem; }
+        .block-head p { color: var(--ink-soft); }
+
+        /* ── Zero → Hero ladder ── */
+        .ladder-rail { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; font-weight: 600; font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); }
+        .ladder-rail .hero-tag { color: var(--accent); }
+        .ladder {
+            display: flex; align-items: flex-end; gap: 0.55rem;
+            border-bottom: 2px solid var(--ink); padding-bottom: 0;
         }
-        .python-check input { width: auto; margin-top: 0.2rem; accent-color: var(--fuchsia); flex-shrink: 0; }
-        .python-check strong { color: var(--text); }
-        .reg-form button[type="submit"] { width: 100%; margin-top: 0.3rem; font-size: 1rem; padding: 1rem; }
-        .form-note { margin-top: 1.2rem; font-size: 0.9rem; color: var(--text-dim); text-align: center; }
-        .form-note a { color: var(--cyan); font-weight: 600; white-space: nowrap; }
+        .step { flex: 1 1 0; min-width: 0; }
+        .step .bar {
+            background: var(--card); border: 1.5px solid var(--ink); border-bottom: none;
+            border-radius: 10px 10px 0 0; padding: 0.8rem 0.65rem;
+            height: calc(76px + var(--i) * 30px);
+            display: flex; flex-direction: column; gap: 0.4rem;
+            box-shadow: var(--shadow-sm);
+        }
+        .step .num {
+            width: 1.7rem; height: 1.7rem; flex-shrink: 0;
+            display: grid; place-items: center; border-radius: 7px;
+            background: var(--paper-2); color: var(--ink);
+            font-family: 'Fraunces', serif; font-weight: 700; font-size: 0.85rem;
+        }
+        .step .name { font-weight: 600; font-size: 0.86rem; line-height: 1.25; }
+        .step:last-child .bar { background: var(--accent); border-color: var(--accent-dk); }
+        .step:last-child .num { background: #fdf8ef; color: var(--accent); }
+        .step:last-child .name { color: #fdf8ef; }
+
+        /* ── At a glance ── */
+        .facts-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.9rem; margin-bottom: 1.6rem; }
+        .fact {
+            background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+            padding: 1.3rem 1.1rem; box-shadow: var(--shadow-sm);
+        }
+        .fact .n { font-family: 'Fraunces', serif; font-weight: 700; font-size: 2rem; line-height: 1; }
+        .fact .l { color: var(--ink-soft); font-size: 0.85rem; margin-top: 0.35rem; }
+        .logistics {
+            display: flex; flex-wrap: wrap; gap: 0.6rem 1.6rem;
+            padding: 1.1rem 1.3rem; border: 1px dashed var(--line); border-radius: var(--radius);
+            color: var(--ink); font-size: 0.95rem;
+        }
+        .logistics span { display: inline-flex; align-items: center; gap: 0.5rem; }
+        .logistics i { color: var(--accent); }
+        .logistics a { color: var(--accent); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+
+        /* ── Who it's for ── */
+        .who { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 2.2rem; align-items: center; }
+        .who p { color: var(--ink-soft); margin-bottom: 1rem; }
+        .req-note {
+            display: flex; gap: 0.8rem; align-items: flex-start;
+            background: var(--card); border: 1.5px solid var(--accent); border-radius: var(--radius);
+            padding: 1.3rem; box-shadow: var(--shadow-sm);
+        }
+        .req-note .pyico {
+            width: 2.6rem; height: 2.6rem; flex-shrink: 0; display: grid; place-items: center;
+            border-radius: 9px; background: var(--accent); color: #fdf8ef; font-size: 1.2rem;
+        }
+        .req-note b { font-family: 'Fraunces', serif; display: block; margin-bottom: 0.15rem; }
+        .req-note span { color: var(--ink-soft); font-size: 0.92rem; }
+
+        /* ── Instructor strip ── */
+        .teacher { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; color: var(--ink-soft); font-size: 0.95rem; }
+        .teacher img { width: 54px; height: 54px; border-radius: 50%; object-fit: cover; border: 1px solid var(--line); }
+        .teacher b { color: var(--ink); font-family: 'Fraunces', serif; }
+        .teacher .links { display: flex; gap: 0.9rem; margin-left: auto; }
+        .teacher .links a { color: var(--ink-soft); }
+        .teacher .links a:hover { color: var(--accent); }
+
+        /* ── Register ── */
+        .reg-grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 2.4rem; align-items: start; }
+        .reg-aside .price { font-family: 'Fraunces', serif; font-size: 3rem; font-weight: 700; line-height: 1; }
+        .reg-aside .price small { font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 500; color: var(--ink-soft); }
+        .reg-aside p { color: var(--ink-soft); margin-top: 0.4rem; }
+        .reg-aside ul { list-style: none; margin-top: 1.1rem; display: grid; gap: 0.55rem; }
+        .reg-aside li { display: flex; gap: 0.6rem; font-size: 0.93rem; }
+        .reg-aside li i { color: var(--forest); margin-top: 0.25rem; }
+
+        form { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.6rem; box-shadow: var(--shadow); }
+        .frow { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+        form input[type=text], form input[type=email] {
+            width: 100%; padding: 0.8rem 0.95rem; margin-top: 0.8rem;
+            border: 1.5px solid var(--line); border-radius: 10px; background: #fff;
+            font: inherit; font-size: 0.95rem; color: var(--ink);
+        }
+        .frow input { margin-top: 0; }
+        form input:focus { outline: none; border-color: var(--accent); }
+        form input::placeholder { color: #a89f8c; }
+        .pycheck {
+            display: flex; gap: 0.65rem; align-items: flex-start; margin-top: 0.9rem;
+            font-size: 0.9rem; color: var(--ink-soft);
+            padding: 0.85rem 0.95rem; border: 1.5px solid var(--line); border-radius: 10px; cursor: pointer;
+        }
+        .pycheck input { margin-top: 0.2rem; accent-color: var(--accent); flex-shrink: 0; }
+        .pycheck b { color: var(--ink); }
+        form button { width: 100%; margin-top: 1rem; font-size: 1rem; padding: 0.95rem; }
         .reg-msg:empty { display: none; }
-        .form-msg {
-            display: flex; align-items: center; gap: 0.6rem;
-            padding: 0.9rem 1rem; border-radius: var(--radius-sm);
-            font-size: 0.92rem; margin-top: 0.5rem;
-        }
-        .form-msg.success { background: rgba(52, 211, 153, 0.12); border: 1px solid rgba(52, 211, 153, 0.35); color: #6ee7b7; }
-        .form-msg.error { background: rgba(248, 113, 113, 0.12); border: 1px solid rgba(248, 113, 113, 0.3); color: #fca5a5; }
+        .reg-msg { margin-top: 0.8rem; font-size: 0.92rem; padding: 0.85rem 1rem; border-radius: 10px; }
+        .reg-msg.ok { background: #e7f1ec; border: 1px solid #b9d7cb; color: #2d5a4c; }
+        .reg-msg.err { background: #f7e6e0; border: 1px solid #e3b9a8; color: #8f3a22; }
+        .whats { margin-top: 1rem; font-size: 0.9rem; color: var(--ink-soft); }
+        .whats a { color: var(--accent); font-weight: 600; }
 
-        /* ───────── Sponsors ───────── */
-        .sponsors-grid { display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: center; align-items: center; }
-        .sponsor-item {
-            display: grid; place-items: center;
-            padding: 1.2rem 1.8rem;
-            border: 1px solid var(--border);
-            border-radius: var(--radius-sm);
-            background: var(--surface);
-            transition: var(--transition);
-        }
-        .sponsor-item:hover { border-color: var(--border-2); }
-        .sponsor-item img { height: 44px; width: auto; filter: brightness(0) invert(1); opacity: 0.8; }
-        .sponsor-item:hover img { opacity: 1; }
+        /* ── Footer ── */
+        footer { border-top: 1px solid var(--line); padding: 2rem 0; }
+        .foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; font-size: 0.85rem; color: var(--ink-soft); }
+        .foot a:hover { color: var(--accent); }
+        .foot .fr { display: flex; gap: 1.2rem; }
 
-        /* ───────── Footer ───────── */
-        footer { border-top: 1px solid var(--border); padding: 2rem 0; margin-top: 2rem; }
-        .footer-inner {
-            display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem;
-            font-size: 0.85rem; color: var(--text-faint);
-        }
-        .footer-inner a { color: var(--text-dim); transition: var(--transition); }
-        .footer-inner a:hover { color: var(--text); }
-        .footer-right { display: flex; flex-wrap: wrap; gap: 1.2rem; }
-
-        /* ───────── Reveal animation ───────── */
-        .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.4, 0, 0.2, 1); }
+        /* ── Reveal ── */
+        .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
         .reveal.show { opacity: 1; transform: none; }
 
-        /* ───────── Responsive ───────── */
-        @media (max-width: 920px) {
-            .hero-inner { grid-template-columns: 1fr; gap: 2.2rem; }
-            .stats-grid { grid-template-columns: repeat(2, 1fr); }
-            .topics-grid, .feature-grid, .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
-            .req-grid { grid-template-columns: 1fr; }
-            .location-card { grid-template-columns: 1fr; }
-            .location-visual { order: -1; min-height: 180px; }
-            .instructor-inner { grid-template-columns: 1fr; text-align: center; justify-items: center; }
+        /* ── Responsive ── */
+        @media (max-width: 860px) {
+            .hero-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .who, .reg-grid { grid-template-columns: 1fr; gap: 1.6rem; }
+            .facts-grid { grid-template-columns: repeat(2, 1fr); }
         }
-        @media (max-width: 560px) {
-            .container { padding: 0 1rem; }
-            .nav-back-text { display: none; }
-            .topics-grid, .feature-grid, .testimonials-grid { grid-template-columns: 1fr; }
-            .form-row { grid-template-columns: 1fr; }
+        @media (max-width: 680px) {
+            /* ladder becomes a vertical climb */
+            .ladder { display: block; border-bottom: none; }
+            .ladder-rail { display: none; }
+            .step { margin-left: calc(var(--i) * 10px); }
+            .step .bar {
+                height: auto; flex-direction: row; align-items: center;
+                border: 1.5px solid var(--ink); border-radius: 10px; margin-bottom: 0.5rem;
+                padding: 0.75rem 0.9rem;
+            }
+            .step .name { font-size: 0.95rem; }
+        }
+        @media (max-width: 480px) {
+            .wrap, .nav-in { padding-left: 1rem; padding-right: 1rem; }
+            .frow { grid-template-columns: 1fr; }
             .hero { padding: 3rem 0 2.5rem; }
-            .block { padding: 3rem 0; }
-            .pricing-card { padding: 1.6rem; }
         }
         @media (prefers-reduced-motion: reduce) {
             .reveal { opacity: 1; transform: none; transition: none; }
-            .hero-badge .dot, .location-visual .pin { animation: none; }
             html { scroll-behavior: auto; }
         }
     </style>
 </head>
 <body>
-<div class="aurora"></div>
-<div class="grain"></div>
 
 <nav>
-    <div class="nav-inner">
-        <a class="nav-brand" href="/aixmedcourse">AIx<span>MED</span></a>
-        <div class="nav-right">
-            <select class="cohort-select" id="cohort-select" aria-label="Cohort history" title="Cohort history">
-                <option value="cohort3" selected>AIxMed26 · 3rd Cohort</option>
-                <option value="intensive" data-href="/aixmedcourse#aixmed26intensive">AIxMed26Intensive</option>
-                <option value="aixmed26" data-href="/aixmedcourse#aixmed26">AIxMed26</option>
-            </select>
-            <a class="nav-back" href="https://mustaphaxai.com">
-                <i class="fas fa-arrow-left"></i> <span class="nav-back-text">Back to Portfolio</span>
-            </a>
-        </div>
+    <div class="nav-in">
+        <a class="brand" href="/aixmedcourse">AIx<b>MED</b></a>
+        <a href="#register" class="btn btn-primary nav-btn">Register</a>
     </div>
 </nav>
 
-<!-- ───────── Hero ───────── -->
-<section class="hero">
-    <div class="container">
-        <div class="hero-inner">
-            <div class="hero-text reveal">
-                <div class="hero-badge">
-                    <span class="dot"></span>
-                    3rd Cohort · Starting January 5, 2027
-                </div>
-                <h1 class="hero-title">
-                    AI in <span class="grad-text">Medical Imaging</span><br>
-                    Intensive Bootcamp
+<!-- ── Hero ── -->
+<header class="hero">
+    <div class="wrap">
+        <div class="hero-grid">
+            <div class="reveal">
+                <span class="eyebrow"><span class="mark"></span> 3rd Cohort · In person · Beirut</span>
+                <h1>
+                    AI in Medical Imaging,<br>
+                    for <span class="u">engineers<svg viewBox="0 0 200 12" preserveAspectRatio="none"><path d="M2 8 C 40 2, 80 2, 120 6 S 180 10, 198 4" fill="none" stroke="#b8472a" stroke-width="3" stroke-linecap="round"/></svg></span>.
                 </h1>
-                <p class="hero-subtitle">
-                    An in-person, hands-on bootcamp that takes engineers from foundations to deployed
-                    across the full medical-AI stack, from the ML cycle and SVMs to CNNs, Transformers,
-                    and hands-on BioMedCLIP, RAD DINO, UNet, and generative models, packed into two
-                    intensive weeks at The Submarine Coworking Space, Beirut.
+                <p class="lead">
+                    A hands-on, in-person bootcamp that takes you from the basics to building and
+                    deploying real medical-imaging models. Ten weekdays, pure code.
                 </p>
-                <div class="hero-meta">
-                    <span class="meta-item"><i class="fas fa-calendar-alt"></i> From Jan 5, 2027</span>
-                    <span class="meta-item"><i class="fas fa-clock"></i> 2–3 hours per session</span>
-                    <span class="meta-item"><i class="fas fa-map-marker-alt"></i> The Submarine, Beirut</span>
-                    <span class="meta-item"><i class="fas fa-chalkboard-teacher"></i> In Person</span>
-                    <span class="meta-item"><i class="fab fa-python"></i> Python Required</span>
-                </div>
                 <div class="hero-cta">
-                    <a href="#register" class="btn btn-primary"><i class="fas fa-edit"></i> Register Now · $200</a>
-                    <a href="#curriculum" class="btn btn-outline">View Curriculum</a>
+                    <a href="#register" class="btn btn-primary">Register — $200</a>
+                    <a href="#ladder" class="btn btn-ghost">What you'll build</a>
+                </div>
+                <div class="hero-facts">
+                    <span><i class="fas fa-calendar-day"></i> Jan 5 – 18, 2027</span>
+                    <span><i class="fas fa-location-dot"></i> The Submarine, Beirut</span>
+                    <span><i class="fab fa-python"></i> Python required</span>
                 </div>
             </div>
 
-            <div class="hero-visual reveal">
-                <div class="hero-card">
-                    <div class="hero-card-header">
-                        <div class="card-icon"><i class="fas fa-bolt"></i></div>
-                        <div>
-                            <div class="card-title">AIxMED Intensive Bootcamp</div>
-                            <div class="card-sub">3rd Cohort · In Person · The Submarine, Beirut</div>
-                        </div>
-                    </div>
-                    <ul class="topic-list">
-                        <li><i class="fas fa-check-circle"></i> Machine Learning Cycle</li>
-                        <li><i class="fas fa-check-circle"></i> Hands-on Scikit-Learn &amp; SVM</li>
-                        <li><i class="fas fa-check-circle"></i> NNs, CNNs &amp; Transformers</li>
-                        <li><i class="fas fa-check-circle"></i> Medical Image Modalities</li>
-                        <li><i class="fas fa-check-circle"></i> Medical Tasks &amp; Hands-on Models</li>
-                        <li><i class="fas fa-check-circle"></i> BioMedCLIP, RAD DINO, UNet</li>
-                        <li><i class="fas fa-check-circle"></i> Nvidia Generative Models</li>
-                        <li><i class="fas fa-check-circle"></i> Capstone Project</li>
-                    </ul>
-                    <div class="card-footer">
-                        <div>
-                            <div class="price-tag">$200</div>
-                            <div class="price-desc">In-person intensive</div>
-                        </div>
-                        <span class="spots-badge">12 spots only</span>
-                    </div>
-                </div>
-            </div>
+            <aside class="hero-card reveal">
+                <div class="price">$200 <small>/ full bootcamp</small></div>
+                <ul>
+                    <li><i class="fas fa-check"></i> 30 hours, hands-on, in person</li>
+                    <li><i class="fas fa-check"></i> From SVMs to self-supervised vision</li>
+                    <li><i class="fas fa-check"></i> Completion certificate</li>
+                </ul>
+                <div class="seats"><i class="fas fa-user-group"></i> 12 seats only</div>
+            </aside>
+        </div>
+    </div>
+</header>
+
+<!-- ── From Zero to Hero ── -->
+<section class="block" id="ladder">
+    <div class="wrap reveal">
+        <div class="block-head">
+            <span class="eyebrow"><span class="mark"></span> The climb</span>
+            <h2>From zero to hero.</h2>
+            <p>Each day builds on the last — seven rungs that take you from a first classifier to the models behind today's medical AI.</p>
+        </div>
+        <div class="ladder-rail"><span>Start · Zero</span><span class="hero-tag">Hero →</span></div>
+        <div class="ladder">
+            <div class="step" style="--i:0"><div class="bar"><span class="num">01</span><span class="name">SVM</span></div></div>
+            <div class="step" style="--i:1"><div class="bar"><span class="num">02</span><span class="name">Neural Networks</span></div></div>
+            <div class="step" style="--i:2"><div class="bar"><span class="num">03</span><span class="name">CNNs</span></div></div>
+            <div class="step" style="--i:3"><div class="bar"><span class="num">04</span><span class="name">UNets</span></div></div>
+            <div class="step" style="--i:4"><div class="bar"><span class="num">05</span><span class="name">Transformers</span></div></div>
+            <div class="step" style="--i:5"><div class="bar"><span class="num">06</span><span class="name">Vision–Language Alignment</span></div></div>
+            <div class="step" style="--i:6"><div class="bar"><span class="num">07</span><span class="name">Self-Supervised Learning</span></div></div>
         </div>
     </div>
 </section>
 
-<!-- ───────── Stats ───────── -->
-<div class="stats-strip">
-    <div class="container">
-        <div class="stats-grid">
-            <div class="stat-card reveal"><span class="stat-value">10</span><div class="stat-label">In-Person Sessions</div></div>
-            <div class="stat-card reveal"><span class="stat-value">2 wks</span><div class="stat-label">From Jan 5, 2027</div></div>
-            <div class="stat-card reveal"><span class="stat-value">12</span><div class="stat-label">Max Participants</div></div>
-            <div class="stat-card reveal"><span class="stat-value">$200</span><div class="stat-label">Full Price</div></div>
+<!-- ── At a glance ── -->
+<section class="block">
+    <div class="wrap reveal">
+        <div class="block-head">
+            <span class="eyebrow"><span class="mark"></span> The schedule</span>
+            <h2>Two weeks. Thirty hours.</h2>
         </div>
-    </div>
-</div>
-
-<!-- ───────── Requirements ───────── -->
-<section class="block" id="requirements">
-    <div class="container">
-        <div class="block-head center reveal">
-            <span class="section-label"><i class="fas fa-circle-check"></i> Who Should Join</span>
-            <h2 class="section-title">Built for Engineers</h2>
-            <p class="section-subtitle">
-                This cohort is designed for engineers who want to build real medical-AI skills fast.
-                There is one hard prerequisite, and it is non-negotiable.
-            </p>
+        <div class="facts-grid">
+            <div class="fact"><div class="n">10</div><div class="l">days</div></div>
+            <div class="fact"><div class="n">3 hrs</div><div class="l">per day</div></div>
+            <div class="fact"><div class="n">Mon–Fri</div><div class="l">every weekday</div></div>
+            <div class="fact"><div class="n">30 hrs</div><div class="l">total</div></div>
         </div>
-        <div class="req-grid">
-            <div class="req-card is-audience reveal">
-                <div class="req-ico"><i class="fas fa-user-gear"></i></div>
-                <h3>For Engineers</h3>
-                <p>
-                    Aimed at software, computer, biomedical, and ML engineers, plus engineering students
-                    and researchers ready to apply state-of-the-art models to real imaging problems.
-                </p>
-                <div class="req-tags">
-                    <span class="req-tag">Software Engineers</span>
-                    <span class="req-tag">Biomedical Engineers</span>
-                    <span class="req-tag">ML Engineers</span>
-                    <span class="req-tag">Researchers</span>
-                </div>
-            </div>
-            <div class="req-card is-must reveal">
-                <div class="req-ico"><i class="fab fa-python"></i></div>
-                <h3>Python Knowledge Is a Must</h3>
-                <p>
-                    Every session is hands-on. You must be comfortable writing Python, i.e. variables,
-                    functions, loops, and working with libraries, so you can dive straight into the code
-                    from day one. This is a strict prerequisite, not a nice-to-have.
-                </p>
-                <div class="req-tags">
-                    <span class="req-tag">Core syntax</span>
-                    <span class="req-tag">Functions &amp; loops</span>
-                    <span class="req-tag">Libraries &amp; packages</span>
-                </div>
-            </div>
+        <div class="logistics">
+            <span><i class="fas fa-calendar-day"></i> Jan 5 – 18, 2027</span>
+            <span><i class="fas fa-location-dot"></i> The Submarine Coworking Space, Beirut &nbsp;<a href="https://maps.app.goo.gl/KKNEmzL5thhUYn9k6?g_st=ac" target="_blank" rel="noopener">Map</a></span>
+            <span><i class="fas fa-user-group"></i> 12 seats</span>
+            <span><i class="fas fa-tag"></i> $200</span>
         </div>
     </div>
 </section>
 
-<!-- ───────── Curriculum ───────── -->
-<section class="block" id="curriculum">
-    <div class="container">
-        <div class="block-head reveal">
-            <span class="section-label"><i class="fas fa-layer-group"></i> Curriculum</span>
-            <h2 class="section-title">What You Will Learn</h2>
-            <p class="section-subtitle">
-                The complete AIxMED curriculum, delivered in person across ten daily sessions over two
-                weeks, capped by a capstone project you take from data to a working model.
-            </p>
-        </div>
-        <div class="topics-grid">
-            <div class="topic-card reveal"><div class="topic-num">Day 01</div><div class="topic-name">Machine Learning Cycle</div><div class="topic-desc">End-to-end ML workflow: problem framing, data preparation, model training, evaluation, and iteration.</div></div>
-            <div class="topic-card reveal"><div class="topic-num">Day 02</div><div class="topic-name">Hands-on Scikit-Learn &amp; SVM</div><div class="topic-desc">Support Vector Machines and classical ML in practice using Scikit-Learn on real datasets.</div></div>
-            <div class="topic-card reveal"><div class="topic-num">Day 03</div><div class="topic-name">Intro to Neural Networks</div><div class="topic-desc">Perceptrons, backpropagation, activation functions, and training dynamics from the ground up.</div></div>
-            <div class="topic-card reveal"><div class="topic-num">Day 04</div><div class="topic-name">CNNs &amp; Transformers</div><div class="topic-desc">Convolutional networks for image features and Vision Transformers for global context in medical imaging.</div></div>
-            <div class="topic-card reveal"><div class="topic-num">Day 05</div><div class="topic-name">Medical Image Modalities</div><div class="topic-desc">X-ray, MRI, CT, ultrasound, and pathology slides: characteristics, challenges, and preprocessing.</div></div>
-            <div class="topic-card reveal"><div class="topic-num">Day 06</div><div class="topic-name">Medical Tasks</div><div class="topic-desc">Classification, regression, segmentation, and generation as the four core paradigms in medical AI.</div></div>
-            <div class="topic-card reveal"><div class="topic-num">Day 07</div><div class="topic-name">Classification: BioMedCLIP</div><div class="topic-desc">Hands-on classification using BioMedCLIP, a vision-language model trained on biomedical image-text pairs.</div></div>
-            <div class="topic-card reveal"><div class="topic-num">Day 08</div><div class="topic-name">Regression: RAD DINO</div><div class="topic-desc">Hands-on regression for radiology with RAD DINO, covering dose and outcome prediction from imaging data.</div></div>
-            <div class="topic-card reveal"><div class="topic-num">Day 09</div><div class="topic-name">Segmentation: UNet</div><div class="topic-desc">Hands-on medical image segmentation using UNet, the gold-standard encoder-decoder architecture.</div></div>
-            <div class="topic-card reveal"><div class="topic-num">Day 10</div><div class="topic-name">Generation: Nvidia Models</div><div class="topic-desc">Generative AI for medical imaging using Nvidia's medical AI models for synthetic data and augmentation.</div></div>
-            <div class="topic-card topic-card--project reveal"><div class="topic-num">Capstone</div><div class="topic-name">Project</div><div class="topic-desc">Apply the full pipeline to a real medical imaging problem of your choice, from data to a working model.</div></div>
-        </div>
-    </div>
-</section>
-
-<!-- ───────── Format ───────── -->
-<section class="block" id="format">
-    <div class="container">
-        <div class="block-head reveal">
-            <span class="section-label"><i class="fas fa-sliders"></i> Format</span>
-            <h2 class="section-title">How It Works</h2>
-            <p class="section-subtitle">Built for engineers who want to master the full stack fast, hands-on and in person.</p>
-        </div>
-        <div class="feature-grid">
-            <div class="feature-item reveal">
-                <div class="feature-icon"><i class="fas fa-map-marker-alt"></i></div>
-                <h3>In Person</h3>
-                <p>Held on-site at The Submarine Coworking Space, Beirut. Face-to-face with the instructor.</p>
-            </div>
-            <div class="feature-item reveal">
-                <div class="feature-icon"><i class="fas fa-bolt"></i></div>
-                <h3>Two Intensive Weeks</h3>
-                <p>Ten daily sessions starting Jan 5, 2027, each running 2–3 hours: the whole curriculum, start to finish.</p>
-            </div>
-            <div class="feature-item reveal">
-                <div class="feature-icon"><i class="fas fa-laptop-code"></i></div>
-                <h3>Hands-on Code</h3>
-                <p>Every session includes live Python coding, exercises, and real medical imaging examples.</p>
-            </div>
-            <div class="feature-item reveal">
-                <div class="feature-icon"><i class="fas fa-user-friends"></i></div>
-                <h3>Tight Cohort</h3>
-                <p>Maximum 12 participants for a high-touch, interactive intensive experience.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ───────── Location ───────── -->
-<section class="block" id="location">
-    <div class="container">
-        <div class="block-head reveal">
-            <span class="section-label"><i class="fas fa-location-dot"></i> Location</span>
-            <h2 class="section-title">Where It Happens</h2>
-        </div>
-        <div class="location-card reveal">
-            <div class="location-info">
-                <h3>The Submarine Coworking Space</h3>
-                <p>Beirut, Lebanon</p>
-                <div class="addr">
-                    <i class="fas fa-map-pin"></i>
-                    <span>The Submarine Coworking Space, Beirut. On-site classroom with everything you need for the hands-on sessions.</span>
-                </div>
-                <a href="https://maps.app.goo.gl/KKNEmzL5thhUYn9k6?g_st=ac" target="_blank" rel="noopener" class="btn btn-outline">
-                    <i class="fas fa-map-marked-alt"></i> View on Google Maps
-                </a>
-            </div>
-            <div class="location-visual">
-                <i class="fas fa-map-location-dot pin"></i>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ───────── Instructor ───────── -->
-<section class="block" id="instructor">
-    <div class="container">
-        <div class="block-head center reveal">
-            <span class="section-label"><i class="fas fa-user"></i> Instructor</span>
-            <h2 class="section-title">Meet Your Instructor</h2>
-        </div>
-        <div class="instructor-inner reveal">
-            <img src="../../resources/Professional-Picture-Me.png" alt="Ahmad Mustapha" class="instructor-photo">
+<!-- ── Who it's for ── -->
+<section class="block">
+    <div class="wrap reveal">
+        <div class="who">
             <div>
-                <div class="instructor-name">Ahmad Mustapha</div>
-                <div class="instructor-role">Doctoral Researcher · American University of Beirut</div>
-                <p class="instructor-bio">
-                    Ahmad is a doctoral researcher at AUB specializing in AI for medical imaging,
-                    with a focus on unsupervised deep learning, representation learning, and bias in
-                    medical AI systems. He has led and contributed to projects spanning X-ray disease
-                    detection, vehicle detection in the wild, and multi-service AI platforms.
-                    His mission is to make cutting-edge medical AI accessible to clinicians,
-                    researchers, and engineers alike.
-                </p>
-                <div class="instructor-links">
-                    <a href="https://scholar.google.com/citations?user=udbsTuwAAAAJ&hl=en" target="_blank" class="instructor-link"><i class="fas fa-graduation-cap"></i> Google Scholar</a>
-                    <a href="https://www.linkedin.com/in/ahmad-mustapha-ml" target="_blank" class="instructor-link"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                    <a href="https://github.com/AhmadM-DL" target="_blank" class="instructor-link"><i class="fab fa-github"></i> GitHub</a>
-                    <a href="mailto:ahmad.m.mustapha@hotmail.com" class="instructor-link"><i class="fas fa-envelope"></i> Email</a>
+                <span class="eyebrow"><span class="mark"></span> Who it's for</span>
+                <h2 style="font-size:clamp(1.7rem,4vw,2.4rem);margin:0.6rem 0 0.8rem;">For engineers who already code.</h2>
+                <p>This is a code-first bootcamp. We bring the medical AI — you bring the Python. If you're an engineer who wants to build real imaging models fast, this is for you.</p>
+            </div>
+            <div class="req-note">
+                <div class="pyico"><i class="fab fa-python"></i></div>
+                <div>
+                    <b>Python experience is required</b>
+                    <span>You should be comfortable with variables, functions, loops, and libraries so you can start coding on day one. Not a beginner course.</span>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ───────── Testimonials ───────── -->
-<section class="block" id="testimonials">
-    <div class="container">
-        <div class="block-head center reveal">
-            <span class="section-label"><i class="fas fa-quote-right"></i> Testimonials</span>
-            <h2 class="section-title">What Our Students Say</h2>
-            <p class="section-subtitle">Feedback from participants of the first AIxMED cohort.</p>
-        </div>
-        <div class="testimonials-grid reveal">
-            <div class="testimonial-card">
-                <div class="testimonial-quote-icon"><i class="fas fa-quote-left"></i></div>
-                <p class="testimonial-text">I truly learned a lot from this course and really appreciate the effort you put into this course.</p>
-                <div class="testimonial-author"><div class="testimonial-avatar">H</div><div><div class="testimonial-name">Hawraa</div><div class="testimonial-role">First Cohort Participant</div></div></div>
-            </div>
-            <div class="testimonial-card">
-                <div class="testimonial-quote-icon"><i class="fas fa-quote-left"></i></div>
-                <p class="testimonial-text">I am grateful to have had the opportunity to be part of this first cohort through which I have learned a lot.</p>
-                <div class="testimonial-author"><div class="testimonial-avatar">S</div><div><div class="testimonial-name">Sundos</div><div class="testimonial-role">First Cohort Participant</div></div></div>
-            </div>
-            <div class="testimonial-card">
-                <div class="testimonial-quote-icon"><i class="fas fa-quote-left"></i></div>
-                <p class="testimonial-text">We truly learned a lot throughout the sessions, and we really appreciate the time, guidance, and effort you put into making the series such a valuable experience for us.</p>
-                <div class="testimonial-author"><div class="testimonial-avatar">A</div><div><div class="testimonial-name">Abeer</div><div class="testimonial-role">First Cohort Participant</div></div></div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ───────── Pricing / Register ───────── -->
+<!-- ── Register ── -->
 <section class="block" id="register">
-    <div class="container">
-        <div class="block-head center reveal">
-            <span class="section-label"><i class="fas fa-ticket"></i> Register</span>
-            <h2 class="section-title">Reserve Your Spot</h2>
-            <p class="section-subtitle">In-person intensive pricing — spots are strictly limited.</p>
+    <div class="wrap reveal">
+        <div class="block-head">
+            <span class="eyebrow"><span class="mark"></span> Register</span>
+            <h2>Claim one of 12 seats.</h2>
         </div>
-        <div class="pricing-card reveal">
-            <div class="pricing-label">3rd Cohort · In-Person Intensive · Beirut 2027</div>
-            <div class="pricing-amount grad-text">$200</div>
-            <div class="pricing-note">One-time payment · Payment instructions sent after registration</div>
-            <ul class="pricing-features">
-                <li><i class="fas fa-check"></i> 10 in-person sessions starting Jan 5, 2027</li>
-                <li><i class="fas fa-check"></i> On-site at The Submarine Coworking Space, Beirut</li>
-                <li><i class="fas fa-check"></i> Hands-on Python coding exercises</li>
-                <li><i class="fas fa-check"></i> Course completion certificate</li>
-                <li><i class="fas fa-check"></i> Direct access to instructor</li>
-            </ul>
-            <div class="pricing-warning">
-                <i class="fas fa-exclamation-circle"></i>
-                Only 12 spots available. First come, first served.
+        <div class="reg-grid">
+            <div class="reg-aside">
+                <div class="price">$200 <small>once</small></div>
+                <p>Payment instructions are sent after you register.</p>
+                <ul>
+                    <li><i class="fas fa-check"></i> 10 in-person sessions, Jan 5 – 18</li>
+                    <li><i class="fas fa-check"></i> At The Submarine, Beirut</li>
+                    <li><i class="fas fa-check"></i> 30 hours of hands-on Python</li>
+                    <li><i class="fas fa-check"></i> Completion certificate</li>
+                </ul>
             </div>
-            <form class="reg-form" id="reg-form-cohort3" data-course="AIxMed26 · 3rd Cohort · In Person (Beirut) · Jan 2027">
-                <div class="form-row">
-                    <input type="text" name="first_name" placeholder="First Name" required>
-                    <input type="text" name="last_name" placeholder="Last Name" required>
-                </div>
-                <select name="country" required>
-                    <option value="" disabled selected>Country</option>
-                    <option>Afghanistan</option><option>Albania</option><option>Algeria</option>
-                    <option>Argentina</option><option>Armenia</option><option>Australia</option>
-                    <option>Austria</option><option>Azerbaijan</option><option>Bahrain</option>
-                    <option>Bangladesh</option><option>Belarus</option><option>Belgium</option>
-                    <option>Bolivia</option><option>Brazil</option><option>Bulgaria</option>
-                    <option>Cambodia</option><option>Canada</option><option>Chile</option>
-                    <option>China</option><option>Colombia</option><option>Croatia</option>
-                    <option>Cyprus</option><option>Czech Republic</option><option>Denmark</option>
-                    <option>Ecuador</option><option>Egypt</option><option>Ethiopia</option>
-                    <option>Finland</option><option>France</option><option>Georgia</option>
-                    <option>Germany</option><option>Ghana</option><option>Greece</option>
-                    <option>Hungary</option><option>India</option><option>Indonesia</option>
-                    <option>Iran</option><option>Iraq</option><option>Ireland</option>
-                    <option>Israel</option><option>Italy</option><option>Japan</option>
-                    <option>Jordan</option><option>Kazakhstan</option><option>Kenya</option>
-                    <option>Kuwait</option><option>Lebanon</option><option>Libya</option>
-                    <option>Malaysia</option><option>Mexico</option><option>Morocco</option>
-                    <option>Netherlands</option><option>New Zealand</option><option>Nigeria</option>
-                    <option>Norway</option><option>Oman</option><option>Pakistan</option>
-                    <option>Palestine</option><option>Peru</option><option>Philippines</option>
-                    <option>Poland</option><option>Portugal</option><option>Qatar</option>
-                    <option>Romania</option><option>Russia</option><option>Saudi Arabia</option>
-                    <option>Senegal</option><option>Serbia</option><option>Singapore</option>
-                    <option>South Africa</option><option>South Korea</option><option>Spain</option>
-                    <option>Sri Lanka</option><option>Sudan</option><option>Sweden</option>
-                    <option>Switzerland</option><option>Syria</option><option>Taiwan</option>
-                    <option>Thailand</option><option>Tunisia</option><option>Turkey</option>
-                    <option>Ukraine</option><option>United Arab Emirates</option>
-                    <option>United Kingdom</option><option>United States</option>
-                    <option>Uzbekistan</option><option>Venezuela</option><option>Vietnam</option>
-                    <option>Yemen</option><option>Other</option>
-                </select>
-                <input type="email" name="email" placeholder="Email Address" required>
-                <select name="ai_experience" required>
-                    <option value="" disabled selected>AI Experience Level</option>
-                    <option value="none">No experience</option>
-                    <option value="beginner">Beginner – aware of concepts</option>
-                    <option value="intermediate">Intermediate – some hands-on work</option>
-                    <option value="advanced">Advanced – professional experience</option>
-                </select>
-                <label class="python-check">
-                    <input type="checkbox" name="python_confirm" required>
-                    <span>I confirm I am <strong>comfortable writing Python</strong> (variables, functions, loops, and libraries). Python knowledge is required for this cohort.</span>
-                </label>
-                <button type="submit" class="btn btn-primary">
-                    <i class="fas fa-edit"></i> Register to Reserve Your Spot
-                </button>
-                <div class="reg-msg"></div>
-            </form>
-            <p class="form-note">
-                Have a question?
-                <a href="https://wa.me/96171277970" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Contact me on WhatsApp</a>
-            </p>
-        </div>
-    </div>
-</section>
 
-<!-- ───────── Sponsors ───────── -->
-<section class="block" id="sponsors">
-    <div class="container">
-        <div class="block-head center reveal">
-            <span class="section-label"><i class="fas fa-handshake"></i> Sponsors</span>
-            <h2 class="section-title">Our Sponsors</h2>
+            <form id="reg-form" data-course="AIxMed26 · 3rd Cohort · In Person (Beirut) · Jan 2027">
+                <div class="frow">
+                    <input type="text" name="first_name" placeholder="First name" required>
+                    <input type="text" name="last_name" placeholder="Last name" required>
+                </div>
+                <input type="email" name="email" placeholder="Email address" required>
+                <label class="pycheck">
+                    <input type="checkbox" name="python_confirm" required>
+                    <span>I confirm I'm <b>comfortable writing Python</b> — this cohort requires it.</span>
+                </label>
+                <button type="submit" class="btn btn-primary">Reserve my seat</button>
+                <div class="reg-msg"></div>
+                <p class="whats">Questions? <a href="https://wa.me/96171277970" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp me</a></p>
+            </form>
         </div>
-        <div class="sponsors-grid reveal">
-            <a class="sponsor-item" href="https://teachmorelb.com" target="_blank" rel="noopener" aria-label="Teachmore"><img src="../../resources/teachmore.png" alt="Teachmore"></a>
+
+        <div class="teacher" style="margin-top:2.6rem;padding-top:1.6rem;border-top:1px solid var(--line);">
+            <img src="../../resources/Professional-Picture-Me.png" alt="Ahmad Mustapha">
+            <div>Taught by <b>Ahmad Mustapha</b> — Doctoral Researcher in medical AI, American University of Beirut.</div>
+            <div class="links">
+                <a href="https://scholar.google.com/citations?user=udbsTuwAAAAJ&hl=en" target="_blank" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+                <a href="https://www.linkedin.com/in/ahmad-mustapha-ml" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/AhmadM-DL" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            </div>
         </div>
     </div>
 </section>
 
 <footer>
-    <div class="container">
-        <div class="footer-inner">
-            <span>© 2027 Ahmad Mustapha · <a href="mailto:ahmad.m.mustapha@hotmail.com">ahmad.m.mustapha@hotmail.com</a></span>
-            <div class="footer-right">
-                <a href="https://mustaphaxai.com">Portfolio</a>
-                <a href="https://scholar.google.com/citations?user=udbsTuwAAAAJ&hl=en" target="_blank">Google Scholar</a>
-                <a href="https://github.com/AhmadM-DL" target="_blank">GitHub</a>
-            </div>
+    <div class="wrap foot">
+        <span>© 2027 Ahmad Mustapha · <a href="mailto:ahmad.m.mustapha@hotmail.com" style="text-decoration:underline;text-underline-offset:2px;">ahmad.m.mustapha@hotmail.com</a></span>
+        <div class="fr">
+            <a href="https://mustaphaxai.com">Portfolio</a>
+            <a href="/aixmedcourse">Past cohorts</a>
+            <a href="https://github.com/AhmadM-DL" target="_blank">GitHub</a>
         </div>
     </div>
 </footer>
 
 <script>
 (function () {
-    // Reveal-on-scroll
     const io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-            if (entry.isIntersecting) { entry.target.classList.add('show'); io.unobserve(entry.target); }
-        });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+        entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); } });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
 
-    // Cohort switcher → navigate to other cohort pages
-    const select = document.getElementById('cohort-select');
-    if (select) {
-        select.addEventListener('change', function () {
-            const opt = select.options[select.selectedIndex];
-            const href = opt && opt.getAttribute('data-href');
-            if (href) window.location.href = href;
-        });
-    }
-
-    // Registration form
-    const form = document.getElementById('reg-form-cohort3');
+    const form = document.getElementById('reg-form');
     if (!form) return;
     const msg = form.querySelector('.reg-msg');
     const course = form.getAttribute('data-course') || 'AIxMED';
@@ -1097,36 +462,35 @@
         const btn = form.querySelector('button[type="submit"]');
         btn.disabled = true;
         btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting…';
-        msg.innerHTML = '';
+        msg.innerHTML = ''; msg.className = 'reg-msg';
 
         const email = form.email.value.trim();
         const payload = {
             _subject: 'New AIxMED Registration (' + course + ') – ' + form.first_name.value.trim() + ' ' + form.last_name.value.trim(),
             _replyto: email,
-            Course:              course,
-            Name:                form.first_name.value.trim() + ' ' + form.last_name.value.trim(),
-            Country:             form.country.value,
-            Email:               email,
-            'AI Experience':     form.ai_experience.value,
-            'Python Confirmed':  form.python_confirm.checked ? 'Yes' : 'No'
+            Course:             course,
+            Name:               form.first_name.value.trim() + ' ' + form.last_name.value.trim(),
+            Email:              email,
+            'Python Confirmed': form.python_confirm.checked ? 'Yes' : 'No'
         };
 
         try {
             const res = await fetch('https://formsubmit.co/ajax/ahmad.m.mustapha@hotmail.com', {
-                method:  'POST',
+                method: 'POST',
                 headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-                body:    JSON.stringify(payload)
+                body: JSON.stringify(payload)
             });
             if (!res.ok) throw new Error('HTTP ' + res.status);
             gtag('event', 'conversion', { send_to: 'AW-18206577205/ttYjCIL_6bccELWkyelD' });
-
             form.reset();
-            msg.innerHTML = '<div class="form-msg success"><i class="fas fa-check-circle"></i> Registration complete! We\'ll be in touch soon with payment and venue details.</div>';
-            btn.innerHTML = '<i class="fas fa-check"></i> Registered!';
+            msg.className = 'reg-msg ok';
+            msg.innerHTML = '<i class="fas fa-check-circle"></i> You\'re in the queue! We\'ll email you payment and venue details soon.';
+            btn.innerHTML = 'Registered';
         } catch (err) {
-            msg.innerHTML = '<div class="form-msg error">Something went wrong. Please try again or email <a href="mailto:ahmad.m.mustapha@hotmail.com" style="color:inherit;text-decoration:underline">ahmad.m.mustapha@hotmail.com</a> directly.</div>';
+            msg.className = 'reg-msg err';
+            msg.innerHTML = 'Something went wrong. Please try again or email <a href="mailto:ahmad.m.mustapha@hotmail.com" style="color:inherit;text-decoration:underline">ahmad.m.mustapha@hotmail.com</a>.';
             btn.disabled = false;
-            btn.innerHTML = '<i class="fas fa-edit"></i> Register to Reserve Your Spot';
+            btn.innerHTML = 'Reserve my seat';
         }
     });
 })();
