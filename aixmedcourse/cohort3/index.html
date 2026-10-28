@@ -80,7 +80,7 @@
 
         /* hero */
         .hero { background: linear-gradient(180deg, var(--brand-l) 0%, #ffffff 70%); padding: 4.5rem 0 4rem; }
-        .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 3rem; align-items: center; }
+        .hero-grid { display: block; max-width: 44rem; }
         .hero h1 { font-size: clamp(2.3rem, 5vw, 3.4rem); font-weight: 800; margin: 1.1rem 0 1rem; }
         .hero h1 .accent { color: var(--brand); }
         .hero p.sub { font-size: 1.15rem; color: var(--body); max-width: 33rem; margin-bottom: 1.8rem; }
@@ -238,22 +238,7 @@
                 <p class="sub">A hands-on, in-person bootcamp that takes you from the fundamentals to building and deploying real medical-imaging models in just two weeks.</p>
                 <div class="hero-cta">
                     <a href="#register" class="btn btn-primary">Register now</a>
-                    <a href="#curriculum" class="btn btn-ghost">View curriculum</a>
                 </div>
-                <div class="hero-trust">
-                    <span><i class="fas fa-check-circle"></i> 30 hours, hands-on</span>
-                    <span><i class="fas fa-check-circle"></i> Only 12 seats</span>
-                    <span><i class="fas fa-check-circle"></i> Certificate included</span>
-                </div>
-            </div>
-
-            <div class="info-card reveal">
-                <h3>Course details</h3>
-                <div class="info-row"><div class="ic"><i class="fas fa-calendar-day"></i></div><div><div class="k">Dates</div><div class="v">January 5–18, 2027</div></div></div>
-                <div class="info-row"><div class="ic"><i class="fas fa-clock"></i></div><div><div class="k">Schedule</div><div class="v">10 weekdays · 3 hrs/day</div></div></div>
-                <div class="info-row"><div class="ic"><i class="fas fa-location-dot"></i></div><div><div class="k">Location</div><div class="v">The Submarine Coworking Space, Beirut</div></div></div>
-                <div class="info-row"><div class="ic"><i class="fab fa-python"></i></div><div><div class="k">Prerequisite</div><div class="v">Python experience required</div></div></div>
-                <div class="price-row"><span class="amt">$200</span><span class="seats">12 seats only</span></div>
             </div>
         </div>
     </div>
