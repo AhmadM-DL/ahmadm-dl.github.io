@@ -175,6 +175,10 @@
         .price-card li { display: flex; gap: 0.6rem; font-size: 0.95rem; }
         .price-card li i { color: var(--green); margin-top: 0.3rem; }
 
+        .reg-single { max-width: 560px; margin: 0 auto; }
+        .reg-price { text-align: center; padding-bottom: 1.3rem; margin-bottom: 1.4rem; border-bottom: 1px solid var(--border); }
+        .reg-price .amt { display: block; font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 2.6rem; color: var(--ink); line-height: 1; }
+        .reg-price .note { display: block; color: var(--muted); font-size: 0.9rem; margin-top: 0.4rem; }
         .form-card { background: #fff; border: 1px solid var(--border); border-radius: 18px; box-shadow: var(--shadow-lg); padding: 2rem; }
         .form-card h3 { font-size: 1.3rem; margin-bottom: 1.2rem; }
         .field { margin-bottom: 0.9rem; }
@@ -341,14 +345,11 @@
             <h2>Reserve your seat</h2>
             <p>One simple price, and only eight seats. First come, first served.</p>
         </div>
-        <div class="reg-grid" id="register">
-            <div class="price-card reveal">
-                <div class="amt">$200</div>
-                <div class="note">Payment instructions are sent after you register.</div>
-            </div>
-
-            <div class="form-card reveal">
-                <h3>Registration</h3>
+        <div class="form-card reg-single reveal" id="register">
+                <div class="reg-price">
+                    <span class="amt">$200</span>
+                    <span class="note">Payment instructions sent after you register.</span>
+                </div>
                 <form id="reg-form" action="https://formsubmit.co/ahmad.m.mustapha@hotmail.com" method="POST">
                     <input type="hidden" name="_subject" value="New AIxMED Registration · 3rd Cohort (Beirut, Jan 2027)">
                     <input type="hidden" name="Course" value="AIxMed26 · 3rd Cohort · In Person (Beirut) · Jan 2027">
@@ -365,7 +366,6 @@
                     <div class="reg-msg"></div>
                     <p class="whats">Questions? <a href="mailto:ahmad.m.mustapha@hotmail.com"><i class="fas fa-envelope"></i> ahmad.m.mustapha@hotmail.com</a></p>
                 </form>
-            </div>
         </div>
     </div>
 </section>
