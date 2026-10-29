@@ -185,6 +185,16 @@
         .inst .links a { width: 2.4rem; height: 2.4rem; display: grid; place-items: center; border-radius: 10px; border: 1px solid var(--border); color: var(--body); transition: all 0.2s; }
         .inst .links a:hover { background: var(--brand); color: #fff; border-color: var(--brand); }
 
+        /* faq */
+        .faq-list { max-width: 760px; margin: 0 auto; display: grid; gap: 0.9rem; }
+        .faq-item { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; }
+        .faq-item summary { list-style: none; cursor: pointer; padding: 1.1rem 1.3rem; font-family: 'Poppins', sans-serif; font-weight: 600; color: var(--ink); font-size: 1rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+        .faq-item summary::-webkit-details-marker { display: none; }
+        .faq-item summary::after { content: "\f078"; font-family: "Font Awesome 6 Free"; font-weight: 900; font-size: 0.8rem; color: var(--brand); transition: transform 0.25s ease; }
+        .faq-item[open] summary::after { transform: rotate(180deg); }
+        .faq-item .faq-a { padding: 0 1.3rem 1.2rem; color: var(--body); font-size: 0.97rem; }
+        .faq-item .faq-a a { color: var(--brand); font-weight: 600; }
+
         /* footer */
         footer { background: var(--ink); color: #cbd5e1; padding: 2.5rem 0; }
         .foot { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; }
@@ -354,6 +364,50 @@
                     <a href="mailto:ahmad.m.mustapha@hotmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
                 </div>
             </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="alt">
+    <div class="container">
+        <div class="sec-head reveal">
+            <span class="pill"><i class="fas fa-circle-question"></i> FAQ</span>
+            <h2>Frequently asked questions</h2>
+        </div>
+        <div class="faq-list">
+            <details class="faq-item reveal">
+                <summary>Do I need prior AI or machine learning experience?</summary>
+                <div class="faq-a">No. You only need to be comfortable coding in Python. We start from the fundamentals and build up to advanced medical-imaging models across the ten sessions.</div>
+            </details>
+            <details class="faq-item reveal">
+                <summary>What level of Python is expected?</summary>
+                <div class="faq-a">You should be comfortable with variables, functions, loops, and using libraries. Every session is hands-on, so you'll be writing code from day one. This is not a beginner programming course.</div>
+            </details>
+            <details class="faq-item reveal">
+                <summary>When exactly does the bootcamp run?</summary>
+                <div class="faq-a">On weekdays from January 5 to 18, 2027, with one 3-hour session per day (30 hours total). Exact daily times are shared with registered participants.</div>
+            </details>
+            <details class="faq-item reveal">
+                <summary>Is it online or in person?</summary>
+                <div class="faq-a">This cohort is fully in person at The Submarine Coworking Space in Beirut. <a href="https://maps.app.goo.gl/KKNEmzL5thhUYn9k6?g_st=ac" target="_blank" rel="noopener">See the map</a>.</div>
+            </details>
+            <details class="faq-item reveal">
+                <summary>What do I need to bring?</summary>
+                <div class="faq-a">Your own laptop. Setup instructions for Python and the tools we use are sent before the first session.</div>
+            </details>
+            <details class="faq-item reveal">
+                <summary>How do I pay, and when is my seat confirmed?</summary>
+                <div class="faq-a">After you register, we email payment instructions. Your seat is confirmed once payment is received. There are only 12 seats, allocated first come, first served.</div>
+            </details>
+            <details class="faq-item reveal">
+                <summary>Do I get a certificate?</summary>
+                <div class="faq-a">Yes. You receive a completion certificate at the end of the bootcamp.</div>
+            </details>
+            <details class="faq-item reveal">
+                <summary>Still have a question?</summary>
+                <div class="faq-a">Email <a href="mailto:ahmad.m.mustapha@hotmail.com">ahmad.m.mustapha@hotmail.com</a> and we'll get back to you.</div>
+            </details>
         </div>
     </div>
 </section>
