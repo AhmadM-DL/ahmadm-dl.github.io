@@ -579,6 +579,17 @@
     #panel-aixmed26cohort3 .inst .links { display:flex; gap:0.6rem; }
     #panel-aixmed26cohort3 .inst .links a { width:2.4rem; height:2.4rem; display:grid; place-items:center; border-radius:10px; border:1px solid var(--border); color:var(--body); transition:all 0.2s; }
     #panel-aixmed26cohort3 .inst .links a:hover { background:var(--brand); color:#fff; border-color:var(--brand); }
+    #panel-aixmed26cohort3 .testi-grid { display:flex; flex-wrap:wrap; justify-content:center; gap:1.3rem; max-width:1040px; margin:0 auto; }
+    #panel-aixmed26cohort3 .testi-grid .testi-card { flex:1 1 300px; max-width:330px; }
+    #panel-aixmed26cohort3 .testi-card { display:flex; flex-direction:column; background:#fff; border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); padding:1.7rem; transition:transform 0.2s, box-shadow 0.2s, border-color 0.2s; }
+    #panel-aixmed26cohort3 .testi-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-lg); border-color:var(--brand); }
+    #panel-aixmed26cohort3 .testi-icon { color:var(--brand); font-size:1.3rem; margin-bottom:0.85rem; }
+    #panel-aixmed26cohort3 .testi-text { font-size:0.95rem; color:var(--body); line-height:1.7; font-style:italic; flex:1; }
+    #panel-aixmed26cohort3 .testi-text + .testi-text { margin-top:0.8rem; }
+    #panel-aixmed26cohort3 .testi-author { display:flex; align-items:center; gap:0.85rem; margin-top:1.35rem; }
+    #panel-aixmed26cohort3 .testi-avatar { width:2.6rem; height:2.6rem; border-radius:50%; background:var(--brand-l); color:var(--brand); display:grid; place-items:center; font-family:'Poppins',sans-serif; font-weight:700; flex-shrink:0; }
+    #panel-aixmed26cohort3 .testi-name { font-family:'Poppins',sans-serif; font-weight:600; color:var(--ink); font-size:0.95rem; }
+    #panel-aixmed26cohort3 .testi-role { font-size:0.8rem; color:var(--muted); }
     #panel-aixmed26cohort3 .faq-list { max-width:760px; margin:0 auto; display:grid; gap:0.9rem; }
     #panel-aixmed26cohort3 .faq-item { background:#fff; border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden; }
     #panel-aixmed26cohort3 .faq-item summary { list-style:none; cursor:pointer; padding:1.1rem 1.3rem; font-family:'Poppins',sans-serif; font-weight:600; color:var(--ink); font-size:1rem; display:flex; align-items:center; justify-content:space-between; gap:1rem; }
@@ -762,8 +773,77 @@
     </div>
 </section>
 
+<!-- Testimonials -->
+<section id="testimonials" class="alt">
+    <div class="container">
+        <div class="sec-head reveal">
+            <span class="pill"><i class="fas fa-comment-dots"></i> Testimonials</span>
+            <h2>What past participants say</h2>
+            <p>Feedback from participants of the first and second AIxMED cohorts.</p>
+        </div>
+        <div class="testi-grid reveal">
+            <div class="testi-card">
+                <div class="testi-icon"><i class="fas fa-quote-left"></i></div>
+                <p class="testi-text">Thank you for providing us with such a valuable learning opportunity. I’m truly grateful for your time, effort, and guidance throughout the bootcamp, and for sharing your knowledge with us. It was a meaningful experience, and I sincerely appreciate the opportunity.</p>
+                <div class="testi-author">
+                    <div class="testi-avatar">Z</div>
+                    <div>
+                        <div class="testi-name">Zaynab</div>
+                        <div class="testi-role">Second Cohort Participant</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testi-card">
+                <div class="testi-icon"><i class="fas fa-quote-left"></i></div>
+                <p class="testi-text">Thank you so much for your support and guidance throughout this bootcamp. I really enjoyed the experience and learned a lot from you. I truly appreciate the time and effort you spent helping us learn and improve our skills.</p>
+                <p class="testi-text">This bootcamp helped me learn more about AI in medical imaging and made me even more interested in this field. It also motivated me to continue learning and developing my skills.</p>
+                <div class="testi-author">
+                    <div class="testi-avatar">A</div>
+                    <div>
+                        <div class="testi-name">Aseel</div>
+                        <div class="testi-role">Second Cohort Participant</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testi-card">
+                <div class="testi-icon"><i class="fas fa-quote-left"></i></div>
+                <p class="testi-text">I truly learned a lot from this course and really appreciate the effort you put into this course.</p>
+                <div class="testi-author">
+                    <div class="testi-avatar">H</div>
+                    <div>
+                        <div class="testi-name">Hawraa</div>
+                        <div class="testi-role">First Cohort Participant</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testi-card">
+                <div class="testi-icon"><i class="fas fa-quote-left"></i></div>
+                <p class="testi-text">I am grateful to have had the opportunity to be part of this first cohort through which I have learned a lot.</p>
+                <div class="testi-author">
+                    <div class="testi-avatar">S</div>
+                    <div>
+                        <div class="testi-name">Sundos</div>
+                        <div class="testi-role">First Cohort Participant</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testi-card">
+                <div class="testi-icon"><i class="fas fa-quote-left"></i></div>
+                <p class="testi-text">We truly learned a lot throughout the sessions, and we really appreciate the time, guidance, and effort you put into making the series such a valuable experience for us.</p>
+                <div class="testi-author">
+                    <div class="testi-avatar">A</div>
+                    <div>
+                        <div class="testi-name">Abeer</div>
+                        <div class="testi-role">First Cohort Participant</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- FAQ -->
-<section id="faq" class="alt">
+<section id="faq">
     <div class="container">
         <div class="sec-head reveal">
             <span class="pill"><i class="fas fa-circle-question"></i> FAQ</span>
