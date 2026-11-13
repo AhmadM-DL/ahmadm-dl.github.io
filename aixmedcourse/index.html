@@ -483,6 +483,9 @@
         }
         .google-scholar-link:hover { color: var(--teal-dark); }
         /* ── Registration Form ── */
+        .pricing-closed { margin-top: 1.5rem; padding: 1.25rem; border-radius: 12px; background: rgba(13,148,136,0.12); border: 1px solid rgba(13,148,136,0.35); text-align: center; }
+        .pricing-closed p { margin: 0 0 0.6rem; }
+        .pricing-closed .btn { margin-top: 0.5rem; }
         .reg-form { display: flex; flex-direction: column; gap: 0.85rem; margin-top: 1.5rem; text-align: left; }
         .reg-form .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; }
         .reg-form input, .reg-form select {
@@ -959,8 +962,8 @@
                     <span class="meta-item"><i class="fas fa-users"></i> 30 Spots Max</span>
                 </div>
                 <div class="hero-cta">
-                    <a href="#register" class="btn btn-primary">
-                        <i class="fas fa-edit"></i> Register Now , $25
+                    <a href="/aixmedcourse" class="btn btn-primary">
+                        <i class="fas fa-lock"></i> Registration closed · Join AIxMed2027
                     </a>
                     <a href="#topics" class="btn btn-outline">View Curriculum</a>
                 </div>
@@ -1171,7 +1174,7 @@
         <div class="reveal" style="text-align:center;">
             <span class="section-label">Pricing</span>
             <h2 class="section-title">Simple, Transparent Pricing</h2>
-            <p class="section-subtitle" style="margin: 0 auto;">Early-cohort pricing , spots are strictly limited.</p>
+            <p class="section-subtitle" style="margin: 0 auto;">Registration for this cohort is closed.</p>
         </div>
         <div class="pricing-card reveal">
             <div class="pricing-label">First Cohort · Summer 2026</div>
@@ -1184,70 +1187,13 @@
                 <li><i class="fas fa-check"></i> Course completion certificate</li>
                 <li><i class="fas fa-check"></i> Direct access to instructor</li>
             </ul>
-            <div class="pricing-warning">
-                <i class="fas fa-exclamation-circle"></i>
-                Only 30 spots available. First come, first served.
-            </div>
-            <form class="reg-form" id="reg-form" data-course="AIxMed26 · Summer Saturdays">
-                <div class="form-row">
-                    <input type="text"  name="first_name"    placeholder="First Name"    required>
-                    <input type="text"  name="last_name"     placeholder="Last Name"     required>
-                </div>
-                <select name="country" required>
-                    <option value="" disabled selected>Country</option>
-                    <option>Afghanistan</option><option>Albania</option><option>Algeria</option>
-                    <option>Argentina</option><option>Armenia</option><option>Australia</option>
-                    <option>Austria</option><option>Azerbaijan</option><option>Bahrain</option>
-                    <option>Bangladesh</option><option>Belarus</option><option>Belgium</option>
-                    <option>Bolivia</option><option>Brazil</option><option>Bulgaria</option>
-                    <option>Cambodia</option><option>Canada</option><option>Chile</option>
-                    <option>China</option><option>Colombia</option><option>Croatia</option>
-                    <option>Cyprus</option><option>Czech Republic</option><option>Denmark</option>
-                    <option>Ecuador</option><option>Egypt</option><option>Ethiopia</option>
-                    <option>Finland</option><option>France</option><option>Georgia</option>
-                    <option>Germany</option><option>Ghana</option><option>Greece</option>
-                    <option>Hungary</option><option>India</option><option>Indonesia</option>
-                    <option>Iran</option><option>Iraq</option><option>Ireland</option>
-                    <option>Israel</option><option>Italy</option><option>Japan</option>
-                    <option>Jordan</option><option>Kazakhstan</option><option>Kenya</option>
-                    <option>Kuwait</option><option>Lebanon</option><option>Libya</option>
-                    <option>Malaysia</option><option>Mexico</option><option>Morocco</option>
-                    <option>Netherlands</option><option>New Zealand</option><option>Nigeria</option>
-                    <option>Norway</option><option>Oman</option><option>Pakistan</option>
-                    <option>Palestine</option><option>Peru</option><option>Philippines</option>
-                    <option>Poland</option><option>Portugal</option><option>Qatar</option>
-                    <option>Romania</option><option>Russia</option><option>Saudi Arabia</option>
-                    <option>Senegal</option><option>Serbia</option><option>Singapore</option>
-                    <option>South Africa</option><option>South Korea</option><option>Spain</option>
-                    <option>Sri Lanka</option><option>Sudan</option><option>Sweden</option>
-                    <option>Switzerland</option><option>Syria</option><option>Taiwan</option>
-                    <option>Thailand</option><option>Tunisia</option><option>Turkey</option>
-                    <option>Ukraine</option><option>United Arab Emirates</option>
-                    <option>United Kingdom</option><option>United States</option>
-                    <option>Uzbekistan</option><option>Venezuela</option><option>Vietnam</option>
-                    <option>Yemen</option><option>Other</option>
-                </select>
-                <input type="email" name="email" placeholder="Email Address" required>
-                <select name="ai_experience" required>
-                    <option value="" disabled selected>AI Experience Level</option>
-                    <option value="none">No experience</option>
-                    <option value="beginner">Beginner – aware of concepts</option>
-                    <option value="intermediate">Intermediate – some hands-on work</option>
-                    <option value="advanced">Advanced – professional experience</option>
-                </select>
-                <input type="text" name="referred_by" placeholder="Referred by (optional)">
-                <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center; font-size:1rem;">
-                    <i class="fas fa-edit"></i> Register to Reserve Your Spot
-                </button>
-
-                <div class="reg-msg"></div>
-            </form>
-            <p class="form-note" style="margin-top:1.25rem; font-size:0.9rem;">
-                Have a question?
-                <a href="https://wa.me/96171277970" target="_blank" rel="noopener" style="color:#5eead4; font-weight:600; white-space:nowrap;">
-                    <i class="fab fa-whatsapp"></i> Contact me on WhatsApp
+            <div class="pricing-closed">
+                <p><i class="fas fa-lock"></i> <strong>Registration for this cohort is closed.</strong></p>
+                <p>The next bootcamp, AIxMed2027 (3rd Cohort), is now open for registration.</p>
+                <a href="/aixmedcourse" class="btn btn-primary" style="width:100%; justify-content:center; font-size:1rem;">
+                    <i class="fas fa-arrow-right"></i> Register for AIxMed2027
                 </a>
-            </p>
+            </div>
         </div>
     </div>
 </section>
@@ -1288,8 +1234,8 @@
                     <span class="meta-item"><i class="fas fa-users"></i> 12 Spots Max</span>
                 </div>
                 <div class="hero-cta">
-                    <a href="#register-intensive" class="btn btn-primary">
-                        <i class="fas fa-edit"></i> Register Now , $150
+                    <a href="/aixmedcourse" class="btn btn-primary">
+                        <i class="fas fa-lock"></i> Registration closed · Join AIxMed2027
                     </a>
                     <a href="#topics-intensive" class="btn btn-outline">View Curriculum</a>
                 </div>
@@ -1616,7 +1562,7 @@
         <div class="reveal" style="text-align:center;">
             <span class="section-label">Pricing</span>
             <h2 class="section-title">Simple, Transparent Pricing</h2>
-            <p class="section-subtitle" style="margin: 0 auto;">Online &amp; in-person intensive pricing , spots are strictly limited.</p>
+            <p class="section-subtitle" style="margin: 0 auto;">Registration for this cohort is closed.</p>
         </div>
         <div class="pricing-card reveal">
             <div class="pricing-label">2nd Cohort · Online &amp; In-Person Intensive · Beirut 2026</div>
@@ -1629,70 +1575,13 @@
                 <li><i class="fas fa-check"></i> Course completion certificate</li>
                 <li><i class="fas fa-check"></i> Direct access to instructor</li>
             </ul>
-            <div class="pricing-warning">
-                <i class="fas fa-exclamation-circle"></i>
-                Only 12 spots available. First come, first served.
-            </div>
-            <form class="reg-form" id="reg-form-intensive" data-course="AIxMed26Intensive · 2nd Cohort · Online &amp; In Person (Beirut)">
-                <div class="form-row">
-                    <input type="text"  name="first_name"    placeholder="First Name"    required>
-                    <input type="text"  name="last_name"     placeholder="Last Name"     required>
-                </div>
-                <select name="country" required>
-                    <option value="" disabled selected>Country</option>
-                    <option>Afghanistan</option><option>Albania</option><option>Algeria</option>
-                    <option>Argentina</option><option>Armenia</option><option>Australia</option>
-                    <option>Austria</option><option>Azerbaijan</option><option>Bahrain</option>
-                    <option>Bangladesh</option><option>Belarus</option><option>Belgium</option>
-                    <option>Bolivia</option><option>Brazil</option><option>Bulgaria</option>
-                    <option>Cambodia</option><option>Canada</option><option>Chile</option>
-                    <option>China</option><option>Colombia</option><option>Croatia</option>
-                    <option>Cyprus</option><option>Czech Republic</option><option>Denmark</option>
-                    <option>Ecuador</option><option>Egypt</option><option>Ethiopia</option>
-                    <option>Finland</option><option>France</option><option>Georgia</option>
-                    <option>Germany</option><option>Ghana</option><option>Greece</option>
-                    <option>Hungary</option><option>India</option><option>Indonesia</option>
-                    <option>Iran</option><option>Iraq</option><option>Ireland</option>
-                    <option>Israel</option><option>Italy</option><option>Japan</option>
-                    <option>Jordan</option><option>Kazakhstan</option><option>Kenya</option>
-                    <option>Kuwait</option><option>Lebanon</option><option>Libya</option>
-                    <option>Malaysia</option><option>Mexico</option><option>Morocco</option>
-                    <option>Netherlands</option><option>New Zealand</option><option>Nigeria</option>
-                    <option>Norway</option><option>Oman</option><option>Pakistan</option>
-                    <option>Palestine</option><option>Peru</option><option>Philippines</option>
-                    <option>Poland</option><option>Portugal</option><option>Qatar</option>
-                    <option>Romania</option><option>Russia</option><option>Saudi Arabia</option>
-                    <option>Senegal</option><option>Serbia</option><option>Singapore</option>
-                    <option>South Africa</option><option>South Korea</option><option>Spain</option>
-                    <option>Sri Lanka</option><option>Sudan</option><option>Sweden</option>
-                    <option>Switzerland</option><option>Syria</option><option>Taiwan</option>
-                    <option>Thailand</option><option>Tunisia</option><option>Turkey</option>
-                    <option>Ukraine</option><option>United Arab Emirates</option>
-                    <option>United Kingdom</option><option>United States</option>
-                    <option>Uzbekistan</option><option>Venezuela</option><option>Vietnam</option>
-                    <option>Yemen</option><option>Other</option>
-                </select>
-                <input type="email" name="email" placeholder="Email Address" required>
-                <select name="ai_experience" required>
-                    <option value="" disabled selected>AI Experience Level</option>
-                    <option value="none">No experience</option>
-                    <option value="beginner">Beginner – aware of concepts</option>
-                    <option value="intermediate">Intermediate – some hands-on work</option>
-                    <option value="advanced">Advanced – professional experience</option>
-                </select>
-                <input type="text" name="referred_by" placeholder="Referred by (optional)">
-                <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center; font-size:1rem;">
-                    <i class="fas fa-edit"></i> Register to Reserve Your Spot
-                </button>
-
-                <div class="reg-msg"></div>
-            </form>
-            <p class="form-note" style="margin-top:1.25rem; font-size:0.9rem;">
-                Have a question?
-                <a href="https://wa.me/96171277970" target="_blank" rel="noopener" style="color:#5eead4; font-weight:600; white-space:nowrap;">
-                    <i class="fab fa-whatsapp"></i> Contact me on WhatsApp
+            <div class="pricing-closed">
+                <p><i class="fas fa-lock"></i> <strong>Registration for this cohort is closed.</strong></p>
+                <p>The next bootcamp, AIxMed2027 (3rd Cohort), is now open for registration.</p>
+                <a href="/aixmedcourse" class="btn btn-primary" style="width:100%; justify-content:center; font-size:1rem;">
+                    <i class="fas fa-arrow-right"></i> Register for AIxMed2027
                 </a>
-            </p>
+            </div>
         </div>
     </div>
 </section>
