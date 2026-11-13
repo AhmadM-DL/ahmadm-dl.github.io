@@ -25,8 +25,34 @@
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
 
+        // Influencer links: ?ref=<code>. Remember the code for 30 days so it is
+        // still attached if the visitor registers later, and report it to GA
+        // as the traffic source (unless the link already carries utm_* tags).
+        window.aixmedRef = (function () {
+            var KEY = 'aixmed_ref', TTL = 30 * 24 * 3600 * 1000;
+            var params = new URLSearchParams(location.search);
+            var ref = (params.get('ref') || '').trim().toLowerCase().replace(/[^a-z0-9_.@-]/g, '').slice(0, 60);
+            try {
+                if (ref) localStorage.setItem(KEY, JSON.stringify({ ref: ref, t: Date.now() }));
+                else {
+                    var saved = JSON.parse(localStorage.getItem(KEY) || 'null');
+                    if (saved && Date.now() - saved.t < TTL) ref = saved.ref;
+                }
+            } catch (e) {}
+            return ref;
+        })();
+        var gaConfig = {};
+        if (/[?&]ref=/.test(location.search) && !/[?&]utm_source=/.test(location.search)) {
+            var loc = new URL(location.href);
+            loc.searchParams.set('utm_source', window.aixmedRef);
+            loc.searchParams.set('utm_medium', 'influencer');
+            loc.searchParams.set('utm_campaign', 'aixmed2027');
+            gaConfig.page_location = loc.href;
+        }
+        if (window.aixmedRef) gaConfig.influencer = window.aixmedRef;
+
         gtag('config', 'AW-18206577205');
-        gtag('config', 'G-1V19MVCNMW');
+        gtag('config', 'G-1V19MVCNMW', gaConfig);
     </script>
     <!-- Event snippet for Page view conversion page -->
     <script>
@@ -734,6 +760,7 @@
                     <input type="hidden" name="subject" value="New AIxMED Registration · 3rd Cohort (Beirut, Jan 2027)">
                     <input type="hidden" name="from_name" value="AIxMED Course Registration">
                     <input type="hidden" name="Course" value="AIxMed2027 · 3rd Cohort · In Person (Beirut) · Jan 2027">
+                    <input type="hidden" name="Referred by" id="c3-ref" value="Direct (no referral link)">
                     <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off" aria-hidden="true">
                     <div class="frow">
                         <div class="field"><label>First name</label><input type="text" name="first_name" placeholder="First name" required></div>
@@ -1718,6 +1745,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // 3rd-cohort registration via Web3Forms (AJAX, inline success message).
     var form = document.getElementById('reg-form-cohort3');
+    var refInput = document.getElementById('c3-ref');
+    if (refInput && window.aixmedRef) refInput.value = window.aixmedRef;
     if (form) {
         var btn = form.querySelector('button[type="submit"]');
         var msg = form.querySelector('.reg-msg');
@@ -1736,7 +1765,10 @@ document.addEventListener('DOMContentLoaded', function () {
                     throw new Error(info.message || ('HTTP ' + res.status));
                 }
                 try { gtag('event', 'conversion', { send_to: 'AW-18206577205/ttYjCIL_6bccELWkyelD' }); } catch (e2) {}
+                try { gtag('event', 'generate_lead', { send_to: 'G-1V19MVCNMW', course: 'aixmed2027', influencer: window.aixmedRef || 'direct' }); } catch (e3) {}
+                var refKeep = refInput ? refInput.value : '';
                 form.reset();
+                if (refInput) refInput.value = refKeep;
                 if (msg) { msg.className = 'reg-msg ok'; msg.innerHTML = '<i class="fas fa-check-circle"></i> You\'re registered! We\'ll email you payment and venue details soon.'; }
                 if (btn) { btn.innerHTML = 'Registered'; }
             } catch (err) {
